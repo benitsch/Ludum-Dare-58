@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ttol8yv3daac"]
+
+[ext_resource type="Script" uid="uid://bqx6fawowtnnk" path="res://Skunky/respawn_area.gd" id="1_8dbq4"]
+[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="1_56fq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dbq4"]
+size = Vector2(400, 600)
+
+[node name="BaseRespawnArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_8dbq4")
+
+[node name="Square" type="Sprite2D" parent="."]
+modulate = Color(0.35686275, 1, 0.20784314, 1)
+rotation = 1.0646509
+scale = Vector2(0.1, 0.1)
+skew = -0.5585054
+texture = ExtResource("1_56fq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8dbq4")
