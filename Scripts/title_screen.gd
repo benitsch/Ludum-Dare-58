@@ -18,7 +18,7 @@ func _ready() -> void:
 		$"../../Node/ButterflyRightUp/WingRightUp",
 		$"../../Node/ButterflyRightDown/WingRightDown"
 	]
-	SceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 255
+	#SceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 255
 	SceneTransitionAnimation.play("fade_out")
 	
 func _on_start_button_pressed() -> void:
@@ -54,7 +54,6 @@ func wingFallDown() -> void:
 		var chosen_wing = wings[random_index]
 		chosen_wing.fallDown()
 		wings.remove_at(random_index)
-
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	SceneTransitionAnimation.play("fade_in")
