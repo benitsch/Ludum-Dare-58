@@ -22,6 +22,7 @@ position = Vector2(4918, 1170)
 
 [node name="Player1" parent="." instance=ExtResource("1_iinf0")]
 z_index = 1
+push_force = 550
 
 [node name="Main Door Start" type="Node2D" parent="."]
 position = Vector2(-427, 150)
