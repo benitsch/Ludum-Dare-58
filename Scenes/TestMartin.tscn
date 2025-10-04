@@ -68,8 +68,6 @@ shape = SubResource("RectangleShape2D_tppea")
 
 [node name="Player" parent="." instance=ExtResource("3_cxlf7")]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
 [node name="PushingBox2" parent="." instance=ExtResource("1_dmhhv")]
 position = Vector2(1594, -345)
 
