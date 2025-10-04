@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://5x4chdb2q5mt"]
+
+[ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_dmhhv"]
+[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_cxlf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tppea"]
+size = Vector2(500, 490)
+
+[node name="TestMartin" type="Node2D"]
+
+[node name="PushingBox" parent="." instance=ExtResource("1_dmhhv")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+modulate = Color(0.6627451, 0.3647059, 0, 1)
+position = Vector2(0, 150.5)
+scale = Vector2(1, 0.1)
+texture = ExtResource("2_cxlf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 150.5)
+scale = Vector2(1, 0.1)
+shape = SubResource("RectangleShape2D_tppea")
