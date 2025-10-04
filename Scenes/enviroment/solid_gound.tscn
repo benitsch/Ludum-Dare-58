@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvmue67tauy14"]
+
+[ext_resource type="Texture2D" uid="uid://dimcppqvicilx" path="res://assets/platform/Pad_1_3.png" id="1_b25pl"]
+
+[node name="SolidGound" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 25)
+texture = ExtResource("1_b25pl")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-200, 0, 200, 0, 160, 30, 0, 75, -160, 30)
