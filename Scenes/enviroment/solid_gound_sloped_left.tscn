@@ -1,20 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwck7wb1741am"]
+[gd_scene load_steps=3 format=3 uid="uid://bwck7wb1741am"]
 
-[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="1_kv3oi"]
+[ext_resource type="Texture2D" uid="uid://vjwg8k885lsr" path="res://assets/Arts-WIP/GroundSmall.png" id="1_ia1ov"]
+[ext_resource type="Texture2D" uid="uid://wsd6vun3wr75" path="res://assets/Arts-WIP/GroundLarge_.png" id="2_ky5vh"]
 
 [node name="SolidLopeLeft" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 50)
-scale = Vector2(0.6, 0.2)
-texture = ExtResource("1_kv3oi")
+texture = ExtResource("1_ia1ov")
 metadata/_edit_lock_ = true
 
 [node name="Slope" type="Sprite2D" parent="."]
 position = Vector2(-555.75, 200.9)
 rotation = -0.34906584
-scale = Vector2(1.8, 0.2)
-texture = ExtResource("1_kv3oi")
+texture = ExtResource("2_ky5vh")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-150, 0, 150, 0, 150, 100, -132, 100, -962, 402, -996, 308)

@@ -1,12 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcs0vhs7cfyh6"]
 
-[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="1_k6hfg"]
+[ext_resource type="Texture2D" uid="uid://cp7t5duogo0s8" path="res://assets/Arts-WIP/WallLarge.png" id="1_k6hfg"]
 
 [node name="SolidWall" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -300)
-scale = Vector2(0.4, 1.2)
 texture = ExtResource("1_k6hfg")
 metadata/_edit_lock_ = true
 

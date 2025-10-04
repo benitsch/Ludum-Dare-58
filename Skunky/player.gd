@@ -2,18 +2,18 @@ extends CharacterBody2D
 class_name Player
 
 
-@export var ascend_gravity: float = 1980
-@export var descend_gravity: float = 980
+@export var ascend_gravity: float = 1200
+@export var descend_gravity: float = 2050
 @export var jump_height: float = 300
 @export var air_jump_height: float = 200
-@export var speed: float = 1000
+@export var speed: float = 900
 @export var floor_acceleration := 0.1
 @export var floor_deceleration := 0.05
 @export var air_acceleration := 0.2
 @export var air_deceleration := 0.4
-@export var dashing_time: float = .25
+@export var dashing_time: float = .15
 @export var dash_length: float = 300
-@export var push_force: int = 550
+@export var push_force: int = 4500
 @export var dying_time: float = 1
 @export var spawning_time: float = 1
 

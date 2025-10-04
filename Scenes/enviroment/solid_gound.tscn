@@ -1,12 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvmue67tauy14"]
 
-[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="1_b25pl"]
+[ext_resource type="Texture2D" uid="uid://ck2di80en8hol" path="res://assets/Arts-WIP/Ground.png" id="1_b25pl"]
 
 [node name="SolidGound" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 50)
-scale = Vector2(1.2, 0.2)
 texture = ExtResource("1_b25pl")
 metadata/_edit_lock_ = true
 

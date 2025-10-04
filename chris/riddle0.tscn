@@ -22,7 +22,6 @@ position = Vector2(4918, 1170)
 
 [node name="Player1" parent="." instance=ExtResource("1_iinf0")]
 z_index = 1
-push_force = 550
 
 [node name="Main Door Start" type="Node2D" parent="."]
 position = Vector2(-427, 150)
@@ -102,7 +101,7 @@ position = Vector2(2402, 438)
 position = Vector2(4713, 1377)
 
 [node name="SolidGound8" parent="Statics/#Grounds" instance=ExtResource("5_qdwan")]
-position = Vector2(5721, 1377)
+position = Vector2(5723, 1377)
 
 [node name="SolidGound9" parent="Statics/#Grounds" instance=ExtResource("3_xsev2")]
 position = Vector2(1004, 581)
@@ -110,11 +109,11 @@ position = Vector2(1004, 581)
 [node name="SolidGound10" parent="Statics/#Grounds" instance=ExtResource("7_gqotu")]
 position = Vector2(4413, 1277)
 
-[node name="SolidGound12" parent="Statics/#Grounds" instance=ExtResource("7_gqotu")]
-position = Vector2(4643, 645)
-
 [node name="SolidGound11" parent="Statics/#Grounds" instance=ExtResource("7_gqotu")]
 position = Vector2(5291, 1626)
+
+[node name="SolidGound12" parent="Statics/#Grounds" instance=ExtResource("7_gqotu")]
+position = Vector2(4643, 645)
 
 [node name="#Slopes" type="Node2D" parent="Statics"]
 
