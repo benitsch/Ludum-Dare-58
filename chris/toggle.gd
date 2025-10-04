@@ -2,7 +2,7 @@ extends Area2D
 
 # Export variable - drag your wall node here in the Inspector
 @export var target_wall: AnimatableBody2D
-@export_enum("Left:90", "Right:-90") var rotation_direction: int = 90
+@export_enum("Clockwise:90", "Counterclockwise:-90") var rotation_direction: int = 90
 @export var static_sprite: Sprite2D  # Das Sprite das sich nicht drehen soll
 @export var start_position_on: bool = false  # false = aus (links), true = ein (rechts)
 
@@ -23,7 +23,7 @@ func _ready():
 		rotation_degrees = 30  # On position (right)
 		# Rotate wall to start position if assigned
 		if target_wall:
-			target_wall.rotation = deg_to_rad(rotation_direction)
+			target_wall.rotation = target_wall.rotation + deg_to_rad(rotation_direction)
 	else:
 		rotation_degrees = -30  # Off position (left)
 	
@@ -88,9 +88,9 @@ func rotate_wall():
 	# Calculate target rotation based on selected direction
 	var target_rotation = 0.0
 	if is_right:
-		target_rotation = deg_to_rad(rotation_direction)  # Rotate to selected direction
+		target_rotation = target_wall.rotation + deg_to_rad(rotation_direction)  # Rotate to selected direction
 	else:
-		target_rotation = 0.0  # Return to original position
+		target_rotation = target_wall.rotation - deg_to_rad(rotation_direction)
 	
 	# Animate the rotation over 1 second
 	tween.tween_property(target_wall, "rotation", target_rotation, 1.0)

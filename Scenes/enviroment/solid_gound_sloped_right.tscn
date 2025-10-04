@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://52fbnfjpvhf2"]
+
+[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="1_u0lcq"]
+
+[node name="SolidSlopeRight" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 50)
+scale = Vector2(0.6, 0.2)
+texture = ExtResource("1_u0lcq")
+metadata/_edit_lock_ = true
+
+[node name="Slope" type="Sprite2D" parent="."]
+position = Vector2(555.75, 200.9)
+rotation = 0.34906584
+scale = Vector2(1.8, 0.2)
+texture = ExtResource("1_u0lcq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-150, 0, 150, 0, 996, 308, 962, 402, 132, 100, -150, 100)
