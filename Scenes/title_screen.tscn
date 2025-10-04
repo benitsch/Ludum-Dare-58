@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgy03v83dmqwg"]
+[gd_scene load_steps=22 format=3 uid="uid://bgy03v83dmqwg"]
 
 [ext_resource type="Script" uid="uid://dbm8j44i6dtmb" path="res://Scripts/title_screen.gd" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://eak5yxp20xq3" path="res://Images/background.jpg" id="2_8mikk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cu3w44hcpf7c7" path="res://Scripts/main_butterfly.gd" id="10_o1e67"]
 [ext_resource type="Script" uid="uid://bwvucpmlmk0jw" path="res://Scripts/butterfly_wing.gd" id="11_sqelc"]
 [ext_resource type="Texture2D" uid="uid://bvvir6mcgcmcj" path="res://Images/butterfly_wing.jpg" id="11_w5sh6"]
+[ext_resource type="PackedScene" uid="uid://0axorjkbj4ng" path="res://Scenes/scene_transition_animation.tscn" id="14_ycay6"]
 
 [sub_resource type="Resource" id="Resource_bsy20"]
 script = ExtResource("6_w5sh6")
@@ -148,6 +149,8 @@ position = Vector2(854, 463)
 scale = Vector2(0.13958332, 0.13958333)
 texture = ExtResource("11_w5sh6")
 script = ExtResource("11_sqelc")
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_ycay6")]
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="screen_exited" from="MainButterfly/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
