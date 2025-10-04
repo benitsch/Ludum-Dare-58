@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b3d4vqob358mo"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 504.0
+offset_top = 362.0
+offset_right = 705.0
+offset_bottom = 415.0
+text = "Level1"
