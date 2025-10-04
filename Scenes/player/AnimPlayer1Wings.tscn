@@ -1,51 +1,63 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfvcir1t4004i"]
+[gd_scene load_steps=9 format=3 uid="uid://cuyxnkswxf5od"]
 
-[ext_resource type="Texture2D" uid="uid://bsukgmhhjtp7p" path="res://assets/Player/StartWiggle/Lines0001.png" id="1_njd5f"]
-[ext_resource type="Texture2D" uid="uid://dq8wtgqykox7d" path="res://assets/Player/StartWiggle/Lines0002.png" id="2_pp5i0"]
-[ext_resource type="Texture2D" uid="uid://cci8wmujiiufc" path="res://assets/Player/StartWiggle/Lines0003.png" id="3_3akjk"]
-[ext_resource type="Texture2D" uid="uid://dr3vgq18uifc8" path="res://assets/Player/StartWiggle/Lines0004.png" id="4_jglni"]
-[ext_resource type="Texture2D" uid="uid://cio2b4m15tp85" path="res://assets/Player/StartWiggle/Lines0005.png" id="5_eic1s"]
-[ext_resource type="Texture2D" uid="uid://en03ltelfffd" path="res://assets/Player/StartWiggle/Lines0006.png" id="6_ltnlq"]
+[ext_resource type="Texture2D" uid="uid://c1wu7ljc0xg76" path="res://assets/Player/Idle/Lines0001.png" id="1_pp5i0"]
+[ext_resource type="Texture2D" uid="uid://rhmpwxgi4sm" path="res://assets/Player/Idle/Lines0002.png" id="2_3akjk"]
+[ext_resource type="Texture2D" uid="uid://crq4bsrotbmx8" path="res://assets/Player/Idle/Lines0003.png" id="3_jglni"]
+[ext_resource type="Texture2D" uid="uid://banxdn5krtlpu" path="res://assets/Player/walk/Lines0001.png" id="4_eic1s"]
+[ext_resource type="Texture2D" uid="uid://bbxn5e8xt5hky" path="res://assets/Player/walk/Lines0002.png" id="5_ltnlq"]
+[ext_resource type="Texture2D" uid="uid://bhm0s3hab1kp5" path="res://assets/Player/walk/Lines0003.png" id="6_qv7u6"]
+[ext_resource type="Texture2D" uid="uid://dd5jv072tc2q2" path="res://assets/Player/walk/Lines0004.png" id="7_1m305"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5lu1l"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kihv4"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_njd5f")
+"texture": ExtResource("1_pp5i0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_pp5i0")
+"texture": ExtResource("2_3akjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jglni")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 2.0
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"push",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_pp5i0")
+"texture": ExtResource("4_eic1s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_3akjk")
+"texture": ExtResource("5_ltnlq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_jglni")
+"texture": ExtResource("6_qv7u6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_pp5i0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_eic1s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ltnlq")
+"texture": ExtResource("7_1m305")
 }],
 "loop": true,
-"name": &"wiggle",
-"speed": 13.0
+"name": &"walk",
+"speed": 8.0
 }]
 
 [node name="PlayerStart" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_5lu1l")
-animation = &"wiggle"
-autoplay = "start"
-frame_progress = 0.05538238
+sprite_frames = SubResource("SpriteFrames_kihv4")
+animation = &"dash"
+autoplay = "idle"
