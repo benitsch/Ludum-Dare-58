@@ -1,5 +1,14 @@
 extends Sprite2D
 
+var falling = false
+var speed = 0.0
+var acceleration = 2000.0
+
+func _process(delta):
+	if falling:
+		speed += acceleration * delta
+		position.y += speed * delta
+
 func fallDown() -> void:
-	var tween = get_tree().create_tween()
-	tween.tween_property($".", "position:y", $".".position.y + 500, 1.0)
+	falling = true
+	speed = 0.0
