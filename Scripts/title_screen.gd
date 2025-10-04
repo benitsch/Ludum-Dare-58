@@ -18,7 +18,6 @@ func _ready() -> void:
 		$"../../Node/ButterflyRightUp/WingRightUp",
 		$"../../Node/ButterflyRightDown/WingRightDown"
 	]
-	#SceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 255
 	SceneTransitionAnimation.play("fade_out")
 	
 func _on_start_button_pressed() -> void:

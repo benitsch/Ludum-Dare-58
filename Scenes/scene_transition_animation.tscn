@@ -1,7 +1,5 @@
 [gd_scene load_steps=6 format=3 uid="uid://0axorjkbj4ng"]
 
-[ext_resource type="Script" uid="uid://7ch7xfln10js" path="res://Scripts/scene_transition_animation_player.gd" id="1_wqr5x"]
-
 [sub_resource type="Animation" id="Animation_wqr5x"]
 length = 0.001
 tracks/0/type = "value"
@@ -54,6 +52,10 @@ _data = {
 &"fade_out": SubResource("Animation_735qd")
 }
 
+[sub_resource type="GDScript" id="GDScript_7y4hr"]
+script/source = "extends AnimationPlayer
+"
+
 [node name="SceneTransitionAnimation" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -74,6 +76,6 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_dadpg")
 }
-script = ExtResource("1_wqr5x")
+script = SubResource("GDScript_7y4hr")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
