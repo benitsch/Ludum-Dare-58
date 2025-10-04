@@ -28,3 +28,15 @@ func _physics_process(delta):
 	
 	# Move the player
 	move_and_slide()
+
+var objectList : Array[Node2D]
+
+func _on_physics_check_body_entered(body: Node2D) -> void:
+	objectList.append(body)
+	$".".set_collision_mask_value(3, false)
+
+func _on_physics_check_body_exited(body: Node2D) -> void:
+	objectList.erase(body)
+	
+	if objectList.size() == 0:
+		$".".set_collision_mask_value(3, true)
