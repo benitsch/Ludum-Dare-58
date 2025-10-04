@@ -17,10 +17,6 @@
 [node name="Player1" parent="." instance=ExtResource("1_iinf0")]
 z_index = 1
 
-[node name="Camera2D" type="Camera2D" parent="Player1"]
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
-
 [node name="Main Door Start" type="Node2D" parent="."]
 position = Vector2(-427, 150)
 

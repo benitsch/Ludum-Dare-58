@@ -40,37 +40,28 @@ func _process(_delta):
 		static_sprite.global_position = global_position + static_sprite_offset
 
 func _on_body_entered(body):
-	print("Körper berührt Toggle: ", body.name)
 	# Check if it's a CharacterBody2D (the player)
 	if body is CharacterBody2D and can_toggle:
-		print("Player erkannt! Toggle wird aktiviert...")
 		toggle_switch()
-	else:
-		print("Kein Player oder can_toggle ist false")
 
 func toggle_switch():
-	print("toggle_switch() wird ausgeführt")
 	can_toggle = false
 	is_right = !is_right
-	print("is_right ist jetzt: ", is_right)
 	
 	# Animate toggle visual rotation
 	var tween_toggle = create_tween()
 	tween_toggle.set_trans(Tween.TRANS_CUBIC)
 	tween_toggle.set_ease(Tween.EASE_IN_OUT)
 	
-	var toggle_rotation = -40.0  # Off position (left)
+	var toggle_rotation = -30.0  # Off position (left)
 	if is_right:
-		toggle_rotation = 40.0  # On position (right)
+		toggle_rotation = 30.0  # On position (right)
 	
 	tween_toggle.tween_property(self, "rotation_degrees", toggle_rotation, 0.3)
 	
 	# Rotate the wall
 	if target_wall:
-		print("target_wall gefunden, rotiere...")
 		rotate_wall()
-	else:
-		print("FEHLER: target_wall ist NULL!")
 	
 	# Prevent rapid toggling
 	await get_tree().create_timer(0.5).timeout
