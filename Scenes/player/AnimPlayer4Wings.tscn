@@ -57,7 +57,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="PlayerStart" type="AnimatedSprite2D"]
+[node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_kihv4")
 animation = &"dash"
 autoplay = "idle"
