@@ -14,3 +14,11 @@ config/name="Ludum Dare 58"
 run/main_scene="uid://bgy03v83dmqwg"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Shaker="*res://addons/shaker/src/Shaker.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
