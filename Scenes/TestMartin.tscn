@@ -13,18 +13,65 @@ size = Vector2(500, 490)
 position = Vector2(250, 0)
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 150)
+position = Vector2(0, 400)
 scale = Vector2(5, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 modulate = Color(0.6627451, 0.3647059, 0, 1)
-scale = Vector2(1, 0.1)
 texture = ExtResource("2_cxlf7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-scale = Vector2(1, 0.1)
+shape = SubResource("RectangleShape2D_tppea")
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2(1751, 30)
+scale = Vector2(2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
+modulate = Color(0.6627451, 0.3647059, 0, 1)
+texture = ExtResource("2_cxlf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+shape = SubResource("RectangleShape2D_tppea")
+
+[node name="Ground5" type="StaticBody2D" parent="."]
+position = Vector2(2495, -607)
+scale = Vector2(1, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground5"]
+modulate = Color(0.6627451, 0.3647059, 0, 1)
+texture = ExtResource("2_cxlf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground5"]
+shape = SubResource("RectangleShape2D_tppea")
+
+[node name="Ground3" type="StaticBody2D" parent="."]
+position = Vector2(-1499, 677)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground3"]
+modulate = Color(0.6627451, 0.3647059, 0, 1)
+texture = ExtResource("2_cxlf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+shape = SubResource("RectangleShape2D_tppea")
+
+[node name="Ground4" type="StaticBody2D" parent="."]
+position = Vector2(-1989, 16)
+scale = Vector2(1, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground4"]
+modulate = Color(0.6627451, 0.3647059, 0, 1)
+texture = ExtResource("2_cxlf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
 shape = SubResource("RectangleShape2D_tppea")
 
 [node name="Player" parent="." instance=ExtResource("3_cxlf7")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="PushingBox2" parent="." instance=ExtResource("1_dmhhv")]
+position = Vector2(1594, -345)
+
+[node name="PushingBox3" parent="." instance=ExtResource("1_dmhhv")]
+position = Vector2(-1117, 18)

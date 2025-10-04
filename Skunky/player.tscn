@@ -30,6 +30,3 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
 position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_d3xb8")
-
-[connection signal="body_entered" from="PushArea" to="." method="_on_push_area_body_entered"]
-[connection signal="body_exited" from="PushArea" to="." method="_on_push_area_body_exited"]

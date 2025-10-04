@@ -13,6 +13,7 @@ class_name Player
 @export var air_deceleration := 0.4
 @export var dashing_time: float = .25
 @export var dash_length: float = 300
+@export var push_force: int = 100
 
 var direction: int
 var cur_air_jumps := PlayerState.air_jump_amount
@@ -52,7 +53,20 @@ func _physics_process(delta: float) -> void:
 			delta,
 			horizontal_half_time
 	);
+	
 	move_and_slide();
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			var r : RigidBody2D
+			r = c.get_collider()
+			var push_dir : Vector2
+			push_dir = -c.get_normal()
+			push_dir.y = 0
+			r.apply_central_force(push_dir.normalized() * push_force / delta)
+	
+	input = 0;
 
 
 func on_ground_touch():
@@ -68,7 +82,6 @@ func try_jump():
 		velocity.y = -sqrt(2 * ascend_gravity * air_jump_height);
 		cur_air_jumps -= 1;
 
-
 func try_dash():
 	if not PlayerState.can_dash: return;
 	if dashing or cur_air_dashes <= 0: return;
@@ -76,7 +89,6 @@ func try_dash():
 	velocity.y = 0;
 	velocity.x = direction * dash_length / dashing_time;
 	cur_air_dashes -= 1;
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
