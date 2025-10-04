@@ -23,6 +23,7 @@ var can_dash: bool = true
 var dashing: bool = false
 var dash_timer: float = 0
 
+var objectList : Array[Node2D]
 
 func _physics_process(delta: float) -> void:
 	var input := Input.get_axis("move_left", "move_right");
@@ -72,3 +73,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash"):
 		if can_dash:
 			try_dash();
+
+func _on_push_area_body_entered(body: Node2D) -> void:
+	objectList.append(body)
+	$".".set_collision_mask_value(3, false)
+
+func _on_push_area_body_exited(body: Node2D) -> void:
+	objectList.erase(body)
+	
+	if objectList.size() == 0:
+		$".".set_collision_mask_value(3, true)
