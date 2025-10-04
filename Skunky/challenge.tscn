@@ -1,0 +1,274 @@
+[gd_scene load_steps=15 format=3 uid="uid://daijkp6p2stup"]
+
+[ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="1_dcp40"]
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Skunky/player.tscn" id="2_f53rw"]
+[ext_resource type="PackedScene" uid="uid://6a08w86cwjku" path="res://Skunky/death_spike.tscn" id="3_f53rw"]
+[ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Skunky/base_player_state_area.tscn" id="3_ms431"]
+[ext_resource type="PackedScene" uid="uid://ttol8yv3daac" path="res://Skunky/base_respawn_area.tscn" id="4_6iiy8"]
+[ext_resource type="PackedScene" path="res://Scenes/enviroment/solid_gound_large.tscn" id="6_goha4"]
+[ext_resource type="PackedScene" path="res://Scenes/enviroment/solid_gound_small.tscn" id="7_6qanc"]
+[ext_resource type="PackedScene" path="res://Scenes/enviroment/solid_wall_large.tscn" id="8_av2ve"]
+[ext_resource type="PackedScene" path="res://Scenes/enviroment/solid_wall.tscn" id="9_p1iib"]
+[ext_resource type="PackedScene" path="res://Scenes/enviroment/solid_wall_small.tscn" id="10_mqr67"]
+[ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Skunky/base_death_area.tscn" id="11_goha4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_goha4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goha4"]
+size = Vector2(5000, 400)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6qanc"]
+normal = Vector2(1, 0)
+
+[node name="Challenge" type="Node2D"]
+
+[node name="WorldBounds" type="Node2D" parent="."]
+
+[node name="BaseDeathArea7" parent="WorldBounds" instance=ExtResource("11_goha4")]
+position = Vector2(-400, 850)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/BaseDeathArea7"]
+shape = SubResource("WorldBoundaryShape2D_goha4")
+
+[node name="BaseDeathArea9" parent="WorldBounds" instance=ExtResource("11_goha4")]
+position = Vector2(7000, -1400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/BaseDeathArea9"]
+shape = SubResource("RectangleShape2D_goha4")
+
+[node name="BaseDeathArea8" parent="WorldBounds" instance=ExtResource("11_goha4")]
+position = Vector2(-1200, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/BaseDeathArea8"]
+shape = SubResource("WorldBoundaryShape2D_6qanc")
+
+[node name="BasePlayerStateArea" parent="." instance=ExtResource("3_ms431")]
+position = Vector2(-850, 0)
+set_jump_allowed = true
+jump_allowd = true
+set_air_jump_count = true
+air_jump_count = 1
+set_dash_allowed = true
+dash_allowed = true
+set_air_dash_count = true
+air_dash_count = 1
+
+[node name="Player" parent="." instance=ExtResource("2_f53rw")]
+position = Vector2(-850, -50)
+
+[node name="Camera2D" parent="Player" index="3"]
+zoom = Vector2(0.4, 0.4)
+limit_left = -1000
+limit_bottom = 500
+
+[node name="BaseRespawnArea" parent="." instance=ExtResource("4_6iiy8")]
+position = Vector2(3950, -2300)
+
+[node name="SolidWall15" parent="." instance=ExtResource("9_p1iib")]
+position = Vector2(4150, -1650)
+
+[node name="SolidGound7" parent="." instance=ExtResource("6_goha4")]
+position = Vector2(-650, 100)
+
+[node name="SolidGound8" parent="." instance=ExtResource("6_goha4")]
+position = Vector2(4100, -2200)
+
+[node name="SolidGound15" parent="." instance=ExtResource("7_6qanc")]
+position = Vector2(1200, -50)
+
+[node name="SolidGound17" parent="." instance=ExtResource("7_6qanc")]
+position = Vector2(2850, -650)
+
+[node name="SolidGound19" parent="." instance=ExtResource("7_6qanc")]
+position = Vector2(3850, -1050)
+
+[node name="SolidGound20" parent="." instance=ExtResource("7_6qanc")]
+position = Vector2(2750, -1450)
+
+[node name="SolidGound22" parent="." instance=ExtResource("7_6qanc")]
+position = Vector2(3800, -1950)
+
+[node name="SolidGound14" parent="." instance=ExtResource("1_dcp40")]
+position = Vector2(1200, -250)
+
+[node name="SolidGound18" parent="." instance=ExtResource("1_dcp40")]
+position = Vector2(3450, -1750)
+
+[node name="SolidGound21" parent="." instance=ExtResource("1_dcp40")]
+position = Vector2(3300, -1900)
+
+[node name="SolidGound13" parent="." instance=ExtResource("1_dcp40")]
+position = Vector2(-1400, 100)
+
+[node name="SolidGound16" parent="." instance=ExtResource("1_dcp40")]
+position = Vector2(1250, 200)
+
+[node name="SolidWall14" parent="." instance=ExtResource("8_av2ve")]
+position = Vector2(4250, -1000)
+
+[node name="BaseDeathArea7" parent="." instance=ExtResource("3_f53rw")]
+position = Vector2(3250, -1650)
+rotation = 3.1415925
+
+[node name="BaseDeathArea8" parent="." instance=ExtResource("3_f53rw")]
+position = Vector2(3450, -1650)
+rotation = 3.1415925
+
+[node name="BaseDeathArea9" parent="." instance=ExtResource("3_f53rw")]
+position = Vector2(3650, -1650)
+rotation = 3.1415925
+
+[node name="FancyCoridor" type="Node2D" parent="."]
+position = Vector2(400, -500)
+
+[node name="BaseDeathArea" parent="FancyCoridor" instance=ExtResource("3_f53rw")]
+position = Vector2(-200, 200)
+
+[node name="BaseDeathArea2" parent="FancyCoridor" instance=ExtResource("3_f53rw")]
+position = Vector2(0, 200)
+
+[node name="BaseDeathArea3" parent="FancyCoridor" instance=ExtResource("3_f53rw")]
+position = Vector2(200, 200)
+
+[node name="BaseDeathArea4" parent="FancyCoridor" instance=ExtResource("3_f53rw")]
+position = Vector2(-200, -200)
+rotation = 3.1415925
+
+[node name="BaseDeathArea5" parent="FancyCoridor" instance=ExtResource("3_f53rw")]
+position = Vector2(0, -200)
+rotation = 3.1415925
+
+[node name="BaseDeathArea6" parent="FancyCoridor" instance=ExtResource("3_f53rw")]
+position = Vector2(200, -200)
+rotation = 3.1415925
+
+[node name="SolidGound10" parent="FancyCoridor" instance=ExtResource("7_6qanc")]
+position = Vector2(50, -450)
+
+[node name="SolidGound12" parent="FancyCoridor" instance=ExtResource("7_6qanc")]
+position = Vector2(300, -600)
+
+[node name="SolidGound11" parent="FancyCoridor" instance=ExtResource("1_dcp40")]
+position = Vector2(0, -300)
+
+[node name="SolidWall" parent="FancyCoridor" instance=ExtResource("8_av2ve")]
+position = Vector2(-250, -350)
+
+[node name="SolidWall9" parent="FancyCoridor" instance=ExtResource("8_av2ve")]
+position = Vector2(0, 800)
+
+[node name="SolidWall5" parent="FancyCoridor" instance=ExtResource("8_av2ve")]
+position = Vector2(350, -900)
+
+[node name="SolidWall11" parent="FancyCoridor" instance=ExtResource("8_av2ve")]
+position = Vector2(250, 1050)
+
+[node name="SolidWall6" parent="FancyCoridor" instance=ExtResource("8_av2ve")]
+position = Vector2(50, -1000)
+
+[node name="SolidWall2" parent="FancyCoridor" instance=ExtResource("9_p1iib")]
+position = Vector2(0, -550)
+
+[node name="SolidWall12" parent="FancyCoridor" instance=ExtResource("9_p1iib")]
+position = Vector2(-50, 1250)
+
+[node name="SolidWall7" parent="FancyCoridor" instance=ExtResource("9_p1iib")]
+position = Vector2(-200, 600)
+
+[node name="SolidWall4" parent="FancyCoridor" instance=ExtResource("9_p1iib")]
+position = Vector2(-300, -1000)
+
+[node name="SolidWall13" parent="FancyCoridor" instance=ExtResource("9_p1iib")]
+position = Vector2(-350, 1500)
+
+[node name="SolidWall10" parent="FancyCoridor" instance=ExtResource("9_p1iib")]
+position = Vector2(-300, 1050)
+
+[node name="SolidWall3" parent="FancyCoridor" instance=ExtResource("10_mqr67")]
+position = Vector2(250, -650)
+
+[node name="SolidWall8" parent="FancyCoridor" instance=ExtResource("10_mqr67")]
+position = Vector2(200, 400)
+
+[node name="FancyCoridor2" type="Node2D" parent="."]
+position = Vector2(2150, -650)
+
+[node name="BaseDeathArea" parent="FancyCoridor2" instance=ExtResource("3_f53rw")]
+position = Vector2(-200, 200)
+
+[node name="BaseDeathArea2" parent="FancyCoridor2" instance=ExtResource("3_f53rw")]
+position = Vector2(0, 200)
+
+[node name="BaseDeathArea3" parent="FancyCoridor2" instance=ExtResource("3_f53rw")]
+position = Vector2(200, 200)
+
+[node name="BaseDeathArea4" parent="FancyCoridor2" instance=ExtResource("3_f53rw")]
+position = Vector2(-200, -200)
+rotation = 3.1415925
+
+[node name="BaseDeathArea5" parent="FancyCoridor2" instance=ExtResource("3_f53rw")]
+position = Vector2(0, -200)
+rotation = 3.1415925
+
+[node name="BaseDeathArea6" parent="FancyCoridor2" instance=ExtResource("3_f53rw")]
+position = Vector2(200, -200)
+rotation = 3.1415925
+
+[node name="SolidGound10" parent="FancyCoridor2" instance=ExtResource("7_6qanc")]
+position = Vector2(50, -450)
+
+[node name="SolidGound11" parent="FancyCoridor2" instance=ExtResource("1_dcp40")]
+position = Vector2(0, -300)
+
+[node name="SolidGound12" parent="FancyCoridor2" instance=ExtResource("1_dcp40")]
+position = Vector2(450, -600)
+
+[node name="SolidWall" parent="FancyCoridor2" instance=ExtResource("8_av2ve")]
+position = Vector2(-250, -350)
+
+[node name="SolidWall9" parent="FancyCoridor2" instance=ExtResource("8_av2ve")]
+position = Vector2(0, 800)
+
+[node name="SolidWall5" parent="FancyCoridor2" instance=ExtResource("8_av2ve")]
+position = Vector2(350, -900)
+
+[node name="SolidWall11" parent="FancyCoridor2" instance=ExtResource("8_av2ve")]
+position = Vector2(250, 1050)
+
+[node name="SolidWall6" parent="FancyCoridor2" instance=ExtResource("8_av2ve")]
+position = Vector2(50, -1000)
+
+[node name="SolidWall14" parent="FancyCoridor2" instance=ExtResource("8_av2ve")]
+position = Vector2(0, -1700)
+
+[node name="SolidWall2" parent="FancyCoridor2" instance=ExtResource("9_p1iib")]
+position = Vector2(0, -550)
+
+[node name="SolidWall17" parent="FancyCoridor2" instance=ExtResource("9_p1iib")]
+position = Vector2(450, -1600)
+
+[node name="SolidWall12" parent="FancyCoridor2" instance=ExtResource("9_p1iib")]
+position = Vector2(-50, 1250)
+
+[node name="SolidWall7" parent="FancyCoridor2" instance=ExtResource("9_p1iib")]
+position = Vector2(-200, 600)
+
+[node name="SolidWall4" parent="FancyCoridor2" instance=ExtResource("9_p1iib")]
+position = Vector2(-300, -1000)
+
+[node name="SolidWall15" parent="FancyCoridor2" instance=ExtResource("9_p1iib")]
+position = Vector2(-350, -1550)
+
+[node name="SolidWall13" parent="FancyCoridor2" instance=ExtResource("9_p1iib")]
+position = Vector2(-350, 1500)
+
+[node name="SolidWall10" parent="FancyCoridor2" instance=ExtResource("9_p1iib")]
+position = Vector2(-300, 1050)
+
+[node name="SolidWall3" parent="FancyCoridor2" instance=ExtResource("10_mqr67")]
+position = Vector2(250, -650)
+
+[node name="SolidWall8" parent="FancyCoridor2" instance=ExtResource("10_mqr67")]
+position = Vector2(200, 400)
+
+[editable path="Player"]
