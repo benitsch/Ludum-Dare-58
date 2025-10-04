@@ -1,96 +1,55 @@
-[gd_scene load_steps=8 format=3 uid="uid://5x4chdb2q5mt"]
+[gd_scene load_steps=7 format=3 uid="uid://5x4chdb2q5mt"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_dmhhv"]
-[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_cxlf7"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Skunky/player.tscn" id="3_cxlf7"]
-[ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="4_tppea"]
-[ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="5_y6k7c"]
-[ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="6_pd5wm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tppea"]
-size = Vector2(500, 490)
+[ext_resource type="PackedScene" path="res://Skunky/base_player_state_area.tscn" id="4_tppea"]
+[ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="4_y6k7c"]
+[ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="5_pd5wm"]
+[ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="6_jx26r"]
 
 [node name="TestMartin" type="Node2D"]
 
 [node name="PushingBox" parent="." instance=ExtResource("1_dmhhv")]
 position = Vector2(250, 0)
 
-[node name="Player" parent="." instance=ExtResource("3_cxlf7")]
-
-[node name="Camera2D2" type="Camera2D" parent="Player"]
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 400)
-scale = Vector2(5, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-modulate = Color(0.6627451, 0.3647059, 0, 1)
-texture = ExtResource("2_cxlf7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("RectangleShape2D_tppea")
-
-[node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(1751, 30)
-scale = Vector2(2, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
-modulate = Color(0.6627451, 0.3647059, 0, 1)
-texture = ExtResource("2_cxlf7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-shape = SubResource("RectangleShape2D_tppea")
-
-[node name="Ground5" type="StaticBody2D" parent="."]
-position = Vector2(2495, -607)
-scale = Vector2(1, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground5"]
-modulate = Color(0.6627451, 0.3647059, 0, 1)
-texture = ExtResource("2_cxlf7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground5"]
-shape = SubResource("RectangleShape2D_tppea")
-
-[node name="Ground3" type="StaticBody2D" parent="."]
-position = Vector2(-1499, 677)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground3"]
-modulate = Color(0.6627451, 0.3647059, 0, 1)
-texture = ExtResource("2_cxlf7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
-shape = SubResource("RectangleShape2D_tppea")
-
-[node name="Ground4" type="StaticBody2D" parent="."]
-position = Vector2(-1989, 16)
-scale = Vector2(1, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground4"]
-modulate = Color(0.6627451, 0.3647059, 0, 1)
-texture = ExtResource("2_cxlf7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
-shape = SubResource("RectangleShape2D_tppea")
-
 [node name="PushingBox2" parent="." instance=ExtResource("1_dmhhv")]
-position = Vector2(1594, -345)
+position = Vector2(1274, -687)
 
 [node name="PushingBox3" parent="." instance=ExtResource("1_dmhhv")]
-position = Vector2(-1117, 18)
+position = Vector2(-2826, 611)
 
-[node name="BoxButton" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
-position = Vector2(826, 145)
-box_layer = 8
-target_wall = NodePath("SemiSolidGround")
+[node name="Player" parent="." instance=ExtResource("3_cxlf7")]
 
-[node name="SemiSolidGround" parent="BoxButton" instance=ExtResource("5_y6k7c")]
-position = Vector2(-2258, 9)
+[node name="BasePlayerStateArea" parent="." instance=ExtResource("4_tppea")]
+set_jump_allowed = true
+jump_allowd = true
+set_air_jump_count = true
+air_jump_count = 1
+set_dash_allowed = true
+dash_allowed = true
+set_air_dash_count = true
+air_dash_count = 1
 
-[node name="BoxButton2" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
-position = Vector2(-1485, 423)
-box_layer = 8
-target_wall = NodePath("")
+[node name="SemiSolidGround" parent="." instance=ExtResource("4_y6k7c")]
+position = Vector2(1061, -547)
 
-[node name="SolidWall2" parent="BoxButton2" instance=ExtResource("6_pd5wm")]
-position = Vector2(2843, -634)
+[node name="SolidGound" parent="." instance=ExtResource("5_pd5wm")]
+position = Vector2(1, 127)
+
+[node name="SolidGound3" parent="." instance=ExtResource("5_pd5wm")]
+position = Vector2(901, 127)
+
+[node name="SolidLopeLeft" parent="." instance=ExtResource("6_jx26r")]
+position = Vector2(-599, 127)
+
+[node name="SolidLopeLeft2" parent="." instance=ExtResource("6_jx26r")]
+position = Vector2(-1445, 435)
+
+[node name="SemiSolidGround2" parent="." instance=ExtResource("4_y6k7c")]
+position = Vector2(-1199, 127)
+
+[node name="SemiSolidGround3" parent="." instance=ExtResource("4_y6k7c")]
+position = Vector2(-2099, 127)
+
+[node name="SolidGound2" parent="." instance=ExtResource("5_pd5wm")]
+position = Vector2(-2826, 740)

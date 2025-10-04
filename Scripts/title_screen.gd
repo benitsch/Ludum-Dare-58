@@ -4,7 +4,7 @@ var userPressedStartButton = false
 var mainButterflyIsFalling = false
 var currentShakes = 0
 var maxShakesAllowed = 5
-var wings = []
+var wingsToFallDown = []
 
 var last_input_time := 0.0
 var input_cooldown := 0.5
@@ -12,7 +12,7 @@ var input_cooldown := 0.5
 @onready var SceneTransitionAnimation = $"../../Node/SceneTransitionAnimation/AnimationPlayer"
 
 func _ready() -> void:
-	wings = [
+	wingsToFallDown = [
 		$"../../Node/ButterflyLeftUp/WingLeftDown",
 		$"../../Node/ButterflyLeftDown/WingLeftUp",
 		$"../../Node/ButterflyRightUp/WingRightUp",
@@ -30,6 +30,7 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if event is InputEventKey and (Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right")):
+		# Add input delay to avoid key spamming
 		var now = Time.get_ticks_msec() / 1000.0
 		if now - last_input_time >= input_cooldown:
 			last_input_time = now
@@ -48,13 +49,14 @@ func playShakes() -> void:
 	$"../../Node/ButterflyBoard/ShakerComponent2D".play_shake()
 
 func wingFallDown() -> void:
-	if wings.size() > 0:
-		var random_index = randi() % wings.size()
-		var chosen_wing = wings[random_index]
+	if wingsToFallDown.size() > 0:
+		var random_index = randi() % wingsToFallDown.size()
+		var chosen_wing = wingsToFallDown[random_index]
 		chosen_wing.fallDown()
-		wings.remove_at(random_index)
+		wingsToFallDown.remove_at(random_index)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	# When main butterfly falls down and leaves the screen
 	SceneTransitionAnimation.play("fade_in")
 	await SceneTransitionAnimation.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/level1.tscn")

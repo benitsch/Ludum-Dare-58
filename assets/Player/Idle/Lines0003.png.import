@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvir6mcgcmcj"
-path="res://.godot/imported/butterfly_wing.jpg-7019d2ff96ba721642871b0f670a816d.ctex"
+uid="uid://crq4bsrotbmx8"
+path="res://.godot/imported/Lines0003.png-1e36d8d746be654bacfc508bb1d74b83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/butterfly_wing.jpg"
-dest_files=["res://.godot/imported/butterfly_wing.jpg-7019d2ff96ba721642871b0f670a816d.ctex"]
+source_file="res://assets/Player/Idle/Lines0003.png"
+dest_files=["res://.godot/imported/Lines0003.png-1e36d8d746be654bacfc508bb1d74b83.ctex"]
 
 [params]
 

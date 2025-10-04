@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=3 uid="uid://csesghfgympjx"]
+
+[ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_dmhhv"]
+[ext_resource type="PackedScene" path="res://Skunky/base_player_state_area.tscn" id="2_tbe4x"]
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Skunky/player.tscn" id="3_cxlf7"]
+[ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="4_tppea"]
+[ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="5_y6k7c"]
+[ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="6_pd5wm"]
+[ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="7_opmp4"]
+
+[node name="Riddle 3" type="Node2D"]
+
+[node name="PushingBox" parent="." instance=ExtResource("1_dmhhv")]
+position = Vector2(250, 0)
+
+[node name="BasePlayerStateArea" parent="." instance=ExtResource("2_tbe4x")]
+position = Vector2(-6, -91)
+set_jump_allowed = true
+jump_allowd = true
+
+[node name="Player" parent="." instance=ExtResource("3_cxlf7")]
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 400)
+scale = Vector2(5, 1)
+
+[node name="PushingBox34" parent="." instance=ExtResource("1_dmhhv")]
+position = Vector2(-1117, 18)
+
+[node name="BoxButton" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+position = Vector2(826, 145)
+target_wall = NodePath("SemiSolidGround")
+
+[node name="SemiSolidGround" parent="BoxButton" instance=ExtResource("5_y6k7c")]
+position = Vector2(-2258, 9)
+
+[node name="BoxButton2" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+position = Vector2(-1485, 423)
+target_wall = NodePath("SolidWall2")
+
+[node name="SolidWall2" parent="BoxButton2" instance=ExtResource("6_pd5wm")]
+position = Vector2(2843, -634)
+
+[node name="SemiSolidGround2" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(-691, 152)
+
+[node name="SemiSolidGround3" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(158, 152)
+
+[node name="SemiSolidGround4" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(1053, 152)
+
+[node name="SemiSolidGround6" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(-1166, 436)
+
+[node name="SemiSolidGround5" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(1705, -217)
+
+[node name="SolidWall" parent="SemiSolidGround5" instance=ExtResource("6_pd5wm")]
+position = Vector2(-351, 651)
+
+[node name="SemiSolidGround7" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(1705, 424)
+
+[node name="SemiSolidGround8" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(2554, 424)
+
+[node name="SemiSolidGround9" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(3449, 424)
+
+[node name="SemiSolidGround10" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(3516, 148)
+
+[node name="SemiSolidGround11" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(3847, -103)
+
+[node name="SemiSolidGround12" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(4102, -361)
+
+[node name="SemiSolidGround13" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(3514, -595)
+
+[node name="SemiSolidGround16" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(3565, -823)
+
+[node name="SemiSolidGround17" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(3277, -1085)
+
+[node name="SemiSolidGround14" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(2027, -1150)
+
+[node name="SemiSolidGround18" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(5869, -728)
+
+[node name="SemiSolidGround15" parent="." instance=ExtResource("7_opmp4")]
+position = Vector2(1152, -1023)
+
+[node name="PushingBox23" parent="." instance=ExtResource("1_dmhhv")]
+position = Vector2(1706, -1265)
+
+[node name="BoxButton3" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+position = Vector2(2989, 388)
+target_wall = NodePath("SemiSolidGround")
+wall_mode = 1
+
+[node name="SemiSolidGround" parent="BoxButton3" instance=ExtResource("5_y6k7c")]
+position = Vector2(2027, -814)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 5923.0
+offset_top = -897.0
+offset_right = 6314.0
+offset_bottom = -732.0
+theme_override_font_sizes/font_size = 64
+text = "YOU WON!"

@@ -4,7 +4,7 @@ extends Area2D
 @export var sprite_off: Sprite2D  # Sprite wenn Button nicht gedrückt
 @export var sprite_on: Sprite2D   # Sprite wenn Button gedrückt
 @export var box_layer: int = 8    # Collision Layer für Boxen (z.B. Layer 4 = Bit 8)
-@export var overlap_threshold: float = 0.5  # 50% Überlappung nötig
+@export var overlap_threshold: float = 0.2  # 20% Überlappung nötig
 @export var debug_mode: bool = true  # Debug Ausgaben aktivieren
 
 # Wall control
@@ -247,6 +247,27 @@ func get_box_collision_shape(box: Node2D) -> Vector2:
 				return shape.size / 2
 			elif shape is CircleShape2D:
 				return Vector2(shape.radius, shape.radius)
+		elif child is CollisionPolygon2D:
+			# Calculate bounding box from polygon points
+			var polygon = child.polygon
+			if polygon.size() > 0:
+				var min_x = polygon[0].x
+				var max_x = polygon[0].x
+				var min_y = polygon[0].y
+				var max_y = polygon[0].y
+				
+				for point in polygon:
+					min_x = min(min_x, point.x)
+					max_x = max(max_x, point.x)
+					min_y = min(min_y, point.y)
+					max_y = max(max_y, point.y)
+				
+				var width = max_x - min_x
+				var height = max_y - min_y
+				return Vector2(width / 2, height / 2)
+	
+	if debug_mode:
+		print("WARNING: No collision shape found for ", box.name)
 	return Vector2.ZERO
 
 func update_sprite_state():
