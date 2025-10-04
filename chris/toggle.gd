@@ -20,12 +20,12 @@ func _ready():
 	
 	# Set initial toggle rotation
 	if is_right:
-		rotation_degrees = 40  # On position (right)
+		rotation_degrees = 30  # On position (right)
 		# Rotate wall to start position if assigned
 		if target_wall:
 			target_wall.rotation = deg_to_rad(rotation_direction)
 	else:
-		rotation_degrees = -40  # Off position (left)
+		rotation_degrees = -30  # Off position (left)
 	
 	# Set static sprite as top_level if assigned
 	if static_sprite:

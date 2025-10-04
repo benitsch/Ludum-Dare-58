@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=3 uid="uid://b444jy5sw0iie"]
+
+[ext_resource type="PackedScene" uid="uid://daady8wbcciig" path="res://Skunky/player.tscn" id="1_iinf0"]
+[ext_resource type="Texture2D" uid="uid://dimcppqvicilx" path="res://assets/platform/Pad_1_3.png" id="2_mv2t8"]
+[ext_resource type="Texture2D" uid="uid://dcea8w3e0ucgl" path="res://assets/platform/Pad_4_3.png" id="3_qdwan"]
+[ext_resource type="PackedScene" uid="uid://bd1svudgtdt5c" path="res://chris/Rotating_Wall.tscn" id="4_8vlnf"]
+[ext_resource type="PackedScene" uid="uid://coykwjtpdkdut" path="res://chris/Convex_Slope.tscn" id="4_mv2t8"]
+[ext_resource type="PackedScene" uid="uid://kg2c7ccba5ap" path="res://chris/Toggle.tscn" id="5_xsev2"]
+[ext_resource type="PackedScene" uid="uid://wipd2vjhhahm" path="res://chris/Rotating_Wall_Small.tscn" id="6_q8yft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rpyq"]
+size = Vector2(437, 20)
+
+[node name="Riddle1" type="Node2D"]
+
+[node name="Player1" parent="." instance=ExtResource("1_iinf0")]
+z_index = 1
+position = Vector2(132, 230)
+scale = Vector2(0.5, 0.437)
+
+[node name="Camera2D" type="Camera2D" parent="Player1"]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Statics" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Statics"]
+position = Vector2(556, 517)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D"]
+position = Vector2(0, 29)
+scale = Vector2(1.1455555, 1)
+texture = ExtResource("2_mv2t8")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Statics/StaticBody2D"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Statics"]
+position = Vector2(118, 517)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D3"]
+position = Vector2(0, 29)
+scale = Vector2(1.1455555, 1)
+texture = ExtResource("2_mv2t8")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D3"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Statics"]
+position = Vector2(961.00006, 621.00006)
+rotation = 0.37382835
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D2"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_qdwan")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Statics"]
+position = Vector2(1388, 702)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D4"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_qdwan")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="ConvexSlope" parent="Statics" instance=ExtResource("4_mv2t8")]
+position = Vector2(1788, 885)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Statics"]
+position = Vector2(2620, 1049)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D8"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_qdwan")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D8"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="Wall Group 1" type="Node2D" parent="."]
+
+[node name="RotatingWall" parent="Wall Group 1" instance=ExtResource("4_8vlnf")]
+position = Vector2(766, 41)
+
+[node name="Toggle" parent="Wall Group 1" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
+position = Vector2(-70, 506)
+target_wall = NodePath("../RotatingWall")
+
+[node name="Wall Group 2" type="Node2D" parent="."]
+
+[node name="RotatingWallSmall" parent="Wall Group 2" instance=ExtResource("6_q8yft")]
+position = Vector2(2392, 799)
+
+[node name="Toggle" parent="Wall Group 2" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
+position = Vector2(1243, 1008)
+target_wall = NodePath("../RotatingWallSmall")
+rotation_direction = -90
+
+[node name="Wall Group 3" type="Node2D" parent="."]
+
+[node name="RotatingWall" parent="Wall Group 3" instance=ExtResource("4_8vlnf")]
+position = Vector2(2187, -7)
+scale = Vector2(1, 0.5)
+
+[node name="Toggle" parent="Wall Group 3" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
+position = Vector2(2001, 178)
+target_wall = NodePath("../RotatingWall")
+rotation_direction = -90
+start_position_on = true
+
+[node name="Wall Group 4" type="Node2D" parent="."]
+
+[node name="RotatingWallSmall" parent="Wall Group 4" instance=ExtResource("6_q8yft")]
+position = Vector2(1290, 749)
+
+[node name="Toggle" parent="Wall Group 4" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
+position = Vector2(2143, 923)
+target_wall = NodePath("../RotatingWallSmall")

@@ -16,11 +16,12 @@ size = Vector2(437, 20)
 z_index = 1
 position = Vector2(172, 396)
 scale = Vector2(1.1455555, 1)
+jump_available = false
 
 [node name="Statics" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Statics"]
-position = Vector2(731, 517)
+position = Vector2(556, 517)
 
 [node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D"]
 position = Vector2(0, 29)
@@ -48,7 +49,8 @@ shape = SubResource("RectangleShape2D_0rpyq")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Statics"]
-position = Vector2(1547, 517)
+position = Vector2(961.00006, 621.00006)
+rotation = 0.37382835
 
 [node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D2"]
 position = Vector2(1.00004, 13.999999)
@@ -61,7 +63,7 @@ shape = SubResource("RectangleShape2D_0rpyq")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Statics"]
-position = Vector2(2062, 517)
+position = Vector2(1388, 702)
 
 [node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D4"]
 position = Vector2(1.00004, 13.999999)
@@ -73,34 +75,89 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_0rpyq")
 metadata/_edit_lock_ = true
 
+[node name="StaticBody2D5" type="StaticBody2D" parent="Statics"]
+position = Vector2(1788, 885)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D5"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_hn2hk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Statics"]
+position = Vector2(2205, 964)
+rotation = 0.37382835
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D6"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_hn2hk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D6"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Statics"]
+position = Vector2(1370.0001, 964.0001)
+rotation = -0.37350047
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D7"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_hn2hk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D7"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Statics"]
+position = Vector2(2630, 1047)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D8"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_hn2hk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D8"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
 [node name="Wall Group 1" type="Node2D" parent="."]
 
 [node name="RotatingWall" parent="Wall Group 1" instance=ExtResource("2_njl0v")]
-position = Vector2(1003, 18)
+position = Vector2(766, 41)
 
 [node name="Toggle" parent="Wall Group 1" node_paths=PackedStringArray("target_wall") instance=ExtResource("3_bmgbt")]
-position = Vector2(600, 449)
+position = Vector2(-70, 506)
 target_wall = NodePath("../RotatingWall")
 
 [node name="Wall Group 2" type="Node2D" parent="."]
 
 [node name="RotatingWallSmall" parent="Wall Group 2" instance=ExtResource("4_bmgbt")]
-position = Vector2(1024, 519)
+position = Vector2(2392, 799)
 
 [node name="Toggle" parent="Wall Group 2" node_paths=PackedStringArray("target_wall") instance=ExtResource("3_bmgbt")]
-position = Vector2(845, 450)
+position = Vector2(1198, 1014)
 target_wall = NodePath("../RotatingWallSmall")
 rotation_direction = -90
-start_position_on = true
 
 [node name="Wall Group 3" type="Node2D" parent="."]
 
 [node name="RotatingWall" parent="Wall Group 3" instance=ExtResource("2_njl0v")]
-position = Vector2(1292, 263)
+position = Vector2(2187, -7)
 scale = Vector2(1, 0.5)
 
 [node name="Toggle" parent="Wall Group 3" node_paths=PackedStringArray("target_wall") instance=ExtResource("3_bmgbt")]
-position = Vector2(1106, 448)
+position = Vector2(2001, 178)
 target_wall = NodePath("../RotatingWall")
 rotation_direction = -90
 start_position_on = true
@@ -108,10 +165,8 @@ start_position_on = true
 [node name="Wall Group 4" type="Node2D" parent="."]
 
 [node name="RotatingWallSmall" parent="Wall Group 4" instance=ExtResource("4_bmgbt")]
-position = Vector2(1024, 769)
+position = Vector2(1290, 749)
 
 [node name="Toggle" parent="Wall Group 4" node_paths=PackedStringArray("target_wall") instance=ExtResource("3_bmgbt")]
-position = Vector2(730, 450)
+position = Vector2(2143, 923)
 target_wall = NodePath("../RotatingWallSmall")
-rotation_direction = -90
-start_position_on = true
