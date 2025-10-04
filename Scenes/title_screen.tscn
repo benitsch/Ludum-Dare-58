@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://cdieqvotu6bmh" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="7_o1e67"]
 [ext_resource type="Script" uid="uid://ct8qs6ohbgkcp" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="8_ycay6"]
 [ext_resource type="Script" uid="uid://b6a3og2e0da8c" path="res://addons/shaker/data/Vector2/ShakerTypeSquareWave2D.gd" id="10_8mikk"]
-[ext_resource type="Script" uid="uid://cu3w44hcpf7c7" path="res://Scenes/main_butterfly.gd" id="10_o1e67"]
-[ext_resource type="Script" uid="uid://bwvucpmlmk0jw" path="res://Scenes/butterfly_wing.gd" id="11_sqelc"]
+[ext_resource type="Script" uid="uid://cu3w44hcpf7c7" path="res://Scripts/main_butterfly.gd" id="10_o1e67"]
+[ext_resource type="Script" uid="uid://bwvucpmlmk0jw" path="res://Scripts/butterfly_wing.gd" id="11_sqelc"]
 [ext_resource type="Texture2D" uid="uid://bvvir6mcgcmcj" path="res://Images/butterfly_wing.jpg" id="11_w5sh6"]
 
 [sub_resource type="Resource" id="Resource_bsy20"]
@@ -122,10 +122,32 @@ duration = 1.0
 shakerPreset = SubResource("Resource_sqelc")
 metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="MainButterfly"]
+rect = Rect2(-644.9453, -481.85303, 1282.4712, 963.70654)
+
 [node name="ButterflyWing" type="Sprite2D" parent="."]
-position = Vector2(854, 211)
+position = Vector2(283, 207.99998)
+scale = Vector2(0.13958332, 0.13958333)
+texture = ExtResource("11_w5sh6")
+script = ExtResource("11_sqelc")
+
+[node name="ButterflyWing2" type="Sprite2D" parent="."]
+position = Vector2(872, 219)
+scale = Vector2(0.13958332, 0.13958333)
+texture = ExtResource("11_w5sh6")
+script = ExtResource("11_sqelc")
+
+[node name="ButterflyWing3" type="Sprite2D" parent="."]
+position = Vector2(252, 481)
+scale = Vector2(0.13958332, 0.13958333)
+texture = ExtResource("11_w5sh6")
+script = ExtResource("11_sqelc")
+
+[node name="ButterflyWing4" type="Sprite2D" parent="."]
+position = Vector2(854, 463)
 scale = Vector2(0.13958332, 0.13958333)
 texture = ExtResource("11_w5sh6")
 script = ExtResource("11_sqelc")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="screen_exited" from="MainButterfly/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
