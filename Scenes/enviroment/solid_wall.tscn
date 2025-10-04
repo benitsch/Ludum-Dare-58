@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="1_ijbs6"]
 
-[node name="SolidGound" type="StaticBody2D"]
+[node name="SolidWall" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -200)
