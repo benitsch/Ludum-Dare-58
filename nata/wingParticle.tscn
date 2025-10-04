@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://bodt58pl6kojk"]
+
+[ext_resource type="Texture2D" uid="uid://b6bmrw7yy8lg2" path="res://assets/praticle.png" id="1_yaya2"]
+
+[sub_resource type="Curve" id="Curve_d5gny"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0.020304576, 35.094337), 0.0, -117.8213, 0, 0, Vector2(0.5482234, 0), 0.0, 0.0, 0, 0, Vector2(1, 28.30188), 136.9414, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0k85g"]
+curve = SubResource("Curve_d5gny")
+
+[sub_resource type="Curve" id="Curve_yaya2"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0.07106599, 0.46037745), 0.0, -4.6891155, 0, 0, Vector2(1, 0.76226425), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_d5gny"]
+curve = SubResource("Curve_yaya2")
+
+[sub_resource type="Curve" id="Curve_11qda"]
+_data = [Vector2(0, 0.38113213), 0.0, 0.0, 0, 0, Vector2(0.70050764, 0.47169816), -3.6638832, -3.6638832, 0, 0, Vector2(1, 0.80377364), 5.8282223, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l20wj"]
+curve = SubResource("Curve_11qda")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kspuh"]
+lifetime_randomness = 0.8
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 350.0
+orbit_velocity_min = -0.99999994
+orbit_velocity_max = 1.0000001
+orbit_velocity_curve = SubResource("CurveTexture_d5gny")
+damping_max = 100.00001
+damping_curve = SubResource("CurveTexture_0k85g")
+scale_min = 0.049999997
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_l20wj")
+
+[node name="ParticleTest" type="GPUParticles2D"]
+amount = 50
+texture = ExtResource("1_yaya2")
+process_material = SubResource("ParticleProcessMaterial_kspuh")
