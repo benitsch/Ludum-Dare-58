@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://5x4chdb2q5mt"]
+[gd_scene load_steps=8 format=3 uid="uid://5x4chdb2q5mt"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_dmhhv"]
 [ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_cxlf7"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Skunky/player.tscn" id="3_cxlf7"]
+[ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="4_tppea"]
+[ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="5_y6k7c"]
+[ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="6_pd5wm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tppea"]
 size = Vector2(500, 490)
@@ -11,6 +14,10 @@ size = Vector2(500, 490)
 
 [node name="PushingBox" parent="." instance=ExtResource("1_dmhhv")]
 position = Vector2(250, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_cxlf7")]
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 400)
@@ -66,12 +73,24 @@ texture = ExtResource("2_cxlf7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
 shape = SubResource("RectangleShape2D_tppea")
 
-[node name="Player" parent="." instance=ExtResource("3_cxlf7")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
 [node name="PushingBox2" parent="." instance=ExtResource("1_dmhhv")]
 position = Vector2(1594, -345)
 
 [node name="PushingBox3" parent="." instance=ExtResource("1_dmhhv")]
 position = Vector2(-1117, 18)
+
+[node name="BoxButton" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+position = Vector2(826, 145)
+box_layer = 8
+target_wall = NodePath("SemiSolidGround")
+
+[node name="SemiSolidGround" parent="BoxButton" instance=ExtResource("5_y6k7c")]
+position = Vector2(-2258, 9)
+
+[node name="BoxButton2" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+position = Vector2(-1485, 423)
+box_layer = 8
+target_wall = NodePath("")
+
+[node name="SolidWall2" parent="BoxButton2" instance=ExtResource("6_pd5wm")]
+position = Vector2(2843, -634)
