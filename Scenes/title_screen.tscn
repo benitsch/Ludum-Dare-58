@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgy03v83dmqwg"]
+[gd_scene load_steps=21 format=3 uid="uid://bgy03v83dmqwg"]
 
 [ext_resource type="Script" uid="uid://dbm8j44i6dtmb" path="res://Scripts/title_screen.gd" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://eak5yxp20xq3" path="res://Images/background.jpg" id="2_8mikk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cdieqvotu6bmh" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="7_o1e67"]
 [ext_resource type="Script" uid="uid://ct8qs6ohbgkcp" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="8_ycay6"]
 [ext_resource type="Script" uid="uid://b6a3og2e0da8c" path="res://addons/shaker/data/Vector2/ShakerTypeSquareWave2D.gd" id="10_8mikk"]
+[ext_resource type="Script" uid="uid://cu3w44hcpf7c7" path="res://Scenes/main_butterfly.gd" id="10_o1e67"]
 [ext_resource type="Script" uid="uid://bwvucpmlmk0jw" path="res://Scenes/butterfly_wing.gd" id="11_sqelc"]
 [ext_resource type="Texture2D" uid="uid://bvvir6mcgcmcj" path="res://Images/butterfly_wing.jpg" id="11_w5sh6"]
 
@@ -113,6 +114,7 @@ libraries = {
 position = Vector2(602.0004, 311.99997)
 scale = Vector2(0.1348958, 0.13489583)
 texture = ExtResource("3_4gxqj")
+script = ExtResource("10_o1e67")
 
 [node name="ShakerComponent2D" type="Node2D" parent="MainButterfly"]
 script = ExtResource("4_55kwv")
