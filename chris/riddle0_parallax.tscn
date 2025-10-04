@@ -1,0 +1,203 @@
+[gd_scene load_steps=18 format=3 uid="uid://f1yrspq6bs54"]
+
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Skunky/player.tscn" id="1_5irp3"]
+[ext_resource type="Texture2D" uid="uid://dimcppqvicilx" path="res://assets/platform/Pad_1_3.png" id="2_vvyrj"]
+[ext_resource type="Texture2D" uid="uid://dcea8w3e0ucgl" path="res://assets/platform/Pad_4_3.png" id="3_ote55"]
+[ext_resource type="PackedScene" uid="uid://coykwjtpdkdut" path="res://chris/Convex_Slope.tscn" id="4_2kswh"]
+[ext_resource type="PackedScene" uid="uid://bd1svudgtdt5c" path="res://chris/Rotating_Wall.tscn" id="5_rwex6"]
+[ext_resource type="PackedScene" uid="uid://kg2c7ccba5ap" path="res://chris/Toggle.tscn" id="6_v1uk7"]
+[ext_resource type="PackedScene" uid="uid://wipd2vjhhahm" path="res://chris/Rotating_Wall_Small.tscn" id="7_pfub6"]
+[ext_resource type="Texture2D" uid="uid://q4dexh7utvyj" path="res://assets/background/nature_1/1.png" id="8_ygatg"]
+[ext_resource type="Texture2D" uid="uid://bik3idjqf04es" path="res://assets/background/nature_1/2.png" id="9_i6l5w"]
+[ext_resource type="Script" uid="uid://bxy74a62ti36c" path="res://chris/platform_repeater.gd" id="9_qdsuw"]
+[ext_resource type="PackedScene" uid="uid://bc7v7l7bbio35" path="res://chris/Platform_Gras.tscn" id="10_bfrbj"]
+[ext_resource type="Texture2D" uid="uid://clhkisk3raogl" path="res://assets/background/nature_1/3.png" id="10_qdsuw"]
+[ext_resource type="Texture2D" uid="uid://ph7c3khkh2m7" path="res://assets/background/nature_1/5.png" id="11_bfrbj"]
+[ext_resource type="Texture2D" uid="uid://bkbkdlvgvgpka" path="res://assets/background/nature_1/6.png" id="12_keb8i"]
+[ext_resource type="Texture2D" uid="uid://c4kbnnfyyayu0" path="res://assets/background/nature_1/7.png" id="13_qxpg4"]
+[ext_resource type="Texture2D" uid="uid://0mrcnn23dn3p" path="res://assets/background/nature_1/8.png" id="14_e3lrx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rpyq"]
+size = Vector2(437, 20)
+
+[node name="Riddle1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_offset = Vector2(576, 324)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+scale = Vector2(3, 3)
+texture = ExtResource("8_ygatg")
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.01)
+motion_offset = Vector2(576, 324)
+motion_mirroring = Vector2(1728, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+scale = Vector2(3, 3)
+texture = ExtResource("9_i6l5w")
+
+[node name="Mountains Far" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.02)
+motion_offset = Vector2(576, 324)
+motion_mirroring = Vector2(1728, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains Far"]
+scale = Vector2(3, 3)
+texture = ExtResource("10_qdsuw")
+
+[node name="Mountains Near" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.03)
+motion_offset = Vector2(576, 324)
+motion_mirroring = Vector2(1728, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains Near"]
+scale = Vector2(3, 3)
+texture = ExtResource("11_bfrbj")
+
+[node name="Trees Far" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.04)
+motion_offset = Vector2(576, 324)
+motion_mirroring = Vector2(1728, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Trees Far"]
+scale = Vector2(3, 3)
+texture = ExtResource("12_keb8i")
+
+[node name="Trees Near" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.85, 0.05)
+motion_offset = Vector2(576, 324)
+motion_mirroring = Vector2(1728, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Trees Near"]
+scale = Vector2(3, 3)
+texture = ExtResource("13_qxpg4")
+
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0.06)
+motion_offset = Vector2(576, 324)
+motion_mirroring = Vector2(1728, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground"]
+scale = Vector2(3, 3)
+texture = ExtResource("14_e3lrx")
+
+[node name="Player1" parent="." instance=ExtResource("1_5irp3")]
+z_index = 1
+position = Vector2(132, 230)
+scale = Vector2(0.5, 0.437)
+
+[node name="Camera2D" type="Camera2D" parent="Player1"]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Statics" type="Node2D" parent="."]
+
+[node name="PlatformRepeater" type="Node2D" parent="Statics"]
+position = Vector2(118, 517)
+script = ExtResource("9_qdsuw")
+repeat_count = 120
+spacing = 437.0
+platform_scene = ExtResource("10_bfrbj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Statics"]
+position = Vector2(556, 517)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D"]
+position = Vector2(0, 29)
+scale = Vector2(1.1455555, 1)
+texture = ExtResource("2_vvyrj")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Statics"]
+position = Vector2(961.00006, 621.00006)
+rotation = 0.37382835
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D2"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_ote55")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Statics"]
+position = Vector2(1388, 702)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D4"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_ote55")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="ConvexSlope" parent="Statics" instance=ExtResource("4_2kswh")]
+position = Vector2(1788, 885)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Statics"]
+position = Vector2(2620, 1049)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D8"]
+position = Vector2(1.00004, 13.999999)
+scale = Vector2(1.0403804, 0.6771658)
+texture = ExtResource("3_ote55")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D8"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="Wall Group 1" type="Node2D" parent="."]
+
+[node name="RotatingWall" parent="Wall Group 1" instance=ExtResource("5_rwex6")]
+position = Vector2(766, 41)
+
+[node name="Toggle" parent="Wall Group 1" node_paths=PackedStringArray("target_wall") instance=ExtResource("6_v1uk7")]
+position = Vector2(-70, 506)
+target_wall = NodePath("../RotatingWall")
+
+[node name="Wall Group 2" type="Node2D" parent="."]
+
+[node name="RotatingWallSmall" parent="Wall Group 2" instance=ExtResource("7_pfub6")]
+position = Vector2(2392, 799)
+
+[node name="Toggle" parent="Wall Group 2" node_paths=PackedStringArray("target_wall") instance=ExtResource("6_v1uk7")]
+position = Vector2(1243, 1008)
+target_wall = NodePath("../RotatingWallSmall")
+rotation_direction = -90
+
+[node name="Wall Group 3" type="Node2D" parent="."]
+
+[node name="RotatingWall" parent="Wall Group 3" instance=ExtResource("5_rwex6")]
+position = Vector2(2187, -7)
+scale = Vector2(1, 0.5)
+
+[node name="Toggle" parent="Wall Group 3" node_paths=PackedStringArray("target_wall") instance=ExtResource("6_v1uk7")]
+position = Vector2(2001, 178)
+target_wall = NodePath("../RotatingWall")
+rotation_direction = -90
+start_position_on = true
+
+[node name="Wall Group 4" type="Node2D" parent="."]
+
+[node name="RotatingWallSmall" parent="Wall Group 4" instance=ExtResource("7_pfub6")]
+position = Vector2(1290, 749)
+
+[node name="Toggle" parent="Wall Group 4" node_paths=PackedStringArray("target_wall") instance=ExtResource("6_v1uk7")]
+position = Vector2(2143, 923)
+target_wall = NodePath("../RotatingWallSmall")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc7v7l7bbio35"]
+
+[ext_resource type="Texture2D" uid="uid://dimcppqvicilx" path="res://assets/platform/Pad_1_3.png" id="1_jjf73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phh67"]
+size = Vector2(437, 20)
+
+[node name="PlatformGras" type="Node2D"]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(0, 29)
+scale = Vector2(1.1455555, 1)
+texture = ExtResource("1_jjf73")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_phh67")
+metadata/_edit_lock_ = true
