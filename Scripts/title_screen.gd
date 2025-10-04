@@ -3,8 +3,10 @@ extends Control
 var userPressedStartButton = false
 var currentShakes = 0
 var maxShakesAllowed = 5
-
 var wings = []
+
+var last_input_time := 0.0
+var input_cooldown := 0.5
 
 func _ready() -> void:
 	wings = [
@@ -17,16 +19,25 @@ func _ready() -> void:
 func _on_start_button_pressed() -> void:
 	$Camera2D/AnimationPlayer.play("ZoomOut")
 	userPressedStartButton = true
+	$StartButton.queue_free()
 
 func _input(event: InputEvent) -> void:
-	if userPressedStartButton && event is InputEventKey:
-		if Input.is_action_just_pressed("move_left") || Input.is_action_just_pressed("move_right"):
-			currentShakes += 1
-			playShakes()
-			wingFallDown()
+	if not userPressedStartButton:
+		return
 
-			if currentShakes >= maxShakesAllowed:
-				$MainButterfly.fallDown()
+	if event is InputEventKey and (Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right")):
+		var now = Time.get_ticks_msec() / 1000.0
+		if now - last_input_time >= input_cooldown:
+			last_input_time = now
+			handle_shake()
+
+func handle_shake() -> void:
+	currentShakes += 1
+	playShakes()
+	wingFallDown()
+	
+	if currentShakes >= maxShakesAllowed:
+		$MainButterfly.fallDown()
 
 func playShakes() -> void:
 	$MainButterfly/ShakerComponent2D.play_shake()
