@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://btq2l7jxks6xx"]
+
+[ext_resource type="Texture2D" uid="uid://bsukgmhhjtp7p" path="res://assets/Player/StartWiggle/Lines0001.png" id="1_j1khs"]
+[ext_resource type="Texture2D" uid="uid://dq8wtgqykox7d" path="res://assets/Player/StartWiggle/Lines0002.png" id="2_72gse"]
+[ext_resource type="Texture2D" uid="uid://cci8wmujiiufc" path="res://assets/Player/StartWiggle/Lines0003.png" id="3_8rits"]
+[ext_resource type="Texture2D" uid="uid://dr3vgq18uifc8" path="res://assets/Player/StartWiggle/Lines0004.png" id="4_b8ey4"]
+[ext_resource type="Texture2D" uid="uid://cio2b4m15tp85" path="res://assets/Player/StartWiggle/Lines0005.png" id="5_ihbyw"]
+[ext_resource type="Texture2D" uid="uid://en03ltelfffd" path="res://assets/Player/StartWiggle/Lines0006.png" id="6_8rsw5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5lu1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j1khs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_72gse")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_72gse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8rits")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b8ey4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_72gse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ihbyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8rsw5")
+}],
+"loop": true,
+"name": &"wiggle",
+"speed": 13.0
+}]
+
+[node name="PlayerStart" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_5lu1l")
+animation = &"wiggle"
+autoplay = "start"
+frame_progress = 0.05538238
