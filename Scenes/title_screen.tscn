@@ -1,6 +1,71 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgy03v83dmqwg"]
+[gd_scene load_steps=20 format=3 uid="uid://bgy03v83dmqwg"]
 
 [ext_resource type="Script" uid="uid://dbm8j44i6dtmb" path="res://Scripts/title_screen.gd" id="1_klylv"]
+[ext_resource type="Texture2D" uid="uid://eak5yxp20xq3" path="res://Images/background.jpg" id="2_8mikk"]
+[ext_resource type="Texture2D" uid="uid://b7hmtoi1lkxil" path="res://Images/butterfly_board.jpg" id="2_p3fck"]
+[ext_resource type="Texture2D" uid="uid://xfr6cpyj2qch" path="res://Images/butterfly.jpg" id="3_4gxqj"]
+[ext_resource type="Script" uid="uid://dt0k1ik8w2s2h" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="4_55kwv"]
+[ext_resource type="Script" uid="uid://buxgkvex4moma" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="5_sqelc"]
+[ext_resource type="Script" uid="uid://by0ddd7sx2hqr" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="6_w5sh6"]
+[ext_resource type="Script" uid="uid://cdieqvotu6bmh" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="7_o1e67"]
+[ext_resource type="Script" uid="uid://ct8qs6ohbgkcp" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="8_ycay6"]
+[ext_resource type="Script" uid="uid://b6a3og2e0da8c" path="res://addons/shaker/data/Vector2/ShakerTypeSquareWave2D.gd" id="10_8mikk"]
+[ext_resource type="Script" uid="uid://bwvucpmlmk0jw" path="res://Scenes/butterfly_wing.gd" id="11_sqelc"]
+[ext_resource type="Texture2D" uid="uid://bvvir6mcgcmcj" path="res://Images/butterfly_wing.jpg" id="11_w5sh6"]
+
+[sub_resource type="Resource" id="Resource_bsy20"]
+script = ExtResource("6_w5sh6")
+metadata/_custom_type_script = "uid://by0ddd7sx2hqr"
+
+[sub_resource type="Resource" id="Resource_07cxn"]
+script = ExtResource("8_ycay6")
+PositionShake = Array[ExtResource("5_sqelc")]([SubResource("Resource_bsy20")])
+metadata/_custom_type_script = "uid://ct8qs6ohbgkcp"
+
+[sub_resource type="Animation" id="Animation_4gxqj"]
+resource_name = "ZoomOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_twnyg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_55kwv"]
+_data = {
+&"RESET": SubResource("Animation_twnyg"),
+&"ZoomOut": SubResource("Animation_4gxqj")
+}
+
+[sub_resource type="Resource" id="Resource_padx4"]
+script = ExtResource("10_8mikk")
+metadata/_custom_type_script = "uid://b6a3og2e0da8c"
+
+[sub_resource type="Resource" id="Resource_sqelc"]
+script = ExtResource("8_ycay6")
+PositionShake = Array[ExtResource("5_sqelc")]([SubResource("Resource_padx4")])
+metadata/_custom_type_script = "uid://ct8qs6ohbgkcp"
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -11,12 +76,54 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_klylv")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(585.00006, 329.50003)
+scale = Vector2(2, 1.727941)
+texture = ExtResource("2_8mikk")
+
+[node name="ButterflyBoard" type="Sprite2D" parent="."]
+position = Vector2(586.00006, 326)
+scale = Vector2(1.4460641, 1.3626943)
+texture = ExtResource("2_p3fck")
+
+[node name="ShakerComponent2D" type="Node2D" parent="ButterflyBoard"]
+script = ExtResource("4_55kwv")
+duration = 1.0
+shakerPreset = SubResource("Resource_07cxn")
+metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
+
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 522.0
-offset_top = 485.0
-offset_right = 618.0
-offset_bottom = 525.0
+offset_left = 564.0
+offset_top = 472.0
+offset_right = 660.0
+offset_bottom = 512.0
 text = "Start"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 324)
+zoom = Vector2(1.5, 1.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_55kwv")
+}
+
+[node name="MainButterfly" type="Sprite2D" parent="."]
+position = Vector2(602.0004, 311.99997)
+scale = Vector2(0.1348958, 0.13489583)
+texture = ExtResource("3_4gxqj")
+
+[node name="ShakerComponent2D" type="Node2D" parent="MainButterfly"]
+script = ExtResource("4_55kwv")
+duration = 1.0
+shakerPreset = SubResource("Resource_sqelc")
+metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
+
+[node name="ButterflyWing" type="Sprite2D" parent="."]
+position = Vector2(854, 211)
+scale = Vector2(0.13958332, 0.13958333)
+texture = ExtResource("11_w5sh6")
+script = ExtResource("11_sqelc")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
