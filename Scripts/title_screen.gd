@@ -8,6 +8,8 @@ var wings = []
 var last_input_time := 0.0
 var input_cooldown := 0.5
 
+@onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
+
 func _ready() -> void:
 	wings = [
 		$ButterflyWing,
@@ -15,10 +17,11 @@ func _ready() -> void:
 		$ButterflyWing3,
 		$ButterflyWing4
 	]
-
+	SceneTransitionAnimation.play("fade_out")
+	
 func _on_start_button_pressed() -> void:
-	$Camera2D/AnimationPlayer.play("ZoomOut")
 	userPressedStartButton = true
+	$Camera2D/AnimationPlayer.play("ZoomOut")
 	$StartButton.queue_free()
 
 func _input(event: InputEvent) -> void:

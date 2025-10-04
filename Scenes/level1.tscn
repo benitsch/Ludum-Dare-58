@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://b3d4vqob358mo"]
+[gd_scene load_steps=3 format=3 uid="uid://b3d4vqob358mo"]
+
+[ext_resource type="Script" uid="uid://damk6nivavirp" path="res://Scenes/level_1.gd" id="1_vly50"]
+[ext_resource type="PackedScene" uid="uid://0axorjkbj4ng" path="res://Scenes/scene_transition_animation.tscn" id="2_c5erv"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_vly50")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_left = 504.0
@@ -8,3 +12,5 @@ offset_top = 362.0
 offset_right = 705.0
 offset_bottom = 415.0
 text = "Level1"
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("2_c5erv")]
