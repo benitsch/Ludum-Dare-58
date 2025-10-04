@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://srxaeowd8ro0"]
+[gd_scene load_steps=7 format=3 uid="uid://srxaeowd8ro0"]
 
 [ext_resource type="PackedScene" uid="uid://d1nv3xcwfjlhq" path="res://chris/Player1.tscn" id="1_ti3v4"]
 [ext_resource type="PackedScene" uid="uid://bd1svudgtdt5c" path="res://chris/Rotating_Wall.tscn" id="2_njl0v"]
 [ext_resource type="PackedScene" uid="uid://kg2c7ccba5ap" path="res://chris/Toggle.tscn" id="3_bmgbt"]
+[ext_resource type="PackedScene" uid="uid://wipd2vjhhahm" path="res://chris/Rotating_Wall_Small.tscn" id="4_bmgbt"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ti3v4"]
 size = Vector2(800, 20)
@@ -16,22 +17,36 @@ size = Vector2(917, 20)
 position = Vector2(173, 396)
 scale = Vector2(1.1455555, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(45, 519)
+[node name="Statics" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(510.5, -1)
+[node name="StaticBody2D" type="StaticBody2D" parent="Statics"]
+position = Vector2(555, 517)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D"]
 scale = Vector2(1.1455555, 1)
 texture = SubResource("PlaceholderTexture2D_ti3v4")
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(510.5, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D"]
 shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Statics"]
+position = Vector2(1739, 517)
+
+[node name="Sprite2D" type="Sprite2D" parent="Statics/StaticBody2D2"]
+scale = Vector2(1.1455555, 1)
+texture = SubResource("PlaceholderTexture2D_ti3v4")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_0rpyq")
+metadata/_edit_lock_ = true
 
 [node name="Wall Group 1" type="Node2D" parent="."]
 
 [node name="RotatingWall" parent="Wall Group 1" instance=ExtResource("2_njl0v")]
-position = Vector2(1003, 3)
+position = Vector2(1003, 18)
 
 [node name="Toggle" parent="Wall Group 1" node_paths=PackedStringArray("target_wall") instance=ExtResource("3_bmgbt")]
 position = Vector2(600, 449)
@@ -39,36 +54,34 @@ target_wall = NodePath("../RotatingWall")
 
 [node name="Wall Group 2" type="Node2D" parent="."]
 
-[node name="RotatingWall" parent="Wall Group 2" instance=ExtResource("2_njl0v")]
-position = Vector2(1024, 506)
-scale = Vector2(1, 0.5)
+[node name="RotatingWallSmall" parent="Wall Group 2" instance=ExtResource("4_bmgbt")]
+position = Vector2(1024, 519)
 
 [node name="Toggle" parent="Wall Group 2" node_paths=PackedStringArray("target_wall") instance=ExtResource("3_bmgbt")]
 position = Vector2(845, 450)
-target_wall = NodePath("../RotatingWall")
+target_wall = NodePath("../RotatingWallSmall")
 rotation_direction = -90
 start_position_on = true
 
 [node name="Wall Group 3" type="Node2D" parent="."]
 
 [node name="RotatingWall" parent="Wall Group 3" instance=ExtResource("2_njl0v")]
-position = Vector2(1250, 252)
+position = Vector2(1292, 263)
 scale = Vector2(1, 0.5)
 
 [node name="Toggle" parent="Wall Group 3" node_paths=PackedStringArray("target_wall") instance=ExtResource("3_bmgbt")]
-position = Vector2(1106, 437)
+position = Vector2(1106, 448)
 target_wall = NodePath("../RotatingWall")
 rotation_direction = -90
 start_position_on = true
 
 [node name="Wall Group 4" type="Node2D" parent="."]
 
-[node name="RotatingWall" parent="Wall Group 4" instance=ExtResource("2_njl0v")]
-position = Vector2(1024, 741)
-scale = Vector2(1, 0.5)
+[node name="RotatingWallSmall" parent="Wall Group 4" instance=ExtResource("4_bmgbt")]
+position = Vector2(1024, 769)
 
 [node name="Toggle" parent="Wall Group 4" node_paths=PackedStringArray("target_wall") instance=ExtResource("3_bmgbt")]
-position = Vector2(730, 443)
-target_wall = NodePath("../RotatingWall")
+position = Vector2(730, 450)
+target_wall = NodePath("../RotatingWallSmall")
 rotation_direction = -90
 start_position_on = true

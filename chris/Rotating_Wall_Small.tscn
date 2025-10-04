@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd1svudgtdt5c"]
+[gd_scene load_steps=3 format=3 uid="uid://wipd2vjhhahm"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xfu5t"]
-size = Vector2(20, 500)
+size = Vector2(20, 250)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qy8g"]
-size = Vector2(20, 500)
+size = Vector2(20, 250)
 
-[node name="RotatingWall" type="AnimatableBody2D"]
+[node name="RotatingWallSmall" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-10, -11)
@@ -14,5 +14,5 @@ texture = SubResource("PlaceholderTexture2D_xfu5t")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 239)
+position = Vector2(0, 114)
 shape = SubResource("RectangleShape2D_1qy8g")

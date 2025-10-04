@@ -3,19 +3,20 @@
 [ext_resource type="Script" uid="uid://dw3g1umxdqn2w" path="res://chris/toggle.gd" id="1_cs1o6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqd0g"]
-size = Vector2(50, 121)
+size = Vector2(50, 119.5)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6nnmk"]
 size = Vector2(50, 50)
 
 [node name="Toggle" type="Area2D" node_paths=PackedStringArray("static_sprite")]
-position = Vector2(1, -58)
+position = Vector2(0, -36)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_cs1o6")
 static_sprite = NodePath("Sprite2D3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.25)
 shape = SubResource("RectangleShape2D_tqd0g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,5 +30,6 @@ scale = Vector2(0.27999997, 1)
 texture = SubResource("PlaceholderTexture2D_6nnmk")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(0, 33.52469)
+position = Vector2(0, 33.262344)
+scale = Vector2(1, 0.98950624)
 texture = SubResource("PlaceholderTexture2D_6nnmk")
