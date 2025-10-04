@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://6a08w86cwjku"]
+
+[ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Skunky/base_death_area.tscn" id="1_2165i"]
+[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_2165i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk47w"]
+size = Vector2(200, 20)
+
+[node name="BaseDeathArea" instance=ExtResource("1_2165i")]
+
+[node name="Square" type="Sprite2D" parent="." index="0"]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.4, 0.1)
+texture = ExtResource("2_2165i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_tk47w")

@@ -14,6 +14,11 @@ class_name Player
 @export var dashing_time: float = .25
 @export var dash_length: float = 300
 @export var push_force: int = 100
+@export var dying_time: float = 1
+@export var spawning_time: float = 1
+
+var respawn_pos: Vector2
+var dying: bool = false
 
 var direction: int
 var cur_air_jumps := PlayerState.air_jump_amount
@@ -24,7 +29,23 @@ var dash_timer: float = 0
 
 var objectList : Array[Node2D]
 
+
+func _ready() -> void:
+	respawn_pos = global_position;
+
+
+func kill() -> void:
+	dashing = false
+	velocity = Vector2.ZERO
+	dying = true;
+	await get_tree().create_timer(dying_time).timeout
+	global_position = respawn_pos;
+	await get_tree().create_timer(spawning_time).timeout
+	dying = false
+
+
 func _physics_process(delta: float) -> void:
+	if dying: return
 	var input := Input.get_axis("move_left", "move_right");
 	if not is_zero_approx(input):
 		direction = 1 if input > 0 else -1;
@@ -33,7 +54,6 @@ func _physics_process(delta: float) -> void:
 			dash_timer += delta;
 			move_and_slide();
 			return
-		dash_timer = 0;
 		dashing = false;
 	var horizontal_half_time := lerpf(
 		floor_deceleration if is_on_floor() else air_deceleration,
@@ -86,6 +106,7 @@ func try_dash():
 	if not PlayerState.can_dash: return;
 	if dashing or cur_air_dashes <= 0: return;
 	dashing = true;
+	dash_timer = 0;
 	velocity.y = 0;
 	velocity.x = direction * dash_length / dashing_time;
 	cur_air_dashes -= 1;

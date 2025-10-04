@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c14oj18jvj1c7"]
+
+[ext_resource type="Script" uid="uid://dp1r6dtw1ikjy" path="res://Skunky/death_area.gd" id="1_i0jd3"]
+
+[node name="BaseDeathArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_i0jd3")

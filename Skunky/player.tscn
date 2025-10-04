@@ -15,6 +15,7 @@ script = ExtResource("1_xf0b5")
 ascend_gravity = 1200.0
 descend_gravity = 2050.0
 speed = 900.0
+dashing_time = 0.15
 
 [node name="Icon" type="Sprite2D" parent="."]
 visible = false
