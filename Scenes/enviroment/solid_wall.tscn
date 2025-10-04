@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://clxsardlukuba"]
+
+[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="1_ijbs6"]
+
+[node name="SolidWall" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -200)
+scale = Vector2(0.4, 0.8)
+texture = ExtResource("1_ijbs6")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-100, -400, 100, -400, 100, 0, -100, 0)
+metadata/_edit_lock_ = true

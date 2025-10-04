@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3y82b72i56tq"]
+
+[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="1_q3kkv"]
+
+[node name="SemiSolidGround" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.69135684, 0.6913568, 0.69135684, 1)
+position = Vector2(0, 25)
+scale = Vector2(1.8, 0.1)
+texture = ExtResource("1_q3kkv")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-450, 0, 450, 0, 450, 50, -450, 50)
+one_way_collision = true
+metadata/_edit_lock_ = true

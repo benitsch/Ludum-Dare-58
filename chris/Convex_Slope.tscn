@@ -1,33 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://coykwjtpdkdut"]
+[gd_scene load_steps=2 format=3 uid="uid://88ioxmifrnif"]
 
 [ext_resource type="Texture2D" uid="uid://dcea8w3e0ucgl" path="res://assets/platform/Pad_4_3.png" id="1_wajdt"]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_sotvy"]
-points = PackedVector2Array(150, 610, 150, -610, 1, -230, 3, 230)
+[node name="ConvexSlope" type="StaticBody2D"]
 
-[node name="ConvexSlope" type="Node2D"]
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+[node name="Ground Top" type="Sprite2D" parent="."]
 position = Vector2(1.00004, 13.999999)
-scale = Vector2(1.0403804, 0.6771658)
+scale = Vector2(1, 0.5)
 texture = ExtResource("1_wajdt")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D5"]
-position = Vector2(384.00003, 93.00001)
-rotation = 0.34906584
-scale = Vector2(1.0403804, 0.6771658)
-texture = ExtResource("1_wajdt")
-
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D5"]
-position = Vector2(-384, 93)
+[node name="Ground Left" type="Sprite2D" parent="."]
+position = Vector2(-380, 80)
 rotation = -0.34906584
-scale = Vector2(1.0403804, 0.6771658)
+scale = Vector2(1, 0.5)
 texture = ExtResource("1_wajdt")
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D5"]
-rotation = 1.5707964
-shape = SubResource("ConvexPolygonShape2D_sotvy")
+[node name="Ground Right" type="Sprite2D" parent="."]
+position = Vector2(380, 80)
+rotation = 0.34906584
+scale = Vector2(1, 0.5)
+texture = ExtResource("1_wajdt")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-580, 150, -210, 5, 210, 5, 580, 150)
 metadata/_edit_lock_ = true
