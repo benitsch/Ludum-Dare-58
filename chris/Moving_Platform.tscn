@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1bol7ral8pwt"]
+
+[ext_resource type="Script" uid="uid://bqpf2aw53jq3a" path="res://chris/moving_platform.gd" id="1_73j5u"]
+[ext_resource type="Texture2D" uid="uid://dimcppqvicilx" path="res://assets/platform/Pad_1_3.png" id="2_o126y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3208e"]
+size = Vector2(437, 20)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_73j5u")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-2, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(0, 29)
+scale = Vector2(1.1455555, 1)
+texture = ExtResource("2_o126y")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_3208e")
+metadata/_edit_lock_ = true
