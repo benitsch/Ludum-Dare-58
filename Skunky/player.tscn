@@ -5,13 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://xqrqqx68v4p7" path="res://assets/Arts-WIP/Player–Body.png" id="3_adyqh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uinqk"]
-radius = 63.0
-height = 230.0
+radius = 44.0
+height = 214.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_xf0b5")
+ascend_gravity = 1200.0
+descend_gravity = 2050.0
+speed = 900.0
 
 [node name="Icon" type="Sprite2D" parent="."]
 visible = false
@@ -20,8 +23,21 @@ scale = Vector2(1, 1.78125)
 texture = ExtResource("2_ldi71")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_uinqk")
 
 [node name="Player–body" type="Sprite2D" parent="."]
 position = Vector2(7, 0)
 texture = ExtResource("3_adyqh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = -1.0
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.4
+editor_draw_drag_margin = true
