@@ -237,7 +237,6 @@ texture = ExtResource("35_4j2le")
 script = ExtResource("11_sqelc")
 
 [node name="SceneTransitionAnimation" parent="Node" instance=ExtResource("14_ycay6")]
-visible = false
 
 [connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton" to="CanvasLayer/TitleScreen" method="_on_start_button_pressed"]
 [connection signal="screen_exited" from="Node/MainButterfly/Body/VisibleOnScreenNotifier2D" to="CanvasLayer/TitleScreen" method="_on_visible_on_screen_notifier_2d_screen_exited"]
