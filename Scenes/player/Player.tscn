@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btq2l7jxks6xx" path="res://Scenes/player/AnimPlayer2Wings.tscn" id="4_hg0hj"]
 [ext_resource type="PackedScene" uid="uid://irqqnq6ijtwj" path="res://Scenes/player/AnimPlayer3Wings.tscn" id="4_trp67"]
 [ext_resource type="PackedScene" uid="uid://cuyxnkswxf5od" path="res://Scenes/player/AnimPlayer1Wings.tscn" id="6_xb7k6"]
-[ext_resource type="PackedScene" uid="uid://dgqtudmhluc3g" path="res://Scenes/player/AnimPlayer0Wings.tscn" id="7_hg0hj"]
+[ext_resource type="PackedScene" uid="uid://10m3obdx4sk7" path="res://Scenes/player/AnimPlayer0Wings.tscn" id="7_hg0hj"]
 
 [sub_resource type="Resource" id="Resource_mphk7"]
 script = ExtResource("2_r5va5")
