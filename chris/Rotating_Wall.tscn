@@ -1,19 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd1svudgtdt5c"]
+[gd_scene load_steps=3 format=3 uid="uid://d1t02mtwhsho0"]
 
-[ext_resource type="Texture2D" uid="uid://ird3fn1yxsbi" path="res://assets/props/Prop_3.png" id="1_1qy8g"]
+[ext_resource type="Texture2D" uid="uid://dhxfb5l6po5cw" path="res://assets/Arts-WIP/DoorBig.png" id="1_1qy8g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qy8g"]
-size = Vector2(20, 500)
+size = Vector2(71, 540)
 
 [node name="RotatingWall" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(76, -11.999998)
-rotation = 1.5686193
-scale = Vector2(1.3206875, 0.85157645)
+position = Vector2(-45, -10)
 texture = ExtResource("1_1qy8g")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 239)
+position = Vector2(-4.5, 264)
 shape = SubResource("RectangleShape2D_1qy8g")

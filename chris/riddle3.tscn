@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://csesghfgympjx"]
+[gd_scene load_steps=21 format=3 uid="uid://csesghfgympjx"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_dmhhv"]
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="2_tbe4x"]
-[ext_resource type="PackedScene" uid="uid://ckttkdqtjwlnv" path="res://Scenes/player/Player.tscn" id="3_cxlf7"]
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="3_cxlf7"]
 [ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="4_ox076"]
 [ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="4_tppea"]
 [ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_3pcd5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="8_v6a4y"]
 [ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="10_hx4q4"]
 [ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="12_ey1o0"]
+[ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="13_3pcd5"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="13_ox076"]
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="14_3pcd5"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="15_v6a4y"]
@@ -42,9 +43,16 @@ position = Vector2(1087, 614)
 debug_mode = false
 target_wall = NodePath("../Statics/Walls/SolidWall")
 
-[node name="BoxButton3" parent="." instance=ExtResource("4_tppea")]
+[node name="BoxButton3" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
 position = Vector2(1541, 513)
 debug_mode = false
+target_wall = NodePath("../Statics/Walls/SolidWall17")
+wall_mode = 1
+
+[node name="BoxButton4" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+position = Vector2(1541, 513)
+debug_mode = false
+target_wall = NodePath("../Statics/Semisolids/SemiSolidGround10")
 wall_mode = 1
 
 [node name="PlayerStateReset" parent="." instance=ExtResource("2_tbe4x")]
@@ -124,6 +132,15 @@ position = Vector2(3900, -578)
 [node name="SolidWall16" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
 position = Vector2(3900, -778)
 
+[node name="SolidWall19" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(0, -1080)
+
+[node name="SolidWall20" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(-500, -1080)
+
+[node name="SolidWall17" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+position = Vector2(1300, 22)
+
 [node name="Semisolids" type="Node2D" parent="Statics"]
 
 [node name="SemiSolidGround" parent="Statics/Semisolids" instance=ExtResource("10_hx4q4")]
@@ -146,6 +163,15 @@ position = Vector2(3650, -278)
 
 [node name="SemiSolidGround8" parent="Statics/Semisolids" instance=ExtResource("10_hx4q4")]
 position = Vector2(3350, -578)
+
+[node name="SemiSolidGround6" parent="Statics/Semisolids" instance=ExtResource("13_3pcd5")]
+position = Vector2(-943, -778)
+
+[node name="SemiSolidGround10" parent="Statics/Semisolids" instance=ExtResource("5_y6k7c")]
+position = Vector2(300, -778)
+
+[node name="SemiSolidGround9" parent="Statics/Semisolids" instance=ExtResource("10_hx4q4")]
+position = Vector2(1450, -478)
 
 [node name="Ground" type="Node2D" parent="Statics"]
 
@@ -190,6 +216,9 @@ position = Vector2(2650, 422)
 
 [node name="SolidGound14" parent="Statics/Ground" instance=ExtResource("13_ox076")]
 position = Vector2(3350, 322)
+
+[node name="SolidGound15" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
+position = Vector2(-250, -1180)
 
 [node name="Player" parent="." instance=ExtResource("3_cxlf7")]
 

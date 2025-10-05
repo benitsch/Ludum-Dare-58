@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c58ol5kq2lldg"]
 
-[ext_resource type="Script" uid="uid://dabjiscm2hoks" path="res://Scenes/objects/box_button.gd" id="1_0saxe"]
+[ext_resource type="Script" path="res://Scenes/objects/box_button.gd" id="1_0saxe"]
 [ext_resource type="Texture2D" uid="uid://cffdsmjvddnhl" path="res://assets/button/box_button.png" id="2_indhu"]
 [ext_resource type="Texture2D" uid="uid://cnwt7t30fb0nx" path="res://assets/button/box_button_pressed.png" id="3_cssl1"]
 
@@ -8,7 +8,7 @@
 size = Vector2(64, 16)
 
 [node name="BoxButton" type="Area2D" node_paths=PackedStringArray("sprite_off", "sprite_on")]
-collision_layer = 4
+collision_layer = 16
 collision_mask = 4
 script = ExtResource("1_0saxe")
 sprite_off = NodePath("Sprite Off")

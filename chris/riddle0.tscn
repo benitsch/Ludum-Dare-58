@@ -1,15 +1,15 @@
 [gd_scene load_steps=21 format=3 uid="uid://blrmhs53itx8r"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_gqotu"]
-[ext_resource type="PackedScene" uid="uid://ckttkdqtjwlnv" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
 [ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="2_u0jjk"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="3_xsev2"]
-[ext_resource type="PackedScene" path="res://chris/Rotating_Wall.tscn" id="4_8vlnf"]
+[ext_resource type="PackedScene" uid="uid://d1t02mtwhsho0" path="res://chris/Rotating_Wall.tscn" id="4_8vlnf"]
 [ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="4_q8yft"]
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="5_6n5an"]
 [ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="5_qdwan"]
 [ext_resource type="PackedScene" path="res://chris/Toggle.tscn" id="5_xsev2"]
-[ext_resource type="PackedScene" path="res://chris/Rotating_Wall_Small.tscn" id="6_q8yft"]
+[ext_resource type="PackedScene" uid="uid://nnqivrg6gycy" path="res://chris/Rotating_Wall_Small.tscn" id="6_q8yft"]
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="7_gqotu"]
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="10_43l53"]
 [ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="10_q8yft"]
@@ -34,19 +34,11 @@ jump_allowd = true
 [node name="PushingBox" parent="." instance=ExtResource("1_gqotu")]
 position = Vector2(4918, 1170)
 
-[node name="Player1" parent="." instance=ExtResource("1_iinf0")]
-z_index = 1
-
-[node name="Camera2D" parent="Player1" index="2"]
-limit_left = -700
-limit_right = 8000
-limit_bottom = 1750
-
 [node name="Main Door Start" type="Node2D" parent="."]
 position = Vector2(-427, 150)
 
 [node name="RotatingWall" parent="Main Door Start" instance=ExtResource("4_8vlnf")]
-position = Vector2(766, 8)
+position = Vector2(758, 20)
 rotation = 3.1415927
 
 [node name="Toggle" parent="Main Door Start" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
@@ -56,7 +48,7 @@ target_wall = NodePath("../RotatingWall")
 position = Vector2(3246, 990)
 
 [node name="RotatingWall" parent="First Gate" instance=ExtResource("4_8vlnf")]
-position = Vector2(-952, -454)
+position = Vector2(-953, -473)
 
 [node name="Toggle" parent="First Gate" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
 target_wall = NodePath("../RotatingWall")
@@ -66,7 +58,7 @@ rotation_direction = -90
 position = Vector2(969, 1298)
 
 [node name="RotatingWallSmall" parent="Second Gate" instance=ExtResource("6_q8yft")]
-position = Vector2(2454, -313)
+position = Vector2(2454, -302)
 rotation = 3.1415927
 
 [node name="Toggle" parent="Second Gate" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
@@ -181,5 +173,13 @@ shape = SubResource("WorldBoundaryShape2D_u0jjk")
 
 [node name="LevelExit" parent="." instance=ExtResource("20_qbo7c")]
 position = Vector2(-700, -360)
+
+[node name="Player1" parent="." instance=ExtResource("1_iinf0")]
+z_index = 1
+
+[node name="Camera2D" parent="Player1" index="1"]
+limit_left = -700
+limit_right = 8000
+limit_bottom = 1750
 
 [editable path="Player1"]

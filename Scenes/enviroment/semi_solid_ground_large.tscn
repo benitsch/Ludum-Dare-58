@@ -5,7 +5,6 @@
 [node name="SemiSolidGround" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.69135684, 0.6913568, 0.69135684, 1)
 position = Vector2(-2, 45)
 texture = ExtResource("1_q3kkv")
 metadata/_edit_lock_ = true
