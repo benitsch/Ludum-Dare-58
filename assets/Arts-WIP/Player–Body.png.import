@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3qetfsexfi2e"
-valid=false
+uid="uid://xqrqqx68v4p7"
+path="res://.godot/imported/Player–Body.png-7fc50f443184b5ef7c7079943f3b8f94.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://assets/Arts-WIP/Player–Body.png"
+dest_files=["res://.godot/imported/Player–Body.png-7fc50f443184b5ef7c7079943f3b8f94.ctex"]
 
 [params]
 
