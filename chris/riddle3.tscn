@@ -47,29 +47,22 @@ position = Vector2(1541, 513)
 debug_mode = false
 wall_mode = 1
 
-[node name="BasePlayerStateArea" parent="." instance=ExtResource("2_tbe4x")]
+[node name="PlayerStateReset" parent="." instance=ExtResource("2_tbe4x")]
 set_jump_allowed = true
 jump_allowd = true
 
-[node name="BasePlayerStateArea2" parent="." instance=ExtResource("2_tbe4x")]
+[node name="PlayerStateGiveDash" parent="." instance=ExtResource("2_tbe4x")]
 position = Vector2(2650, 328)
 set_dash_allowed = true
 dash_allowed = true
 set_air_dash_count = true
 air_dash_count = 1
 
-[node name="Wing Collectable" parent="BasePlayerStateArea2" instance=ExtResource("4_ox076")]
+[node name="Wing Collectable" parent="PlayerStateGiveDash" instance=ExtResource("4_ox076")]
 
-[node name="Sprite2D" parent="BasePlayerStateArea2/Wing Collectable" index="1"]
+[node name="Sprite2D" parent="PlayerStateGiveDash/Wing Collectable" index="1"]
 texture = ExtResource("5_3pcd5")
 offset = Vector2(75, -75)
-
-[node name="Player" parent="." instance=ExtResource("3_cxlf7")]
-
-[node name="Camera2D" parent="Player" index="2"]
-limit_left = -2700
-limit_right = 4000
-limit_bottom = 1000
 
 [node name="Statics" type="Node2D" parent="."]
 
@@ -198,6 +191,13 @@ position = Vector2(2650, 422)
 [node name="SolidGound14" parent="Statics/Ground" instance=ExtResource("13_ox076")]
 position = Vector2(3350, 322)
 
+[node name="Player" parent="." instance=ExtResource("3_cxlf7")]
+
+[node name="Camera2D" parent="Player" index="1"]
+limit_left = -2700
+limit_right = 4000
+limit_bottom = 1000
+
 [node name="BaseDeathArea" parent="." instance=ExtResource("15_v6a4y")]
 position = Vector2(0, 1500)
 
@@ -207,5 +207,5 @@ shape = SubResource("WorldBoundaryShape2D_hx4q4")
 [node name="LevelExit" parent="." instance=ExtResource("18_p71kr")]
 position = Vector2(-2700, -478)
 
-[editable path="BasePlayerStateArea2/Wing Collectable"]
+[editable path="PlayerStateGiveDash/Wing Collectable"]
 [editable path="Player"]
