@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bgy03v83dmqwg"]
+[gd_scene load_steps=47 format=3 uid="uid://bgy03v83dmqwg"]
 
 [ext_resource type="Script" uid="uid://dbm8j44i6dtmb" path="res://Scripts/title_screen.gd" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://c8s3p8e248gfj" path="res://assets/Arts-WIP/Background01.png" id="2_ycay6"]
@@ -37,6 +37,8 @@
 [ext_resource type="Texture2D" uid="uid://dn6k14r4it14x" path="res://assets/Arts-WIP/Butterfly04–wing02.png" id="33_87con"]
 [ext_resource type="Texture2D" uid="uid://b6wjl8rr7bu10" path="res://assets/Arts-WIP/Butterfly04–wing03.png" id="34_2aetq"]
 [ext_resource type="Texture2D" uid="uid://iovlkmm5y1mw" path="res://assets/Arts-WIP/Butterfly04–wing01.png" id="35_4j2le"]
+[ext_resource type="Texture2D" uid="uid://snqtbb7om6fo" path="res://assets/Arts-WIP/ButtonA.png" id="38_gf25o"]
+[ext_resource type="Texture2D" uid="uid://bhbipx5kf7af4" path="res://assets/Arts-WIP/ButtonD.png" id="39_4ko3s"]
 
 [sub_resource type="Animation" id="Animation_twnyg"]
 length = 0.001
@@ -170,6 +172,7 @@ texture = ExtResource("16_2ia2x")
 texture = ExtResource("17_1hrlb")
 
 [node name="WingLeftDown" type="Sprite2D" parent="Node/ButterflyLeftUp"]
+unique_name_in_owner = true
 texture = ExtResource("18_q8b6m")
 script = ExtResource("11_sqelc")
 
@@ -186,6 +189,7 @@ position = Vector2(-700, 300)
 texture = ExtResource("21_1hrlb")
 
 [node name="WingLeftUp" type="Sprite2D" parent="Node/ButterflyLeftDown"]
+unique_name_in_owner = true
 texture = ExtResource("22_wsud6")
 script = ExtResource("11_sqelc")
 
@@ -211,6 +215,7 @@ texture = ExtResource("27_g3iaf")
 texture = ExtResource("28_qfn48")
 
 [node name="WingRightUp" type="Sprite2D" parent="Node/ButterflyRightUp"]
+unique_name_in_owner = true
 texture = ExtResource("29_vfwvj")
 script = ExtResource("11_sqelc")
 
@@ -233,10 +238,24 @@ texture = ExtResource("33_87con")
 texture = ExtResource("34_2aetq")
 
 [node name="WingRightDown" type="Sprite2D" parent="Node/ButterflyRightDown"]
+unique_name_in_owner = true
 texture = ExtResource("35_4j2le")
 script = ExtResource("11_sqelc")
 
+[node name="ShakeButtons" type="Node2D" parent="Node"]
+unique_name_in_owner = true
+
+[node name="ButtonA" type="Sprite2D" parent="Node/ShakeButtons"]
+position = Vector2(-150, 200)
+texture = ExtResource("38_gf25o")
+
+[node name="ButtonD" type="Sprite2D" parent="Node/ShakeButtons"]
+position = Vector2(150, 200)
+texture = ExtResource("39_4ko3s")
+
 [node name="SceneTransitionAnimation" parent="Node" instance=ExtResource("14_ycay6")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton" to="CanvasLayer/TitleScreen" method="_on_start_button_pressed"]
 [connection signal="screen_exited" from="Node/MainButterfly/Body/VisibleOnScreenNotifier2D" to="CanvasLayer/TitleScreen" method="_on_visible_on_screen_notifier_2d_screen_exited"]

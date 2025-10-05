@@ -9,21 +9,29 @@ var wingsToFallDown = []
 var last_input_time := 0.0
 var input_cooldown := 0.5
 
-@onready var SceneTransitionAnimation = $"../../Node/SceneTransitionAnimation/AnimationPlayer"
+@onready var SceneTransitionAnimation = %SceneTransitionAnimation/AnimationPlayer
+@onready var ShakeButtons = %ShakeButtons
 
 func _ready() -> void:
 	wingsToFallDown = [
-		$"../../Node/ButterflyLeftUp/WingLeftDown",
-		$"../../Node/ButterflyLeftDown/WingLeftUp",
-		$"../../Node/ButterflyRightUp/WingRightUp",
-		$"../../Node/ButterflyRightDown/WingRightDown"
+		%WingLeftDown,
+		%WingLeftUp,
+		%WingRightUp,
+		%WingRightDown
 	]
+	# SceneTransitionAnimation is invisible in the editor for better development,
+	# but we need the SceneTransitionAnimation visible
+	%SceneTransitionAnimation.visible = true
+	# ShakeButtons initially invisible & transparent
+	ShakeButtons.visible = true
+	ShakeButtons.modulate.a = 0.0
 	SceneTransitionAnimation.play("fade_out")
-	
+
 func _on_start_button_pressed() -> void:
 	userPressedStartButton = true
 	$"../../Node/Camera2D/AnimationPlayer".play("ZoomOut")
 	$StartButton.queue_free()
+	showShakeButtons()
 
 func _input(event: InputEvent) -> void:
 	if not userPressedStartButton:
@@ -54,6 +62,11 @@ func wingFallDown() -> void:
 		var chosen_wing = wingsToFallDown[random_index]
 		chosen_wing.fallDown()
 		wingsToFallDown.remove_at(random_index)
+
+func showShakeButtons() -> void:
+	await get_tree().create_timer(1.5).timeout
+	var tween = get_tree().create_tween()
+	tween.tween_property(ShakeButtons, "modulate:a", 1.0, 1.5)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	# When main butterfly falls down and leaves the screen
