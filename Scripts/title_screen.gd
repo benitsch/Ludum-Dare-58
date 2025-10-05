@@ -87,8 +87,10 @@ func wingFallDown() -> void:
 	if wingsToFallDown.size() > 0:
 		var random_index = randi() % wingsToFallDown.size()
 		var chosen_wing = wingsToFallDown[random_index]
+		chosen_wing.reparent($"../../Node/fallen_wings")
 		chosen_wing.fallDown()
 		wingsToFallDown.remove_at(random_index)
+		
 
 func showShakeButtons() -> void:
 	await get_tree().create_timer(1.5).timeout
