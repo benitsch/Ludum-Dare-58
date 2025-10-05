@@ -7,6 +7,7 @@
 size = Vector2(200, 20)
 
 [node name="BaseDeathArea" instance=ExtResource("1_2165i")]
+kill_directional = true
 
 [node name="Square" type="Sprite2D" parent="." index="0"]
 self_modulate = Color(1, 0, 0, 1)
