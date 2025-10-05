@@ -8,15 +8,15 @@
 [ext_resource type="Script" uid="uid://by0ddd7sx2hqr" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="6_w5sh6"]
 [ext_resource type="Script" uid="uid://cdieqvotu6bmh" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="7_o1e67"]
 [ext_resource type="Script" uid="uid://ct8qs6ohbgkcp" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="8_ycay6"]
-[ext_resource type="Texture2D" uid="uid://djq5ophhcl2ul" path="res://assets/Arts-WIP/Player–Body–start.png" id="9_k1y01"]
+[ext_resource type="Texture2D" uid="uid://b40gwbactfwvp" path="res://assets/Arts-WIP/Player-Body-start.png" id="9_4ko3s"]
 [ext_resource type="Script" uid="uid://b6a3og2e0da8c" path="res://addons/shaker/data/Vector2/ShakerTypeSquareWave2D.gd" id="10_8mikk"]
 [ext_resource type="Script" uid="uid://cu3w44hcpf7c7" path="res://Scripts/main_butterfly.gd" id="10_o1e67"]
 [ext_resource type="Script" uid="uid://bwvucpmlmk0jw" path="res://Scripts/butterfly_wing.gd" id="11_sqelc"]
-[ext_resource type="Texture2D" uid="uid://bj7fcsf7idsgu" path="res://assets/Arts-WIP/Player–Wing03–start.png" id="12_4blwa"]
-[ext_resource type="Texture2D" uid="uid://bkkaly4jygfrx" path="res://assets/Arts-WIP/Player–Wing04–start.png" id="13_vqgqr"]
-[ext_resource type="Texture2D" uid="uid://o8it2kb2yavt" path="res://assets/Arts-WIP/Player–Wing02–start.png" id="14_pcucl"]
+[ext_resource type="Texture2D" uid="uid://c821hwh2d20ar" path="res://assets/Arts-WIP/Player-Wing03-start.png" id="12_5sgjo"]
+[ext_resource type="Texture2D" uid="uid://676mu4jlfbmw" path="res://assets/Arts-WIP/Player-Wing02-start.png" id="13_t1jex"]
+[ext_resource type="Texture2D" uid="uid://1bj7313jvcam" path="res://assets/Arts-WIP/Player-Wing04-start.png" id="14_g3iaf"]
 [ext_resource type="PackedScene" uid="uid://0axorjkbj4ng" path="res://Scenes/scene_transition_animation.tscn" id="14_ycay6"]
-[ext_resource type="Texture2D" uid="uid://coma080e48fpp" path="res://assets/Arts-WIP/Player–Wing01–start.png" id="15_2txeq"]
+[ext_resource type="Texture2D" uid="uid://bkvnb0d0qjlbo" path="res://assets/Arts-WIP/Player-Wing01-start.png" id="15_qfn48"]
 [ext_resource type="Texture2D" uid="uid://cdpg3ukup5vev" path="res://assets/Arts-WIP/Butterfly01–Body.png" id="16_2ia2x"]
 [ext_resource type="Texture2D" uid="uid://df3eqp7yilpvf" path="res://assets/Arts-WIP/Butterfly01–wing02.png" id="17_1hrlb"]
 [ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="18_q8b6m"]
@@ -160,7 +160,7 @@ position = Vector2(50, 150)
 
 [node name="MainButterflyBody" type="Sprite2D" parent="Node/MainButterfly"]
 unique_name_in_owner = true
-texture = ExtResource("9_k1y01")
+texture = ExtResource("9_4ko3s")
 script = ExtResource("10_o1e67")
 
 [node name="MainButterflyShakerComponent2D" type="Node2D" parent="Node/MainButterfly/MainButterflyBody"]
@@ -174,16 +174,16 @@ metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 rect = Rect2(-110, -305, 111, 254)
 
 [node name="WingLeftUp" type="Sprite2D" parent="Node/MainButterfly"]
-texture = ExtResource("12_4blwa")
+texture = ExtResource("12_5sgjo")
 
 [node name="WingLeftDown" type="Sprite2D" parent="Node/MainButterfly"]
-texture = ExtResource("13_vqgqr")
+texture = ExtResource("13_t1jex")
 
 [node name="WingRightUp" type="Sprite2D" parent="Node/MainButterfly"]
-texture = ExtResource("14_pcucl")
+texture = ExtResource("14_g3iaf")
 
 [node name="WingRightDown" type="Sprite2D" parent="Node/MainButterfly"]
-texture = ExtResource("15_2txeq")
+texture = ExtResource("15_qfn48")
 
 [node name="ButterflyLeftUp" type="Sprite2D" parent="Node"]
 position = Vector2(-700, -450)
