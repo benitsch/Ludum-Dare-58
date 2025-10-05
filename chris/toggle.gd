@@ -10,6 +10,7 @@ extends Area2D
 var is_right = false
 var can_toggle = true
 var static_sprite_offset: Vector2 = Vector2.ZERO
+var timeout : float = 0.0
 
 func _ready():
 	# Connect the body_entered signal
@@ -34,7 +35,9 @@ func _ready():
 		# Jetzt setze top_level
 		static_sprite.top_level = true
 
-func _process(_delta):
+func _process(delta):
+	if timeout > 0: timeout -= delta
+	
 	# Keep static sprite at toggle position + offset without rotation
 	if static_sprite:
 		static_sprite.global_position = global_position + static_sprite_offset
@@ -60,11 +63,10 @@ func toggle_switch():
 	tween_toggle.tween_property(self, "rotation_degrees", toggle_rotation, 0.3)
 	
 	# Rotate the wall
-	if target_wall:
-		rotate_wall()
+	if target_wall: rotate_wall()
 	
 	# Prevent rapid toggling
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1.5).timeout
 	can_toggle = true
 
 func rotate_wall():
