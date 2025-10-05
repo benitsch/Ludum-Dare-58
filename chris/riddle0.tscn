@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://blrmhs53itx8r"]
+[gd_scene load_steps=21 format=3 uid="uid://blrmhs53itx8r"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_gqotu"]
 [ext_resource type="PackedScene" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
@@ -18,20 +18,76 @@
 [ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="12_cr7m2"]
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="13_gqotu"]
 
+[sub_resource type="Animation" id="Animation_7uhty"]
+resource_name = "wing sway"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 2.3333333, 3.7666667, 5.4333334, 5.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.3490658503988659, 0.0, 0.2617993877991494, -0.17453292519943295, -0.4537856055185257, -0.3490658503988659]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.0333333, 3.0333333, 4.0333333, 5.0666666, 5.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-3.505, 2.985), Vector2(-3.42, -5.85), Vector2(2.815, 2.485), Vector2(3.495, -3.49), Vector2(-3.26, 1.685), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sdbcr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u0jjk"]
+_data = {
+&"RESET": SubResource("Animation_sdbcr"),
+&"wing sway": SubResource("Animation_7uhty")
+}
+
 [node name="Riddle0" type="Node2D"]
 
 [node name="BasePlayerStateArea" parent="." instance=ExtResource("10_43l53")]
-position = Vector2(3698, 589)
+position = Vector2(3703, 589)
 set_jump_allowed = true
 jump_allowd = true
 
 [node name="ParticleTest" parent="BasePlayerStateArea" instance=ExtResource("3_sdbcr")]
-position = Vector2(13, 46)
 
 [node name="Sprite2D" type="Sprite2D" parent="BasePlayerStateArea"]
-position = Vector2(-97, 114)
-scale = Vector2(0.75, 0.75)
+rotation = -0.34834814
+scale = Vector2(0.54999995, 0.54999995)
 texture = ExtResource("2_7uhty")
+offset = Vector2(-145, 90)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BasePlayerStateArea"]
+libraries = {
+&"": SubResource("AnimationLibrary_u0jjk")
+}
+autoplay = "wing sway"
 
 [node name="PushingBox" parent="." instance=ExtResource("1_gqotu")]
 position = Vector2(4918, 1170)
