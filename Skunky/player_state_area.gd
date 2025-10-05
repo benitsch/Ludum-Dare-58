@@ -18,13 +18,12 @@ func _init() -> void:
 
 
 func body_entered(body: Node2D) -> void:
-	if body is Player:
-		if set_jump_allowed:
-			PlayerState.can_jump = jump_allowd;
-		if set_air_jump_count:
-			PlayerState.air_jump_amount = air_jump_count;
-		if set_dash_allowed:
-			PlayerState.can_dash = dash_allowed;
-		if set_air_dash_count:
-			PlayerState.air_dash_amount = air_dash_count;
-		body.reset_animator()
+	if !(body is Player): return
+	
+	if set_jump_allowed: PlayerState.can_jump = jump_allowd;
+	if set_air_jump_count: PlayerState.air_jump_amount = air_jump_count;
+	if set_dash_allowed: PlayerState.can_dash = dash_allowed;
+	if set_air_dash_count: PlayerState.air_dash_amount = air_dash_count;
+	
+	body.reset_animator()
+	queue_free()
