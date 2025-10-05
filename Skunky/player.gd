@@ -13,7 +13,7 @@ class_name Player
 @export var air_deceleration := 0.4
 @export var dashing_time: float = .15
 @export var dash_length: float = 300
-@export var push_force: int = 4500
+@export var push_force: int = 200
 @export var dying_time: float = 1
 @export var spawning_time: float = 1
 
@@ -80,9 +80,8 @@ func _physics_process(delta: float) -> void:
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
 			var r : RigidBody2D
-			r = c.get_collider()
-			r.apply_central_force(-c.get_normal() * push_force)
-			if r.linear_velocity.x > speed * 3 / 4: r.linear_velocity.x = speed * 3 / 4 
+			r = c.get_collider() 
+			if abs(r.linear_velocity.x) < push_force : r.linear_velocity.x = -c.get_normal().x * push_force
 	
 	input = 0;
 

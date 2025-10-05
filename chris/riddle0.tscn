@@ -1,22 +1,23 @@
-[gd_scene load_steps=23 format=3 uid="uid://blrmhs53itx8r"]
+[gd_scene load_steps=24 format=3 uid="uid://blrmhs53itx8r"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_gqotu"]
-[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
+[ext_resource type="PackedScene" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
 [ext_resource type="Texture2D" uid="uid://beo3tp3kuutd8" path="res://assets/Arts-WIP/Butterfly03–wing03.png" id="2_7uhty"]
 [ext_resource type="PackedScene" uid="uid://bodt58pl6kojk" path="res://nata/wingParticle.tscn" id="3_sdbcr"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="3_xsev2"]
-[ext_resource type="PackedScene" uid="uid://bd1svudgtdt5c" path="res://chris/Rotating_Wall.tscn" id="4_8vlnf"]
+[ext_resource type="PackedScene" path="res://chris/Rotating_Wall.tscn" id="4_8vlnf"]
 [ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="4_q8yft"]
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="5_6n5an"]
 [ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="5_qdwan"]
-[ext_resource type="PackedScene" uid="uid://kg2c7ccba5ap" path="res://chris/Toggle.tscn" id="5_xsev2"]
-[ext_resource type="PackedScene" uid="uid://wipd2vjhhahm" path="res://chris/Rotating_Wall_Small.tscn" id="6_q8yft"]
+[ext_resource type="PackedScene" path="res://chris/Toggle.tscn" id="5_xsev2"]
+[ext_resource type="PackedScene" path="res://chris/Rotating_Wall_Small.tscn" id="6_q8yft"]
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="7_gqotu"]
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="10_43l53"]
 [ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="10_q8yft"]
 [ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="11_6n5an"]
 [ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="12_cr7m2"]
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="13_gqotu"]
+[ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="13_u0jjk"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_sdbcr"]
 
 [sub_resource type="Animation" id="Animation_sdbcr"]
@@ -170,6 +171,12 @@ position = Vector2(7020, 949)
 [node name="SemiSolidGround6" parent="Statics/#Sugestions" instance=ExtResource("5_6n5an")]
 position = Vector2(6420, 949)
 
+[node name="SemiSolidGround2" parent="Statics/#Sugestions" instance=ExtResource("13_u0jjk")]
+position = Vector2(3743, 345)
+
+[node name="SemiSolidGround3" parent="Statics/#Sugestions" instance=ExtResource("13_u0jjk")]
+position = Vector2(-309, -160)
+
 [node name="#Grounds" type="Node2D" parent="Statics"]
 
 [node name="SolidGound" parent="Statics/#Grounds" instance=ExtResource("5_qdwan")]
@@ -177,6 +184,9 @@ position = Vector2(241, 131)
 
 [node name="SolidGound2" parent="Statics/#Grounds" instance=ExtResource("5_qdwan")]
 position = Vector2(-359, 131)
+
+[node name="SolidGound12" parent="Statics/#Grounds" instance=ExtResource("5_qdwan")]
+position = Vector2(-759, -369)
 
 [node name="SolidGound3" parent="Statics/#Grounds" instance=ExtResource("5_qdwan")]
 position = Vector2(2852, 975)
@@ -230,5 +240,36 @@ position = Vector2(5250, 2200)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/BaseDeathArea"]
 shape = SubResource("WorldBoundaryShape2D_u0jjk")
+
+[node name="LevelExit" type="Node2D" parent="."]
+position = Vector2(-700, -365)
+
+[node name="Particle highlight" parent="LevelExit" instance=ExtResource("3_sdbcr")]
+position = Vector2(0, -50)
+scale = Vector2(0.5, 1)
+
+[node name="Particle highlight2" parent="LevelExit" instance=ExtResource("3_sdbcr")]
+position = Vector2(0, -75)
+scale = Vector2(0.5, 1)
+
+[node name="Particle highlight3" parent="LevelExit" instance=ExtResource("3_sdbcr")]
+position = Vector2(0, -100)
+scale = Vector2(0.5, 1)
+
+[node name="Particle highlight4" parent="LevelExit" instance=ExtResource("3_sdbcr")]
+position = Vector2(0, -125)
+scale = Vector2(0.5, 1)
+
+[node name="Particle highlight5" parent="LevelExit" instance=ExtResource("3_sdbcr")]
+position = Vector2(0, -150)
+scale = Vector2(0.5, 1)
+
+[node name="Particle highlight6" parent="LevelExit" instance=ExtResource("3_sdbcr")]
+position = Vector2(0, -175)
+scale = Vector2(0.5, 1)
+
+[node name="Particle highlight7" parent="LevelExit" instance=ExtResource("3_sdbcr")]
+position = Vector2(0, -200)
+scale = Vector2(0.5, 1)
 
 [editable path="Player1"]
