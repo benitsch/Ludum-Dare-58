@@ -7,6 +7,7 @@
 script = ExtResource("1_c4ak2")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 34
 
 [node name="Circle" type="Sprite2D" parent="RayCast2D"]
 position = Vector2(0, 200)
