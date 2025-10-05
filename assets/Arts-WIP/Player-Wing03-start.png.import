@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://damv14pglutn3"
-path="res://.godot/imported/Player–Wing–Right–top.png-b011e6e779df248379476bbfd5ec09c0.ctex"
+uid="uid://c821hwh2d20ar"
+path="res://.godot/imported/Player-Wing03-start.png-2f4a7dcb5297e7993af8a9eec3a08ddb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Arts-WIP/Player–Wing–Right–top.png"
-dest_files=["res://.godot/imported/Player–Wing–Right–top.png-b011e6e779df248379476bbfd5ec09c0.ctex"]
+source_file="res://assets/Arts-WIP/Player-Wing03-start.png"
+dest_files=["res://.godot/imported/Player-Wing03-start.png-2f4a7dcb5297e7993af8a9eec3a08ddb.ctex"]
 
 [params]
 

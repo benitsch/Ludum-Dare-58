@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cctp3xjr27sf4"
-path="res://.godot/imported/Player–Wing–left–bottom.png-07c835c4a0109e95050308bb5fe590d1.ctex"
+uid="uid://676mu4jlfbmw"
+path="res://.godot/imported/Player-Wing02-start.png-226e3a2c27e9879201c7d9915d7ff135.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Arts-WIP/Player–Wing–left–bottom.png"
-dest_files=["res://.godot/imported/Player–Wing–left–bottom.png-07c835c4a0109e95050308bb5fe590d1.ctex"]
+source_file="res://assets/Arts-WIP/Player-Wing02-start.png"
+dest_files=["res://.godot/imported/Player-Wing02-start.png-226e3a2c27e9879201c7d9915d7ff135.ctex"]
 
 [params]
 
