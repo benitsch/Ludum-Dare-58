@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0ntdkaxgefta"]
+
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_2xrph"]
+[ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="2_7lf0x"]
+[ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="3_8tlpq"]
+[ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="4_mkyp2"]
+[ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="5_qab1p"]
+[ext_resource type="PackedScene" uid="uid://kg2c7ccba5ap" path="res://chris/Toggle.tscn" id="6_urdtm"]
+[ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="7_7lf0x"]
+[ext_resource type="PackedScene" uid="uid://da4prwg6ru22i" path="res://mireyu/Mirror.tscn" id="8_7lf0x"]
+[ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="9_8tlpq"]
+
+[node name="TestLamps" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_2xrph")]
+
+[node name="SemiSolidGround" parent="." instance=ExtResource("2_7lf0x")]
+position = Vector2(1041, -385)
+
+[node name="SolidGound" parent="." instance=ExtResource("3_8tlpq")]
+position = Vector2(1, 127)
+
+[node name="SolidGound3" parent="." instance=ExtResource("3_8tlpq")]
+position = Vector2(901, 127)
+
+[node name="SolidLopeLeft" parent="." instance=ExtResource("4_mkyp2")]
+position = Vector2(-599, 127)
+
+[node name="SemiSolidGround2" parent="." instance=ExtResource("2_7lf0x")]
+position = Vector2(-1199, 127)
+
+[node name="SolidWall" parent="." instance=ExtResource("5_qab1p")]
+position = Vector2(462, 128)
+
+[node name="Toggle" parent="." instance=ExtResource("6_urdtm")]
+position = Vector2(-1430, 123)
+
+[node name="Lamp" parent="." instance=ExtResource("7_7lf0x")]
+visible = false
+position = Vector2(-255, -271.99997)
+rotation = -1.8640116
+
+[node name="Mirror" parent="." instance=ExtResource("8_7lf0x")]
+position = Vector2(-341, -567)
+
+[node name="Mirror2" parent="." instance=ExtResource("8_7lf0x")]
+position = Vector2(-677, -494)
+
+[node name="Lamp2" parent="." instance=ExtResource("7_7lf0x")]
+position = Vector2(-448.00006, -598)
+rotation = -1.3962634
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="LightCollector" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8tlpq")]
+position = Vector2(-213, -441)
+target = NodePath("../SolidWall")
+positionModification = Vector2(0, -300)

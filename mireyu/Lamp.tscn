@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bti63t2a4tx4d"]
+
+[ext_resource type="Script" uid="uid://d28rtrykxd0kg" path="res://mireyu/Lamp.gd" id="1_c4ak2"]
+[ext_resource type="Texture2D" uid="uid://dj3sm7m3u402q" path="res://assets/Circle.png" id="2_ombgf"]
+
+[node name="Lamp" type="Node2D"]
+script = ExtResource("1_c4ak2")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Circle" type="Sprite2D" parent="RayCast2D"]
+position = Vector2(0, 200)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_ombgf")
+
+[node name="Line2D" type="Line2D" parent="."]
