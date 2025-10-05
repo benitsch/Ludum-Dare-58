@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://csesghfgympjx"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_dmhhv"]
-[ext_resource type="PackedScene" path="res://Skunky/base_player_state_area.tscn" id="2_tbe4x"]
-[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Skunky/player.tscn" id="3_cxlf7"]
+[ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="2_tbe4x"]
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="3_cxlf7"]
 [ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="4_tppea"]
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="5_y6k7c"]
 [ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="6_pd5wm"]
