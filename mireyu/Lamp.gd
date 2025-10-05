@@ -10,9 +10,11 @@ var beamPoints: Array[Vector2] = []
 var currentStart: Vector2
 var currentDirection: Vector2
 var hitCollectors: Array[LightCollector] = []
+var timeAccumulation := 0.0
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	castLightBeam()
+	dynamicLightCurve(delta)
 
 func castLightBeam() -> void:
 	beamPoints.clear()
@@ -23,7 +25,7 @@ func castLightBeam() -> void:
 	castLightUntilNextPoint(maxBounces)
 
 	line.points = beamPoints
-	line.width = 80
+	line.width = 68
 	line.gradient = preload("res://mireyu/LightGradient.tres")
 	line.default_color = Color(1, 1, 0.3, 0.6) # yellowish light
 
@@ -69,3 +71,9 @@ func reflectMirror(direction: Vector2, collisionPoint: Vector2) -> void:
 	var normal = ray.get_collision_normal()
 	direction = direction.bounce(normal).normalized()
 	global_position = collisionPoint + direction * 2.0
+
+func dynamicLightCurve(delta: float) -> void:
+	# slight pulsing of the light to the end
+	var curve: Curve = line.width_curve
+	timeAccumulation = fmod(timeAccumulation + delta, 2 * PI)
+	curve.set_point_offset(1, 0.9 + sin(timeAccumulation) / 10)
