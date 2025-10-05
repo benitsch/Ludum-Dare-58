@@ -1,8 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwojakv10bfb6"]
+[gd_scene load_steps=17 format=3 uid="uid://bwojakv10bfb6"]
 
 [ext_resource type="Texture2D" uid="uid://c1wu7ljc0xg76" path="res://assets/Player/Idle/Lines0001.png" id="1_3mn1g"]
+[ext_resource type="Texture2D" uid="uid://bli62um6xhhy3" path="res://assets/Player/dash/left/player dash l 4/player dash l 4-0001.png" id="1_xttl5"]
 [ext_resource type="Texture2D" uid="uid://rhmpwxgi4sm" path="res://assets/Player/Idle/Lines0002.png" id="2_1mlql"]
+[ext_resource type="Texture2D" uid="uid://dpnpjgggrrb8w" path="res://assets/Player/dash/left/player dash l 4/player dash l 4-0002.png" id="2_xgplt"]
 [ext_resource type="Texture2D" uid="uid://crq4bsrotbmx8" path="res://assets/Player/Idle/Lines0003.png" id="3_e6rog"]
+[ext_resource type="Texture2D" uid="uid://dq7qdlx58kio4" path="res://assets/Player/dash/right/player dash r 4/player dash r 4-0001.png" id="3_ms5iy"]
+[ext_resource type="Texture2D" uid="uid://bwnc5b6l1jvqi" path="res://assets/Player/dash/right/player dash r 4/player dash r 4-0002.png" id="4_p16q2"]
 [ext_resource type="Texture2D" uid="uid://v5hs6h5pji50" path="res://assets/Player/walk/left/player l  4-0001.png" id="4_tp57b"]
 [ext_resource type="Texture2D" uid="uid://bwby2sh4r6ebp" path="res://assets/Player/walk/left/player l  4-0002.png" id="5_qt1l5"]
 [ext_resource type="Texture2D" uid="uid://7a8cfi56gbgf" path="res://assets/Player/walk/left/player l  4-0003.png" id="6_kk5ny"]
@@ -16,37 +20,25 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_tp57b")
+"texture": ExtResource("1_xttl5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_qt1l5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_kk5ny")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_pvq11")
+"texture": ExtResource("2_xgplt")
 }],
 "loop": true,
 "name": &"dash-left",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_ynq8m")
+"texture": ExtResource("3_ms5iy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_tp57b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_qt1l5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_kk5ny")
+"texture": ExtResource("4_p16q2")
 }],
 "loop": true,
 "name": &"dash-right",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -253,5 +245,7 @@ animations = [{
 
 [node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_pvq11")
-animation = &"walk-right"
+animation = &"dash-right"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.81986237
