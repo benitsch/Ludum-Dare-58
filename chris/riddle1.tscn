@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://srxaeowd8ro0"]
 
-[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Skunky/player.tscn" id="1_ti3v4"]
+[ext_resource type="PackedScene" path="res://Scenes/player/Player.tscn" id="1_ti3v4"]
 [ext_resource type="Texture2D" uid="uid://dimcppqvicilx" path="res://assets/platform/Pad_1_3.png" id="2_5gif7"]
-[ext_resource type="PackedScene" uid="uid://bd1svudgtdt5c" path="res://chris/Rotating_Wall.tscn" id="2_njl0v"]
-[ext_resource type="PackedScene" uid="uid://kg2c7ccba5ap" path="res://chris/Toggle.tscn" id="3_bmgbt"]
+[ext_resource type="PackedScene" path="res://chris/Rotating_Wall.tscn" id="2_njl0v"]
+[ext_resource type="PackedScene" path="res://chris/Toggle.tscn" id="3_bmgbt"]
 [ext_resource type="Texture2D" uid="uid://dcea8w3e0ucgl" path="res://assets/platform/Pad_4_3.png" id="3_hn2hk"]
-[ext_resource type="PackedScene" uid="uid://wipd2vjhhahm" path="res://chris/Rotating_Wall_Small.tscn" id="4_bmgbt"]
+[ext_resource type="PackedScene" path="res://chris/Rotating_Wall_Small.tscn" id="4_bmgbt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rpyq"]
 size = Vector2(437, 20)
@@ -17,10 +17,6 @@ z_index = 1
 position = Vector2(101.000015, 296.00003)
 scale = Vector2(0.57277775, 0.437)
 collision_mask = 7
-
-[node name="Camera2D" type="Camera2D" parent="Player2"]
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
 
 [node name="Statics" type="Node2D" parent="."]
 
