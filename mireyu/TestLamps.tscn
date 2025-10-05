@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0ntdkaxgefta"]
+[gd_scene load_steps=11 format=3 uid="uid://d0ntdkaxgefta"]
 
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_2xrph"]
+[ext_resource type="Script" uid="uid://b71pq3h78app1" path="res://mireyu/TestLamps.gd" id="1_mkyp2"]
 [ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="2_7lf0x"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="3_8tlpq"]
 [ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="4_mkyp2"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="9_8tlpq"]
 
 [node name="TestLamps" type="Node2D"]
+script = ExtResource("1_mkyp2")
 
 [node name="Player" parent="." instance=ExtResource("1_2xrph")]
 
@@ -44,7 +46,8 @@ rotation = -1.8640116
 position = Vector2(-341, -567)
 
 [node name="Mirror2" parent="." instance=ExtResource("8_7lf0x")]
-position = Vector2(-677, -494)
+position = Vector2(-672, -535)
+rotation = 3.1346114
 
 [node name="Lamp2" parent="." instance=ExtResource("7_7lf0x")]
 position = Vector2(-448.00006, -598)
@@ -52,6 +55,6 @@ rotation = -1.3962634
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="LightCollector" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8tlpq")]
-position = Vector2(-213, -441)
+position = Vector2(-232, -457)
 target = NodePath("../SolidWall")
 positionModification = Vector2(0, -300)
