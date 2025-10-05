@@ -55,6 +55,6 @@ rotation = -1.3962634
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="LightCollector" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8tlpq")]
-position = Vector2(-232, -457)
+position = Vector2(-273, -195)
 target = NodePath("../SolidWall")
 positionModification = Vector2(0, -300)
