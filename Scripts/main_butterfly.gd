@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 var falling = false
 var speed = 0.0

@@ -35,6 +35,7 @@ func _on_start_button_pressed() -> void:
 
 	userPressedStartButton = true
 	%CameraAnimationPlayer.play("ZoomOut")
+	%AnimPlayer.play("start")
 	
 	if is_instance_valid(%StartButton):
 		var tween = get_tree().create_tween()
@@ -57,6 +58,9 @@ func _input(event: InputEvent) -> void:
 
 	if event is InputEventKey and (Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right")):
 		# Delete ShakeButtons, because User has already pressed A/D buttons
+		if %AnimPlayer.get_animation() != "wiggle":
+			%AnimPlayer.play("wiggle")
+
 		if is_instance_valid(ShakeButtons):
 			hideShakeButtons()
 
@@ -78,6 +82,7 @@ func handle_shake() -> void:
 	if !mainButterflyIsFalling && allShakesDone >= maxShakesAllowed:
 		mainButterflyIsFalling = true
 		%MainButterflyBody.fallDown()
+		%AnimPlayer.fallDown()
 
 func playShakes() -> void:
 	%MainButterflyShakerComponent2D.play_shake()
