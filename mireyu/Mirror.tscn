@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://da4prwg6ru22i"]
+[gd_scene load_steps=4 format=3 uid="uid://da4prwg6ru22i"]
 
 [ext_resource type="Script" uid="uid://bdethyr3rrut8" path="res://mireyu/Mirror.gd" id="1_01cg2"]
+[ext_resource type="Texture2D" uid="uid://cuhwctw8vr4vt" path="res://assets/Arts-WIP/Mirror.png" id="2_am3tl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lf0x"]
-size = Vector2(50, 140)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am3tl"]
+size = Vector2(64, 322)
 
 [node name="Mirror" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 32
 script = ExtResource("1_01cg2")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -25.0
-offset_top = -70.0
-offset_right = 25.0
-offset_bottom = 70.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_am3tl")
+offset = Vector2(-23, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7lf0x")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_am3tl")
