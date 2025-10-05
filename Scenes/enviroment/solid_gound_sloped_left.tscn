@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vjwg8k885lsr" path="res://assets/Arts-WIP/GroundSmall.png" id="1_ia1ov"]
 [ext_resource type="Texture2D" uid="uid://wsd6vun3wr75" path="res://assets/Arts-WIP/GroundLarge_.png" id="2_ky5vh"]
 
-[node name="SolidLopeLeft" type="StaticBody2D"]
+[node name="SolidSlopeLeft" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 50)

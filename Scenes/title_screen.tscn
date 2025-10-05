@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bgy03v83dmqwg"]
+[gd_scene load_steps=51 format=3 uid="uid://bgy03v83dmqwg"]
 
 [ext_resource type="Script" uid="uid://dbm8j44i6dtmb" path="res://Scripts/title_screen.gd" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://c8s3p8e248gfj" path="res://assets/Arts-WIP/Background01.png" id="2_ycay6"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dn6k14r4it14x" path="res://assets/Arts-WIP/Butterfly04–wing02.png" id="33_87con"]
 [ext_resource type="Texture2D" uid="uid://b6wjl8rr7bu10" path="res://assets/Arts-WIP/Butterfly04–wing03.png" id="34_2aetq"]
 [ext_resource type="Texture2D" uid="uid://iovlkmm5y1mw" path="res://assets/Arts-WIP/Butterfly04–wing01.png" id="35_4j2le"]
+[ext_resource type="Script" uid="uid://vpvv4od65jlj" path="res://addons/shaker/data/Single/ShakerTypeSineWave1D.gd" id="38_4ko3s"]
 [ext_resource type="Texture2D" uid="uid://snqtbb7om6fo" path="res://assets/Arts-WIP/ButtonA.png" id="38_gf25o"]
 [ext_resource type="Texture2D" uid="uid://bhbipx5kf7af4" path="res://assets/Arts-WIP/ButtonD.png" id="39_4ko3s"]
 
@@ -82,6 +83,22 @@ script = ExtResource("8_ycay6")
 PositionShake = Array[ExtResource("5_sqelc")]([SubResource("Resource_padx4")])
 metadata/_custom_type_script = "uid://ct8qs6ohbgkcp"
 
+[sub_resource type="Resource" id="Resource_5sgjo"]
+script = ExtResource("5_sqelc")
+metadata/_custom_type_script = "uid://buxgkvex4moma"
+
+[sub_resource type="Resource" id="Resource_t1jex"]
+script = ExtResource("38_4ko3s")
+frequency = 1.5
+amplitude = 0.1
+metadata/_custom_type_script = "uid://vpvv4od65jlj"
+
+[sub_resource type="Resource" id="Resource_g3iaf"]
+script = ExtResource("8_ycay6")
+PositionShake = Array[ExtResource("5_sqelc")]([SubResource("Resource_5sgjo")])
+RotationShake = Array[ExtResource("7_o1e67")]([SubResource("Resource_t1jex")])
+metadata/_custom_type_script = "uid://ct8qs6ohbgkcp"
+
 [node name="Node" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -96,6 +113,7 @@ grow_vertical = 2
 script = ExtResource("1_klylv")
 
 [node name="StartButton" type="Button" parent="CanvasLayer/TitleScreen"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -118,18 +136,21 @@ texture = ExtResource("2_ycay6")
 [node name="Camera2D" type="Camera2D" parent="Node"]
 zoom = Vector2(0.5, 0.5)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node/Camera2D"]
+[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="Node/Camera2D"]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_55kwv")
 }
 
 [node name="ButterflyBoard" type="Sprite2D" parent="Node"]
-position = Vector2(40, 90)
+position = Vector2(40.000008, 89.99996)
 scale = Vector2(1.4460641, 1.3626943)
 texture = ExtResource("3_ycay6")
 
-[node name="ShakerComponent2D" type="Node2D" parent="Node/ButterflyBoard"]
+[node name="ButterflyBoardShakerComponent2D" type="Node2D" parent="Node/ButterflyBoard"]
+unique_name_in_owner = true
 script = ExtResource("4_55kwv")
+intensity = 5.0
 duration = 1.0
 shakerPreset = SubResource("Resource_07cxn")
 metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
@@ -137,17 +158,19 @@ metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 [node name="MainButterfly" type="Sprite2D" parent="Node"]
 position = Vector2(50, 150)
 
-[node name="Body" type="Sprite2D" parent="Node/MainButterfly"]
+[node name="MainButterflyBody" type="Sprite2D" parent="Node/MainButterfly"]
+unique_name_in_owner = true
 texture = ExtResource("9_k1y01")
 script = ExtResource("10_o1e67")
 
-[node name="ShakerComponent2D" type="Node2D" parent="Node/MainButterfly/Body"]
+[node name="MainButterflyShakerComponent2D" type="Node2D" parent="Node/MainButterfly/MainButterflyBody"]
+unique_name_in_owner = true
 script = ExtResource("4_55kwv")
 duration = 1.0
 shakerPreset = SubResource("Resource_sqelc")
 metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Node/MainButterfly/Body"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Node/MainButterfly/MainButterflyBody"]
 rect = Rect2(-110, -305, 111, 254)
 
 [node name="WingLeftUp" type="Sprite2D" parent="Node/MainButterfly"]
@@ -246,16 +269,34 @@ script = ExtResource("11_sqelc")
 unique_name_in_owner = true
 
 [node name="ButtonA" type="Sprite2D" parent="Node/ShakeButtons"]
-position = Vector2(-150, 200)
+position = Vector2(-150.00014, 200.00023)
+rotation = 0.066225484
 texture = ExtResource("38_gf25o")
+
+[node name="ButtonAShakerComponent2D" type="Node2D" parent="Node/ShakeButtons/ButtonA"]
+unique_name_in_owner = true
+script = ExtResource("4_55kwv")
+intensity = 0.5
+shakerPreset = SubResource("Resource_g3iaf")
+metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 
 [node name="ButtonD" type="Sprite2D" parent="Node/ShakeButtons"]
 position = Vector2(150, 200)
+rotation = -0.07711135
 texture = ExtResource("39_4ko3s")
+
+[node name="ButtonBShakerComponent2D2" type="Node2D" parent="Node/ShakeButtons/ButtonD"]
+unique_name_in_owner = true
+position = Vector2(-300.00012, 0.00022888184)
+rotation = -0.043487906
+script = ExtResource("4_55kwv")
+intensity = 0.5
+shakerPreset = SubResource("Resource_g3iaf")
+metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 
 [node name="SceneTransitionAnimation" parent="Node" instance=ExtResource("14_ycay6")]
 unique_name_in_owner = true
 visible = false
 
 [connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton" to="CanvasLayer/TitleScreen" method="_on_start_button_pressed"]
-[connection signal="screen_exited" from="Node/MainButterfly/Body/VisibleOnScreenNotifier2D" to="CanvasLayer/TitleScreen" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Node/MainButterfly/MainButterflyBody/VisibleOnScreenNotifier2D" to="CanvasLayer/TitleScreen" method="_on_visible_on_screen_notifier_2d_screen_exited"]
