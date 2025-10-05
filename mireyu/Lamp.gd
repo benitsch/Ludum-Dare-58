@@ -9,6 +9,7 @@ extends Node2D
 var beamPoints: Array[Vector2] = []
 var currentStart: Vector2
 var currentDirection: Vector2
+var hitCollectors: Array[LightCollector] = []
 
 func _process(_delta: float) -> void:
 	castLightBeam()
@@ -41,15 +42,27 @@ func castLightUntilNextPoint(availableBounces: int) -> void:
 		beamPoints.append(to_local(collisionPoint))
 
 		if collider is Mirror:
-			var normal = ray.get_collision_normal().rotated(-rotation)
+			var normal: Vector2 = ray.get_collision_normal()
+			var dot = normal.dot(collider.global_transform.x)
+
+			if dot >= 0:
+				return
+			
+			normal = normal.rotated(-rotation)
 			currentDirection = currentDirection.normalized().bounce(normal)
 			currentStart = collisionPoint + currentDirection.rotated(rotation) * 2.0
 			
 			castLightUntilNextPoint(availableBounces - 1)
-		elif collider.has_method("onBeamHit"):
+		elif collider is LightCollector:
+			if not hitCollectors.has(collider):
+				hitCollectors.append(collider)
 			collider.onBeamHit()
 	else:
 		beamPoints.append(to_local(ray.to_global(ray.target_position)))
+		if not hitCollectors.is_empty():
+			for collector in hitCollectors:
+				collector.onBeamLeave()
+			hitCollectors = []
 
 func reflectMirror(direction: Vector2, collisionPoint: Vector2) -> void:
 	# Get mirror normal and reflect
