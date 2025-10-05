@@ -1,10 +1,12 @@
 extends Control
 
-var userPressedStartButton = false
-var mainButterflyIsFalling = false
-var currentShakes = 0
-var maxShakesAllowed = 5
-var wingsToFallDown = []
+var userPressedStartButton := false
+var mainButterflyIsFalling := false
+var allShakesDone := 0
+var currentShakeCounterForWingFallDown := 0
+var maxShakesAllowed := 15
+var shakesPerWing := 3
+var wingsToFallDown := []
 
 var last_input_time := 0.0
 var input_cooldown := 0.5
@@ -28,16 +30,36 @@ func _ready() -> void:
 	SceneTransitionAnimation.play("fade_out")
 
 func _on_start_button_pressed() -> void:
+	if userPressedStartButton:
+		return
+
 	userPressedStartButton = true
-	$"../../Node/Camera2D/AnimationPlayer".play("ZoomOut")
-	$StartButton.queue_free()
+	%CameraAnimationPlayer.play("ZoomOut")
+	
+	if is_instance_valid(%StartButton):
+		var tween = get_tree().create_tween()
+		tween.tween_property(%StartButton, "modulate:a", 0.0, 0.5)
+		await tween.finished
+		if is_instance_valid(%StartButton):
+			%StartButton.queue_free()
+
 	showShakeButtons()
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	# When main butterfly falls down and leaves the screen
+	SceneTransitionAnimation.play("fade_in")
+	await SceneTransitionAnimation.animation_finished
+	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
 
 func _input(event: InputEvent) -> void:
 	if not userPressedStartButton:
 		return
 
 	if event is InputEventKey and (Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right")):
+		# Delete ShakeButtons, because User has already pressed A/D buttons
+		if is_instance_valid(ShakeButtons):
+			hideShakeButtons()
+
 		# Add input delay to avoid key spamming
 		var now = Time.get_ticks_msec() / 1000.0
 		if now - last_input_time >= input_cooldown:
@@ -45,16 +67,21 @@ func _input(event: InputEvent) -> void:
 			handle_shake()
 
 func handle_shake() -> void:
-	currentShakes += 1
+	allShakesDone += 1
+	currentShakeCounterForWingFallDown += 1
 	playShakes()
-	wingFallDown()
-	if !mainButterflyIsFalling && currentShakes >= maxShakesAllowed:
+	
+	if currentShakeCounterForWingFallDown >= shakesPerWing:
+		currentShakeCounterForWingFallDown = 0
+		wingFallDown()
+	
+	if !mainButterflyIsFalling && allShakesDone >= maxShakesAllowed:
 		mainButterflyIsFalling = true
-		$"../../Node/MainButterfly/Body".fallDown()
+		%MainButterflyBody.fallDown()
 
 func playShakes() -> void:
-	$"../../Node/MainButterfly/Body/ShakerComponent2D".play_shake()
-	$"../../Node/ButterflyBoard/ShakerComponent2D".play_shake()
+	%MainButterflyShakerComponent2D.play_shake()
+	%ButterflyBoardShakerComponent2D.play_shake()
 
 func wingFallDown() -> void:
 	if wingsToFallDown.size() > 0:
@@ -67,9 +94,11 @@ func showShakeButtons() -> void:
 	await get_tree().create_timer(1.5).timeout
 	var tween = get_tree().create_tween()
 	tween.tween_property(ShakeButtons, "modulate:a", 1.0, 1.5)
+	await get_tree().create_timer(3.5).timeout
+	if is_instance_valid(%ButtonAShakerComponent2D):
+		%ButtonAShakerComponent2D.play_shake()
+		%ButtonBShakerComponent2D2.play_shake()
 
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	# When main butterfly falls down and leaves the screen
-	SceneTransitionAnimation.play("fade_in")
-	await SceneTransitionAnimation.animation_finished
-	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+func hideShakeButtons() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(ShakeButtons, "modulate:a", 0.0, 1.0)
