@@ -9,7 +9,7 @@ var shakesPerWing := 3
 var wingsToFallDown := []
 
 var last_input_time := 0.0
-var input_cooldown := 0.5
+var input_cooldown := 0.25
 
 @onready var SceneTransitionAnimation = %SceneTransitionAnimation/AnimationPlayer
 @onready var ShakeButtons = %ShakeButtons
@@ -35,7 +35,8 @@ func _on_start_button_pressed() -> void:
 
 	userPressedStartButton = true
 	%CameraAnimationPlayer.play("ZoomOut")
-	%AnimPlayer.play("start")
+	%AnimPlayer.play("idle")
+
 	
 	if is_instance_valid(%StartButton):
 		var tween = get_tree().create_tween()
@@ -92,10 +93,11 @@ func wingFallDown() -> void:
 	if wingsToFallDown.size() > 0:
 		var random_index = randi() % wingsToFallDown.size()
 		var chosen_wing = wingsToFallDown[random_index]
-		chosen_wing.reparent($"../../Node/fallen_wings")
+		chosen_wing.reparent(%fallen_wings)
 		chosen_wing.fallDown()
 		wingsToFallDown.remove_at(random_index)
-		
+	else: 
+		%SceneTransitionAnimation.reparent(%SceneTransitionAnimation.get_parent())
 
 func showShakeButtons() -> void:
 	await get_tree().create_timer(1.5).timeout

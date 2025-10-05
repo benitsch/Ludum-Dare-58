@@ -391,6 +391,7 @@ scale = Vector2(0.69153225, 0.7338403)
 texture = ExtResource("41_qfn48")
 
 [node name="fallen_wings" type="Node" parent="Node/ButterflyBoard"]
+unique_name_in_owner = true
 
 [node name="ShakeButtons" type="Node2D" parent="Node"]
 unique_name_in_owner = true
