@@ -39,7 +39,15 @@ scale_min = 0.049999997
 scale_max = 0.29999998
 scale_curve = SubResource("CurveTexture_l20wj")
 
-[node name="ParticleTest" type="GPUParticles2D"]
-amount = 50
+[node name="Particle highlight" type="Node2D"]
+
+[node name="ParticleTest" type="GPUParticles2D" parent="."]
+amount = 100
 texture = ExtResource("1_yaya2")
+process_material = SubResource("ParticleProcessMaterial_kspuh")
+
+[node name="ParticleTest2" type="GPUParticles2D" parent="."]
+amount = 100
+texture = ExtResource("1_yaya2")
+trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_kspuh")
