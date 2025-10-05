@@ -31,26 +31,13 @@ func animateTarget(reset := false) -> void:
 	if onlyTriggerOnce and wasTriggered and not reset:
 		return
 	
-	print(timer.time_left)
 	if not reset and timer.time_left > 0.0:
 		return
-	
-	#if not wasTriggered:
-		#originalTransform = target.transform
 	
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	
-	#if reset and (not wasTriggered or shouldToggle and not isToggleOn):
-		#wasTriggered = false
-		#return
-	#
-	#var modifier := 1
-	#if (shouldToggle and isToggleOn) or reset:
-		#modifier = -1
-	
-	#var changes: Dictionary = {}
 	discoverPositionModification()
 	discoverAngleModification()
 	
