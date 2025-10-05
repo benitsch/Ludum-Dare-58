@@ -82,6 +82,7 @@ func _physics_process(delta: float) -> void:
 			var r : RigidBody2D
 			r = c.get_collider()
 			r.apply_central_force(-c.get_normal() * push_force)
+			if r.linear_velocity.x > speed * 3 / 4: r.linear_velocity.x = speed * 3 / 4 
 	
 	input = 0;
 

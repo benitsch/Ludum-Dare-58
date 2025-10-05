@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blrmhs53itx8r"]
+[gd_scene load_steps=15 format=3 uid="uid://blrmhs53itx8r"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_gqotu"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Skunky/player.tscn" id="1_iinf0"]
@@ -11,9 +11,7 @@
 [ext_resource type="PackedScene" path="res://chris/Rotating_Wall_Small.tscn" id="6_q8yft"]
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="7_gqotu"]
 [ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="10_q8yft"]
-[ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="10_s1x8k"]
 [ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="11_6n5an"]
-[ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="11_7uhty"]
 [ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="12_cr7m2"]
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="13_gqotu"]
 
@@ -24,6 +22,7 @@ position = Vector2(4918, 1170)
 
 [node name="Player1" parent="." instance=ExtResource("1_iinf0")]
 z_index = 1
+floor_snap_length = 45.0
 
 [node name="Main Door Start" type="Node2D" parent="."]
 position = Vector2(-427, 150)
@@ -75,19 +74,22 @@ position = Vector2(654, 1281)
 [node name="SolidWall5" parent="Statics/#Walls" instance=ExtResource("13_gqotu")]
 position = Vector2(1354, 581)
 
+[node name="SolidWall6" parent="Statics/#Walls" instance=ExtResource("12_cr7m2")]
+position = Vector2(7720, 1049)
+
 [node name="#Sugestions" type="Node2D" parent="Statics"]
 
 [node name="SemiSolidGround" parent="Statics/#Sugestions" instance=ExtResource("5_6n5an")]
 position = Vector2(1952, 438)
 
-[node name="SemiSolidGround2" parent="Statics/#Sugestions" instance=ExtResource("10_s1x8k")]
-position = Vector2(6870, 949)
-
-[node name="SemiSolidGround3" parent="Statics/#Sugestions" instance=ExtResource("11_7uhty")]
-position = Vector2(6270, 949)
-
 [node name="SemiSolidGround4" parent="Statics/#Sugestions" instance=ExtResource("5_6n5an")]
-position = Vector2(4863, 1327)
+position = Vector2(3893, 646)
+
+[node name="SemiSolidGround5" parent="Statics/#Sugestions" instance=ExtResource("5_6n5an")]
+position = Vector2(7020, 949)
+
+[node name="SemiSolidGround6" parent="Statics/#Sugestions" instance=ExtResource("5_6n5an")]
+position = Vector2(6420, 949)
 
 [node name="#Grounds" type="Node2D" parent="Statics"]
 
@@ -101,7 +103,7 @@ position = Vector2(-359, 131)
 position = Vector2(2852, 975)
 
 [node name="SolidGound4" parent="Statics/#Grounds" instance=ExtResource("3_xsev2")]
-position = Vector2(4043, 645)
+position = Vector2(5873, 1377)
 
 [node name="SolidGound5" parent="Statics/#Grounds" instance=ExtResource("3_xsev2")]
 position = Vector2(1004, 1281)
@@ -110,10 +112,10 @@ position = Vector2(1004, 1281)
 position = Vector2(2402, 438)
 
 [node name="SolidGound7" parent="Statics/#Grounds" instance=ExtResource("3_xsev2")]
-position = Vector2(5873, 1377)
+position = Vector2(4713, 1377)
 
 [node name="SolidGound8" parent="Statics/#Grounds" instance=ExtResource("5_qdwan")]
-position = Vector2(7920, 949)
+position = Vector2(4493, 646)
 
 [node name="SolidGound9" parent="Statics/#Grounds" instance=ExtResource("3_xsev2")]
 position = Vector2(1004, 581)
@@ -123,9 +125,6 @@ position = Vector2(4413, 1277)
 
 [node name="SolidGound11" parent="Statics/#Grounds" instance=ExtResource("7_gqotu")]
 position = Vector2(5291, 1626)
-
-[node name="SolidGound12" parent="Statics/#Grounds" instance=ExtResource("7_gqotu")]
-position = Vector2(4643, 645)
 
 [node name="#Slopes" type="Node2D" parent="Statics"]
 
