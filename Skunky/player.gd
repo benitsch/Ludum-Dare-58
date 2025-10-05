@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Player
 
 
-@export var ascend_gravity: float = 1200
-@export var descend_gravity: float = 2050
+@export var ascend_gravity: float = 3000.0
+@export var descend_gravity: float = 4500
 @export var jump_height: float = 300
 @export var air_jump_height: float = 200
 @export var speed: float = 900
