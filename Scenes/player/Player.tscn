@@ -1,8 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdtfg486xo1je"]
+[gd_scene load_steps=14 format=3 uid="uid://cdtfg486xo1je"]
 
 [ext_resource type="Script" uid="uid://ds0klgvdu2ra0" path="res://Skunky/player.gd" id="1_xf0b5"]
-[ext_resource type="Texture2D" uid="uid://dstft2ogyxgit" path="res://icon.svg" id="2_ldi71"]
-[ext_resource type="Texture2D" uid="uid://xqrqqx68v4p7" path="res://assets/Arts-WIP/Player–Body.png" id="3_adyqh"]
+[ext_resource type="Script" uid="uid://cpyksyfyt0kyb" path="res://Skunky/player_state_animation.gd" id="2_r5va5"]
+[ext_resource type="PackedScene" uid="uid://bwojakv10bfb6" path="res://Scenes/player/AnimPlayer4Wings.tscn" id="3_mphk7"]
+[ext_resource type="PackedScene" uid="uid://btq2l7jxks6xx" path="res://Scenes/player/AnimPlayer2Wings.tscn" id="4_hg0hj"]
+[ext_resource type="PackedScene" uid="uid://irqqnq6ijtwj" path="res://Scenes/player/AnimPlayer3Wings.tscn" id="4_trp67"]
+[ext_resource type="PackedScene" uid="uid://dgqtudmhluc3g" path="res://Scenes/player/AnimPlayer0Wings.tscn" id="5_pe0xw"]
+[ext_resource type="PackedScene" uid="uid://cuyxnkswxf5od" path="res://Scenes/player/AnimPlayer1Wings.tscn" id="6_xb7k6"]
+
+[sub_resource type="Resource" id="Resource_mphk7"]
+script = ExtResource("2_r5va5")
+can_jump = true
+can_dash = true
+jump_count = 2
+dash_count = 2
+scene = ExtResource("3_mphk7")
+metadata/_custom_type_script = "uid://cpyksyfyt0kyb"
+
+[sub_resource type="Resource" id="Resource_trp67"]
+script = ExtResource("2_r5va5")
+can_jump = true
+can_dash = true
+jump_count = 1
+dash_count = 1
+scene = ExtResource("4_trp67")
+metadata/_custom_type_script = "uid://cpyksyfyt0kyb"
+
+[sub_resource type="Resource" id="Resource_xb7k6"]
+script = ExtResource("2_r5va5")
+can_jump = true
+can_dash = true
+dash_count = 1
+scene = ExtResource("4_hg0hj")
+metadata/_custom_type_script = "uid://cpyksyfyt0kyb"
+
+[sub_resource type="Resource" id="Resource_v18lm"]
+script = ExtResource("2_r5va5")
+can_jump = true
+scene = ExtResource("6_xb7k6")
+metadata/_custom_type_script = "uid://cpyksyfyt0kyb"
+
+[sub_resource type="Resource" id="Resource_1u68r"]
+script = ExtResource("2_r5va5")
+scene = ExtResource("5_pe0xw")
+metadata/_custom_type_script = "uid://cpyksyfyt0kyb"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uinqk"]
 radius = 44.0
@@ -13,21 +54,11 @@ collision_layer = 2
 collision_mask = 5
 floor_snap_length = 45.0
 script = ExtResource("1_xf0b5")
-
-[node name="Icon" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 1.0000076)
-scale = Vector2(1, 1.78125)
-texture = ExtResource("2_ldi71")
+player_states = Array[ExtResource("2_r5va5")]([SubResource("Resource_mphk7"), SubResource("Resource_trp67"), SubResource("Resource_xb7k6"), SubResource("Resource_v18lm"), SubResource("Resource_1u68r")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_uinqk")
-metadata/_edit_lock_ = true
-
-[node name="Player–body" type="Sprite2D" parent="."]
-position = Vector2(7, 0)
-texture = ExtResource("3_adyqh")
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

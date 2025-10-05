@@ -27,3 +27,4 @@ func body_entered(body: Node2D) -> void:
 			PlayerState.can_dash = dash_allowed;
 		if set_air_dash_count:
 			PlayerState.air_dash_amount = air_dash_count;
+		body.reset_animator()

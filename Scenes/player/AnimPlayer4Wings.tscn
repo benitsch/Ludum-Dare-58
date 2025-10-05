@@ -14,14 +14,106 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvq11"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kk5ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pvq11")
+}],
 "loop": true,
 "name": &"dash-left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ynq8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kk5ny")
+}],
 "loop": true,
 "name": &"dash-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kk5ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pvq11")
+}],
+"loop": false,
+"name": &"double-jump-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ynq8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kk5ny")
+}],
+"loop": false,
+"name": &"double-jump-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kk5ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pvq11")
+}],
+"loop": true,
+"name": &"falling-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ynq8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kk5ny")
+}],
+"loop": true,
+"name": &"falling-right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -56,22 +148,70 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kk5ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pvq11")
+}],
+"loop": false,
 "name": &"jump-left",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ynq8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kk5ny")
+}],
+"loop": false,
 "name": &"jump-right",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kk5ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pvq11")
+}],
 "loop": true,
 "name": &"push-left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ynq8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tp57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qt1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kk5ny")
+}],
 "loop": true,
 "name": &"push-right",
 "speed": 5.0
@@ -113,5 +253,5 @@ animations = [{
 
 [node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_pvq11")
-animation = &"walk-left"
+animation = &"walk-right"
 autoplay = "idle"

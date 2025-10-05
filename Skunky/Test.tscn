@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvbjva68ssde1"]
+
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_a2t72"]
+[ext_resource type="Texture2D" uid="uid://dstft2ogyxgit" path="res://icon.svg" id="2_tdjv5"]
+[ext_resource type="Script" uid="uid://vsdxwxxwid4a" path="res://Skunky/player_state_area.gd" id="3_4uqm8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6r5n"]
+size = Vector2(200, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdjv5"]
+size = Vector2(256, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uqm8"]
+size = Vector2(1000, 128)
+
+[node name="Test" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(229, 160)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_4uqm8")
+set_jump_allowed = true
+jump_allowd = true
+set_air_jump_count = true
+air_jump_count = 1
+set_dash_allowed = true
+dash_allowed = true
+set_air_dash_count = true
+air_dash_count = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_g6r5n")
+
+[node name="Player" parent="." instance=ExtResource("1_a2t72")]
+position = Vector2(262, 167)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(330, 357)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_tdjv5")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D2"]
+modulate = Color(8.663535e-07, 0.85969657, 0.45449775, 1)
+scale = Vector2(2, 1)
+texture = ExtResource("2_tdjv5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(497, 524)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_4uqm8")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(8.663535e-07, 0.85969657, 0.45449775, 1)
+scale = Vector2(10, 1)
+texture = ExtResource("2_tdjv5")
