@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b4rv7bmvo71w" path="res://assets/Arts-WIP/ButtonShift.png" id="2_1apgh"]
 [ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="2_in4v8"]
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_mu7lp"]
-[ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="4_5qi50"]
+[ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_5qi50"]
 [ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_1apgh"]
 [ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="6_ue4po"]
 [ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="7_uoomo"]
@@ -38,7 +38,7 @@ region_rect = Rect2(0, 0, 4000, 1500)
 
 [node name="BaseHintArea" parent="." node_paths=PackedStringArray("dependantAreas") instance=ExtResource("1_5qi50")]
 position = Vector2(2650, 328)
-dependantAreas = [NodePath("../BaseDeathArea")]
+dependantAreas = [NodePath("../PlayerStateGiveDash")]
 
 [node name="Sprite2D" type="Sprite2D" parent="BaseHintArea"]
 position = Vector2(0, -244)
