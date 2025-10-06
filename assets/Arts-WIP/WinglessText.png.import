@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://h0q87ni4dmwd"
-valid=false
+path="res://.godot/imported/WinglessText.png-7a24e3c26b25c03bc982c28b5be2fa17.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://assets/Arts-WIP/WinglessText.png"
+dest_files=["res://.godot/imported/WinglessText.png-7a24e3c26b25c03bc982c28b5be2fa17.ctex"]
 
 [params]
 

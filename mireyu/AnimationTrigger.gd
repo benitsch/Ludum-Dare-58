@@ -71,7 +71,7 @@ func discoverAngleModification() -> void:
 		changes["rotation"] = {}
 		changes["rotation"]["original"] = target.rotation
 	
-	changes["rotation"] = target.rotation + calculateModifier(angleModification)
+	changes["rotation"]["target"] = target.rotation + calculateModifier(angleModification)
 
 func calculateModifier(modifier):
 	if shouldToggle and isToggleOn:

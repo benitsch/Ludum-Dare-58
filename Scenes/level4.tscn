@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dmaa2smwi751n"]
+[gd_scene load_steps=31 format=3 uid="uid://dmaa2smwi751n"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="1_7yhn4"]
 [ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_e1ips"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://nnqivrg6gycy" path="res://chris/Rotating_Wall_Small.tscn" id="14_fsrl6"]
 [ext_resource type="PackedScene" uid="uid://dp8ci4oah0ovo" path="res://mireyu/ContinuousSwitch.tscn" id="15_q5xce"]
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="16_q5xce"]
+[ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="18_ywl3f"]
 [ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="19_ywl3f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fsrl6"]
@@ -132,12 +133,23 @@ rotation = 3.1415927
 target = NodePath("../Lift")
 positionModification = Vector2(0, -350)
 
-[node name="LightCollector2" parent="Light Ray" instance=ExtResource("3_ohik4")]
-position = Vector2(-2800, 0)
+[node name="LightCollector2" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
+position = Vector2(-2850, 0)
 rotation = 1.5707964
+target = NodePath("../RotatingWallSmall")
+angleModification = 1.5707963267948966
+onlyTriggerOnce = true
 
 [node name="Mirror" parent="Light Ray" instance=ExtResource("4_adi6q")]
 position = Vector2(-1250, 300)
+rotation = 0.7853982
+
+[node name="Mirror5" parent="Light Ray" instance=ExtResource("4_adi6q")]
+position = Vector2(-1250, -2500)
+rotation = 3.9269907
+
+[node name="Mirror6" parent="Light Ray" instance=ExtResource("4_adi6q")]
+position = Vector2(1250, -2500)
 rotation = 0.7853982
 
 [node name="Mirror2" parent="Light Ray" instance=ExtResource("4_adi6q")]
@@ -146,7 +158,7 @@ rotation = 2.3561945
 
 [node name="Mirror4" parent="Light Ray" instance=ExtResource("4_adi6q")]
 position = Vector2(-3250.0002, -649.99994)
-rotation = 4.712389
+rotation = 3.9269907
 
 [node name="Mirror3" parent="Light Ray" instance=ExtResource("4_adi6q")]
 position = Vector2(-1650, -200)
@@ -154,7 +166,6 @@ position = Vector2(-1650, -200)
 [node name="Toggle" parent="Light Ray" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_adi6q")]
 position = Vector2(750, 100)
 target_wall = NodePath("../Mirror")
-rotation_dir = -1
 
 [node name="Lift" type="AnimatableBody2D" parent="Light Ray"]
 position = Vector2(1250, 350)
@@ -173,13 +184,13 @@ position = Vector2(650, 150)
 [node name="ContinuousSwitch" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("15_q5xce")]
 position = Vector2(-2950, -200)
 target = NodePath("../Mirror4")
-angle = -0.08726646259971647
+angleModification = -0.04363323129985824
 
 [node name="ContinuousSwitch2" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("15_q5xce")]
 position = Vector2(-3550, -200)
-target = NodePath("../Mirror4")
-angle = 0.08726646259971647
 invert_toggle_side = true
+target = NodePath("../Mirror4")
+angleModification = 0.04363323129985824
 
 [node name="Statics" type="Node2D" parent="."]
 
@@ -309,10 +320,13 @@ metadata/_edit_lock_ = true
 position = Vector2(1850, -4200)
 metadata/_edit_lock_ = true
 
+[node name="SolidSlopeRight" parent="Statics/Tilted Terror" instance=ExtResource("18_ywl3f")]
+position = Vector2(-750, -200)
+
 [node name="Not So Solid Ground" type="Node2D" parent="Statics"]
 
 [node name="SemiSolidGround2" parent="Statics/Not So Solid Ground" instance=ExtResource("6_egqhl")]
-position = Vector2(-600, -400)
+position = Vector2(-1900, -400)
 
 [node name="SemiSolidGround" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
 position = Vector2(4150, -2700)
@@ -325,6 +339,9 @@ metadata/_edit_lock_ = true
 [node name="SemiSolidGround4" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
 position = Vector2(1250, 0)
 
+[node name="SemiSolidGround5" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(1750, 0)
+
 [node name="SemiSolidGround6" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
 position = Vector2(-1250, -400)
 
@@ -334,13 +351,16 @@ position = Vector2(-3250, -200)
 [node name="Ground" type="Node2D" parent="Statics"]
 
 [node name="SolidGound" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
-position = Vector2(300, 100)
+position = Vector2(600, 100)
 
 [node name="SolidGound26" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
 position = Vector2(-1250, 450)
 
 [node name="SolidGound31" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
 position = Vector2(-3700, -200)
+
+[node name="SolidGound37" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(-3700, -700)
 
 [node name="SolidGound32" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
 position = Vector2(-2800, 100)
@@ -413,10 +433,19 @@ position = Vector2(3850, -2700)
 metadata/_edit_lock_ = true
 
 [node name="SolidGound18" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
-position = Vector2(750, 100)
+position = Vector2(150, 100)
+
+[node name="SolidGound35" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
+position = Vector2(900, -650)
+
+[node name="SolidGound36" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
+position = Vector2(2350, 300)
 
 [node name="SolidGound33" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
 position = Vector2(-2950, -200)
+
+[node name="SolidGound38" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
+position = Vector2(-3250, -900)
 
 [node name="SolidGound9" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
 position = Vector2(4050, -3300)
@@ -443,16 +472,14 @@ position = Vector2(-2650, -2100)
 metadata/_edit_lock_ = true
 
 [node name="SolidGound23" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
-position = Vector2(-3550, -900)
-metadata/_edit_lock_ = true
+position = Vector2(-2400, -1300)
 
 [node name="SolidGound15" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
 position = Vector2(950, -3300)
 metadata/_edit_lock_ = true
 
 [node name="SolidGound16" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
-position = Vector2(2050, 300)
-metadata/_edit_lock_ = true
+position = Vector2(1300, -1200)
 
 [node name="Walls" type="Node2D" parent="Statics"]
 
@@ -542,8 +569,7 @@ position = Vector2(-3200, -900)
 metadata/_edit_lock_ = true
 
 [node name="SolidWall39" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
-position = Vector2(-3900, -200)
-metadata/_edit_lock_ = true
+position = Vector2(-1600, -900)
 
 [node name="SolidWall40" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
 position = Vector2(-3550, 500)
@@ -591,11 +617,17 @@ metadata/_edit_lock_ = true
 [node name="SolidWall41" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
 position = Vector2(1000, 150)
 
+[node name="SolidWall45" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(2100, 500)
+
+[node name="SolidWall47" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(1900, 500)
+
 [node name="SolidWall43" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
 position = Vector2(-3000, 100)
 
 [node name="SolidWall44" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
-position = Vector2(-1700, -800)
+position = Vector2(-3500, -700)
 
 [node name="SolidWall26" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
 position = Vector2(1500, -3400)
@@ -625,8 +657,14 @@ metadata/_edit_lock_ = true
 position = Vector2(1500, -3000)
 metadata/_edit_lock_ = true
 
+[node name="SolidWall46" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(1700, 600)
+
+[node name="SolidWall48" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(-3800, -200)
+
 [node name="Player" parent="." instance=ExtResource("2_125c2")]
-position = Vector2(0, -50)
+position = Vector2(-1000, -550)
 
 [node name="Camera2D" parent="Player" index="1"]
 limit_left = -4000
