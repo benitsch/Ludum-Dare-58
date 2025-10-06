@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="AudioSet" load_steps=6 format=3 uid="uid://dc4dxhmwhroji"]
+
+[ext_resource type="Script" path="res://Scripts/audio_set.gd" id="1_1fae0"]
+[ext_resource type="AudioStream" uid="uid://hibrmdkh30rk" path="res://assets/audio/sfx/jam/swosh-27.mp3" id="1_wlbj4"]
+[ext_resource type="AudioStream" uid="uid://bvwg774jolbxc" path="res://assets/audio/sfx/jam/door-02.mp3" id="2_4qhi6"]
+[ext_resource type="AudioStream" uid="uid://bl82mh2n7frl8" path="res://assets/audio/sfx/jam/explosion_dull.mp3" id="3_0k2hg"]
+[ext_resource type="AudioStream" uid="uid://kjsevjac2hfq" path="res://assets/audio/sfx/jam/foom_0.wav" id="4_guuqk"]
+
+[resource]
+script = ExtResource("1_1fae0")
+audio_set = Dictionary[String, AudioStream]({
+"dash": ExtResource("1_wlbj4"),
+"door_open": ExtResource("2_4qhi6"),
+"hard_landing": ExtResource("3_0k2hg"),
+"jump": null,
+"landing": null,
+"light_upd": null,
+"mirror_rotate": null,
+"pickup": ExtResource("4_guuqk"),
+"walk": null
+})
