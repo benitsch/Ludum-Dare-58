@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://blrmhs53itx8r"]
+[gd_scene load_steps=32 format=3 uid="uid://blrmhs53itx8r"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_gqotu"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
-[ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_ocmlb"]
+[ext_resource type="PackedScene" uid="uid://elj4hqirplhh" path="res://Scenes/areas/base_hint_area.tscn" id="1_ocmlb"]
 [ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_tlxhh"]
 [ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="2_u0jjk"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="3_xsev2"]
@@ -20,10 +20,378 @@
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="13_gqotu"]
 [ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="13_u0jjk"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_sdbcr"]
+[ext_resource type="Texture2D" uid="uid://c1wu7ljc0xg76" path="res://assets/Player/Idle/Lines0001.png" id="18_tlxhh"]
+[ext_resource type="Texture2D" uid="uid://rhmpwxgi4sm" path="res://assets/Player/Idle/Lines0002.png" id="19_rxhxl"]
+[ext_resource type="Texture2D" uid="uid://crq4bsrotbmx8" path="res://assets/Player/Idle/Lines0003.png" id="20_h54da"]
 [ext_resource type="PackedScene" uid="uid://csesghfgympjx" path="res://Scenes/level2.tscn" id="20_mcj63"]
 [ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="20_qbo7c"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u0jjk"]
+
+[sub_resource type="Animation" id="Animation_af2a1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player1:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartAnimation/FallingSprite:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player1/Camera2D:position_smoothing_enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player1/Camera2D:drag_horizontal_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player1/Camera2D:drag_vertical_enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StartAnimation/FallingSprite:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("StartAnimation/FlopSprite:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StartAnimation/FlopSprite:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Player1:position:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Player1/Camera2D:limit_enabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mcj63"]
+resource_name = "start_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player1:process_mode")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player1:visible")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.0000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player1:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 0, 1, 1, 1, 1, 1, 0),
+"points": PackedFloat32Array(-4700, 0, 0, 0.25, 785.8333, 15, -0.25, 0, 0.25, 0, 16, 0, 0, 0, 0, 70.39827, 0, 0, 0, 0, 30.46827, 0, 0, 0, 0, -44.067734, 0, 0, 0, 0, 13.165268, 0, 0, 0, 0, 18, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.5, 1.501, 1.5333333, 1.5666667, 1.6, 1.6333333, 1.9333333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartAnimation/FallingSprite:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(1, 1),
+"points": PackedFloat32Array(-4000, 0, 0, 0, 0, 15, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player1/Camera2D:position_smoothing_enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player1/Camera2D:drag_horizontal_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player1/Camera2D:drag_vertical_enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StartAnimation/FallingSprite:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("StartAnimation/FlopSprite:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 8]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StartAnimation/FlopSprite:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Player1:position:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1, 1, 0, 1),
+"points": PackedFloat32Array(452, 0, 0, 0.24444446, 0, 452, 0, 0, 0, 0, 403.1483, 0, 0, 0, 0, 532.2553, 0, 0, 0, 0, 469.6983, 0, 0, 0, 0, 455.0573, 0, 0, 0, 0, 452, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.5, 1.5333333, 1.5666667, 1.6, 1.7, 1.9333333, 2)
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Player1/Camera2D:limit_enabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.9333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocmlb"]
+_data = {
+&"RESET": SubResource("Animation_af2a1"),
+&"start_animation": SubResource("Animation_mcj63")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fg80b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_tlxhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tlxhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rxhxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h54da")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tlxhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tlxhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rxhxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rxhxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h54da")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h54da"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_tlxhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tlxhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rxhxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h54da")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tlxhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tlxhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rxhxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rxhxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h54da")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Riddle0" type="Node2D"]
 
@@ -207,9 +575,28 @@ position = Vector2(5250, 2200)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Statics/BaseDeathArea"]
 shape = SubResource("WorldBoundaryShape2D_u0jjk")
 
+[node name="StartAnimation" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StartAnimation"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ocmlb")
+}
+autoplay = "start_animation"
+
+[node name="FallingSprite" type="AnimatedSprite2D" parent="StartAnimation"]
+sprite_frames = SubResource("SpriteFrames_fg80b")
+frame_progress = 0.3414151
+
+[node name="FlopSprite" type="AnimatedSprite2D" parent="StartAnimation"]
+position = Vector2(0, 15)
+sprite_frames = SubResource("SpriteFrames_h54da")
+
 [node name="Player1" parent="." instance=ExtResource("1_iinf0")]
+process_mode = 4
 
 [node name="Camera2D" parent="Player1" index="1"]
+process_mode = 3
 limit_left = -700
 limit_right = 8000
 limit_bottom = 1750
