@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ck26neeep282r"]
+[gd_scene load_steps=27 format=3 uid="uid://ck26neeep282r"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_3nkac"]
 [ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_eqm1k"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="13_mf2hp"]
 [ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="14_1alju"]
 [ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="15_5v8i3"]
+[ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="15_jfxh1"]
+[ext_resource type="Texture2D" uid="uid://b62lggaett0q4" path="res://assets/Arts-WIP/ButtonSpace.png" id="16_455hk"]
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="16_tsss4"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="17_s5d5r"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_06tg8"]
@@ -42,6 +44,21 @@ air_jump_count = 1
 [node name="Sprite2D" parent="Interactables/PlayerStatePowerUp/Wing Collectable" index="1"]
 texture = ExtResource("5_d08tm")
 offset = Vector2(75, -75)
+
+[node name="BaseHintArea" parent="Interactables" node_paths=PackedStringArray("dependantAreas") instance=ExtResource("15_jfxh1")]
+position = Vector2(6198, -2829)
+dependantAreas = [NodePath("../PlayerStatePowerUp")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/BaseHintArea"]
+polygon = PackedVector2Array(-325, -275, 575, -275, 845, 130, -325, 130)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/BaseHintArea"]
+position = Vector2(282, -202)
+texture = ExtResource("16_455hk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Interactables/BaseHintArea"]
+position = Vector2(480, 54)
+texture = ExtResource("16_455hk")
 
 [node name="Player" parent="Interactables" instance=ExtResource("17_s5d5r")]
 z_index = 0
@@ -123,11 +140,12 @@ position = Vector2(0, 1200)
 
 [node name="PushButton" parent="Interactables/Button3" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
 position = Vector2(0, -624)
-target = NodePath("../../Button4")
+target = NodePath("../../Button5")
 positionModification = Vector2(0, 1140)
 
 [node name="Button4" type="Node2D" parent="Interactables"]
-position = Vector2(1388, -2000)
+visible = false
+position = Vector2(1740, -2000)
 
 [node name="PushButton" parent="Interactables/Button4" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
 target = NodePath("../../Button5")
@@ -136,7 +154,7 @@ positionModification = Vector2(0, 1140)
 [node name="SolidGound" parent="Interactables/Button4" instance=ExtResource("13_mf2hp")]
 
 [node name="Button5" type="Node2D" parent="Interactables"]
-position = Vector2(1988, -2000)
+position = Vector2(1740, -2000)
 
 [node name="PushButton" parent="Interactables/Button5" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
 target = NodePath("../../../Environment/SectionMid/SolidGound")
@@ -276,10 +294,10 @@ position = Vector2(-678, -3)
 [node name="SectionMid" type="Node2D" parent="Environment"]
 
 [node name="SolidGound" parent="Environment/SectionMid" instance=ExtResource("13_mf2hp")]
-position = Vector2(2588, -2000)
+position = Vector2(2800, -2000)
 
 [node name="SolidGound2" parent="Environment/SectionMid" instance=ExtResource("12_5qe4c")]
-position = Vector2(3188, -860)
+position = Vector2(3320, -760)
 
 [node name="SolidSlopeRight" parent="Environment/SectionMid" instance=ExtResource("6_jfxh1")]
 position = Vector2(3790, -862)
