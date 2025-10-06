@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	delay += delta
-	print(delay)
 	
 	if delay > 0.5:
 		delay = 0.0
