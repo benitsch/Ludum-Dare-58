@@ -1,0 +1,145 @@
+[gd_scene load_steps=20 format=3 uid="uid://ck26neeep282r"]
+
+[ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_3nkac"]
+[ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_eqm1k"]
+[ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_d08tm"]
+[ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="5_vn7r1"]
+[ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="6_fpsp3"]
+[ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="8_pdvwv"]
+[ext_resource type="PackedScene" uid="uid://da4prwg6ru22i" path="res://mireyu/Mirror.tscn" id="8_wffsm"]
+[ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="9_w46me"]
+[ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="11_2jf1r"]
+[ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="13_mf2hp"]
+[ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="14_1alju"]
+[ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="15_5v8i3"]
+[ext_resource type="PackedScene" uid="uid://6a08w86cwjku" path="res://Scenes/areas/death_spike.tscn" id="16_qia21"]
+[ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="16_tsss4"]
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="17_s5d5r"]
+[ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_06tg8"]
+[ext_resource type="PackedScene" path="res://Scenes/level_exit.tscn" id="19_fgdcu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwkqt"]
+size = Vector2(2000, 200)
+
+[node name="Riddle 3" type="Node2D"]
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="PlayerStatePowerUp" parent="Interactables" instance=ExtResource("3_3nkac")]
+position = Vector2(-1818, -193)
+set_air_jump_count = true
+air_jump_count = 1
+
+[node name="Wing Collectable" parent="Interactables/PlayerStatePowerUp" instance=ExtResource("4_eqm1k")]
+
+[node name="Sprite2D" parent="Interactables/PlayerStatePowerUp/Wing Collectable" index="1"]
+texture = ExtResource("5_d08tm")
+offset = Vector2(75, -75)
+
+[node name="Player" parent="Interactables" instance=ExtResource("17_s5d5r")]
+position = Vector2(-1556, -399)
+
+[node name="PlayerStateInitial" parent="Interactables/Player" instance=ExtResource("3_3nkac")]
+set_jump_allowed = true
+jump_allowd = true
+set_dash_allowed = true
+dash_allowed = true
+set_air_dash_count = true
+air_dash_count = 1
+
+[node name="LevelExit" parent="Interactables" instance=ExtResource("19_fgdcu")]
+position = Vector2(-2700, -478)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="LightCollector" parent="Environment" instance=ExtResource("6_fpsp3")]
+position = Vector2(-28, 159)
+rotation = 3.1415927
+
+[node name="Lamp" parent="Environment" instance=ExtResource("5_vn7r1")]
+position = Vector2(-1011, -620)
+beamLength = 3000
+
+[node name="Mirror" parent="Environment" instance=ExtResource("8_wffsm")]
+position = Vector2(-995.00006, 698.00006)
+rotation = 2.2863812
+
+[node name="FloorsAndWalls" type="Node2D" parent="."]
+
+[node name="SectionLeft" type="Node2D" parent="FloorsAndWalls"]
+
+[node name="SolidGound11" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("13_mf2hp")]
+position = Vector2(-2650, -478)
+
+[node name="SolidWall9" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
+position = Vector2(-2600, 222)
+
+[node name="SolidGound9" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("11_2jf1r")]
+position = Vector2(-2201, -45)
+
+[node name="SolidGound10" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("11_2jf1r")]
+position = Vector2(-221, -38)
+
+[node name="SolidGound13" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("11_2jf1r")]
+position = Vector2(-502, 899)
+
+[node name="SolidGound15" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("11_2jf1r")]
+position = Vector2(107, 896)
+
+[node name="SolidGound14" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("11_2jf1r")]
+position = Vector2(-1106, 899)
+
+[node name="SolidGound8" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("13_mf2hp")]
+position = Vector2(-1558, -93)
+
+[node name="SolidGound12" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("13_mf2hp")]
+position = Vector2(-1555, 105)
+rotation = 3.1415927
+
+[node name="SolidWall3" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("16_tsss4")]
+position = Vector2(-1810, 116)
+
+[node name="SolidWall6" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("14_1alju")]
+position = Vector2(-1308, 300)
+
+[node name="SolidWall7" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("14_1alju")]
+position = Vector2(186, 909)
+
+[node name="SolidWall" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
+position = Vector2(-1310, 901)
+
+[node name="SolidWall4" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
+position = Vector2(180, 513)
+
+[node name="SolidWall2" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("16_tsss4")]
+position = Vector2(-1509, 299)
+
+[node name="SemiSolidGround" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("9_w46me")]
+position = Vector2(-483, 595)
+
+[node name="SemiSolidGround2" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("8_pdvwv")]
+position = Vector2(-631, 304)
+
+[node name="SemiSolidGround4" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("8_pdvwv")]
+position = Vector2(-678, -3)
+
+[node name="BaseDeathArea" parent="FloorsAndWalls" instance=ExtResource("16_qia21")]
+position = Vector2(-2391, -54)
+
+[node name="DeathAreas" type="Node2D" parent="."]
+
+[node name="BaseDeathArea" parent="DeathAreas" instance=ExtResource("18_06tg8")]
+position = Vector2(0, 1500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathAreas/BaseDeathArea"]
+shape = SubResource("WorldBoundaryShape2D_hx4q4")
+
+[node name="BehindExit" parent="DeathAreas" instance=ExtResource("18_06tg8")]
+position = Vector2(-3725, 321)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathAreas/BehindExit"]
+shape = SubResource("RectangleShape2D_vwkqt")
+
+[editable path="Interactables/PlayerStatePowerUp/Wing Collectable"]
