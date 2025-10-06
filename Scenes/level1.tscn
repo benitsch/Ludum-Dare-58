@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_gqotu"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
-[ext_resource type="PackedScene" uid="uid://elj4hqirplhh" path="res://Scenes/areas/base_hint_area.tscn" id="1_ocmlb"]
-[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_tlxhh"]
+[ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_ocmlb"]
+[ext_resource type="Texture2D" uid="uid://b62lggaett0q4" path="res://assets/Arts-WIP/ButtonSpace.png" id="2_h54da"]
 [ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="2_u0jjk"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="3_xsev2"]
 [ext_resource type="PackedScene" uid="uid://d1t02mtwhsho0" path="res://chris/Rotating_Wall.tscn" id="4_8vlnf"]
@@ -452,9 +452,8 @@ dependantAreas = [NodePath("../BasePlayerStateArea")]
 polygon = PackedVector2Array(-224, -168, 52, -168, 368, 124, -224, 124)
 
 [node name="Sprite2D" type="Sprite2D" parent="BaseHintArea"]
-position = Vector2(73, -20.499992)
-scale = Vector2(1.184, 0.59)
-texture = ExtResource("2_tlxhh")
+position = Vector2(73, -290)
+texture = ExtResource("2_h54da")
 
 [node name="BasePlayerStateArea" parent="." instance=ExtResource("10_43l53")]
 position = Vector2(3703, 589)

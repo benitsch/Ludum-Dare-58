@@ -1,12 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://dmaa2smwi751n"]
+[gd_scene load_steps=33 format=3 uid="uid://dmaa2smwi751n"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="1_7yhn4"]
 [ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_e1ips"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="1_evoni"]
 [ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="2_46vi4"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="2_125c2"]
-[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_n4fv4"]
 [ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="3_ohik4"]
+[ext_resource type="Texture2D" uid="uid://b62lggaett0q4" path="res://assets/Arts-WIP/ButtonSpace.png" id="3_vu37y"]
 [ext_resource type="PackedScene" uid="uid://da4prwg6ru22i" path="res://mireyu/Mirror.tscn" id="4_adi6q"]
 [ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="4_bkb0e"]
 [ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="5_7u67b"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://iovlkmm5y1mw" path="res://assets/Arts-WIP/Butterfly04–wing01.png" id="5_n4fv4"]
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="6_egqhl"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="7_7u67b"]
+[ext_resource type="Texture2D" uid="uid://jnfsvwiy13qw" path="res://assets/Arts-WIP/SwitchTop.png" id="8_s1odp"]
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="9_e7bnd"]
 [ext_resource type="PackedScene" uid="uid://6a08w86cwjku" path="res://Scenes/areas/death_spike.tscn" id="10_81lxm"]
 [ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="10_a6t2m"]
@@ -28,11 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="16_q5xce"]
 [ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="18_ywl3f"]
 [ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="19_ywl3f"]
+[ext_resource type="PackedScene" uid="uid://daijkp6p2stup" path="res://Skunky/challenge.tscn" id="30_vu37y"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fsrl6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1odp"]
-size = Vector2(400, 350)
+size = Vector2(600, 350)
 
 [node name="Level4" type="Node2D"]
 
@@ -52,15 +54,33 @@ position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_s1odp")
 
 [node name="Sprite2D" type="Sprite2D" parent="BaseHintArea"]
-position = Vector2(0, -100)
-texture = ExtResource("2_n4fv4")
+position = Vector2(-100, -250)
+texture = ExtResource("3_vu37y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BaseHintArea"]
+position = Vector2(100, -150)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_vu37y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BaseHintArea"]
+position = Vector2(-50, -50)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_vu37y")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BaseHintArea"]
+position = Vector2(0, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vu37y")
+
+[node name="Sprite2D5" type="Sprite2D" parent="BaseHintArea"]
+position = Vector2(100, 100)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_vu37y")
 
 [node name="PlayerStatePowerUp" parent="." instance=ExtResource("1_7yhn4")]
 position = Vector2(2900, 550)
 set_air_jump_count = true
 air_jump_count = 100
-set_air_dash_count = true
-air_dash_count = 10
 metadata/_edit_lock_ = true
 
 [node name="Wing Collectable" parent="PlayerStatePowerUp" instance=ExtResource("4_bkb0e")]
@@ -77,6 +97,57 @@ metadata/_edit_lock_ = true
 position = Vector2(4100, -2900)
 metadata/_edit_lock_ = true
 
+[node name="BaseRespawnArea3" parent="." instance=ExtResource("11_mg2ol")]
+visible = false
+position = Vector2(1800, -3800)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.5176471, 0.654902, 0.654902, 1)
+z_index = -3
+position = Vector2(-1250.0001, 350)
+rotation = 3.1415927
+scale = Vector2(1.4999999, 1.4999999)
+texture = ExtResource("8_s1odp")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(0.5176471, 0.654902, 0.654902, 1)
+z_index = -3
+position = Vector2(-3250.0002, 400)
+rotation = 3.1415927
+scale = Vector2(1.4999999, 1.4999999)
+texture = ExtResource("8_s1odp")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+modulate = Color(0.5176471, 0.654902, 0.654902, 1)
+z_index = -3
+position = Vector2(-3350.0002, 300)
+rotation = -1.5707964
+scale = Vector2(1.4999999, 1.4999999)
+texture = ExtResource("8_s1odp")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+modulate = Color(0.5176471, 0.654902, 0.654902, 1)
+z_index = -3
+position = Vector2(-3300, -700)
+rotation = -0.7853982
+scale = Vector2(1.4999999, 1.4999999)
+texture = ExtResource("8_s1odp")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+modulate = Color(0.5176471, 0.654902, 0.654902, 1)
+z_index = -3
+position = Vector2(-1300, -2550.0002)
+rotation = -1.5707964
+scale = Vector2(1.4999999, 1.4999999)
+texture = ExtResource("8_s1odp")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+modulate = Color(0.5176471, 0.654902, 0.654902, 1)
+z_index = -3
+position = Vector2(-1250.0001, -2600)
+scale = Vector2(1.4999999, 1.4999999)
+texture = ExtResource("8_s1odp")
+
 [node name="Exit Trigger" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -87,10 +158,10 @@ beamLength = 5000
 metadata/_edit_lock_ = true
 
 [node name="LightCollector" parent="Exit Trigger" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
-position = Vector2(450, -5500)
+position = Vector2(1100, -5450)
+allowReset = false
 target = NodePath("../SemiSolidGround")
 positionModification = Vector2(0, -300)
-onlyTriggerOnce = true
 metadata/_edit_lock_ = true
 
 [node name="Toggle2" parent="Exit Trigger" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_adi6q")]
@@ -130,27 +201,24 @@ beamLength = 10000
 [node name="LiftCollector" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
 position = Vector2(1000, 250)
 rotation = 3.1415927
+allowReset = false
 target = NodePath("../Lift")
 positionModification = Vector2(0, -350)
 
 [node name="LightCollector2" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
 position = Vector2(-2850, 0)
 rotation = 1.5707964
+allowReset = false
 target = NodePath("../RotatingWallSmall")
 angleModification = 1.5707963267948966
-onlyTriggerOnce = true
 
 [node name="Mirror" parent="Light Ray" instance=ExtResource("4_adi6q")]
 position = Vector2(-1250, 300)
 rotation = 0.7853982
 
 [node name="Mirror5" parent="Light Ray" instance=ExtResource("4_adi6q")]
-position = Vector2(-1250, -2500)
+position = Vector2(-1250, -2550)
 rotation = 3.9269907
-
-[node name="Mirror6" parent="Light Ray" instance=ExtResource("4_adi6q")]
-position = Vector2(1250, -2500)
-rotation = 0.7853982
 
 [node name="Mirror2" parent="Light Ray" instance=ExtResource("4_adi6q")]
 position = Vector2(-3250.0002, 299.99994)
@@ -166,6 +234,13 @@ position = Vector2(-1650, -200)
 [node name="Toggle" parent="Light Ray" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_adi6q")]
 position = Vector2(750, 100)
 target_wall = NodePath("../Mirror")
+
+[node name="Toggle2" parent="Light Ray" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_adi6q")]
+position = Vector2(2350, -2114)
+target_wall = NodePath("../Node2D")
+rotation_dir = -1
+rotation_degree = 110
+is_triggered = true
 
 [node name="Lift" type="AnimatableBody2D" parent="Light Ray"]
 position = Vector2(1250, 350)
@@ -184,13 +259,29 @@ position = Vector2(650, 150)
 [node name="ContinuousSwitch" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("15_q5xce")]
 position = Vector2(-2950, -200)
 target = NodePath("../Mirror4")
-angleModification = -0.04363323129985824
+angleModification = -0.008726646259971648
 
 [node name="ContinuousSwitch2" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("15_q5xce")]
 position = Vector2(-3550, -200)
 invert_toggle_side = true
 target = NodePath("../Mirror4")
-angleModification = 0.04363323129985824
+angleModification = 0.008726646259971648
+
+[node name="Node2D" type="Node2D" parent="Light Ray"]
+position = Vector2(1500, -2850)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Light Ray/Node2D"]
+modulate = Color(0.5176471, 0.654902, 0.654902, 1)
+z_index = -3
+position = Vector2(-100, 150)
+rotation = 0.7853982
+scale = Vector2(1.4999999, 1.4999999)
+texture = ExtResource("8_s1odp")
+
+[node name="Mirror6" parent="Light Ray/Node2D" instance=ExtResource("4_adi6q")]
+position = Vector2(-250, 300)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Statics" type="Node2D" parent="."]
 
@@ -264,21 +355,6 @@ position = Vector2(2700, -1900)
 rotation = 1.5707964
 metadata/_edit_lock_ = true
 
-[node name="BaseDeathArea12" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
-position = Vector2(1600, -3000)
-rotation = 1.5707964
-metadata/_edit_lock_ = true
-
-[node name="BaseDeathArea18" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
-position = Vector2(1600, -3200)
-rotation = 1.5707964
-metadata/_edit_lock_ = true
-
-[node name="BaseDeathArea19" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
-position = Vector2(1600, -3400)
-rotation = 1.5707964
-metadata/_edit_lock_ = true
-
 [node name="BaseDeathArea13" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
 position = Vector2(2200, -3600)
 rotation = 1.5707964
@@ -339,14 +415,35 @@ metadata/_edit_lock_ = true
 [node name="SemiSolidGround4" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
 position = Vector2(1250, 0)
 
+[node name="SemiSolidGround11" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(1250, -2100)
+
+[node name="SemiSolidGround12" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(-750, -2000)
+
+[node name="SemiSolidGround13" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(-750, -2300)
+
 [node name="SemiSolidGround5" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
 position = Vector2(1750, 0)
 
 [node name="SemiSolidGround6" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
 position = Vector2(-1250, -400)
 
+[node name="SemiSolidGround9" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(-750, -1700)
+
+[node name="SemiSolidGround14" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(-1250, -1800)
+
+[node name="SemiSolidGround10" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(-2050, -2550)
+
 [node name="SemiSolidGround7" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
 position = Vector2(-3250, -200)
+
+[node name="SemiSolidGround8" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(-2650, -200)
 
 [node name="Ground" type="Node2D" parent="Statics"]
 
@@ -387,7 +484,7 @@ position = Vector2(-2050, 100)
 position = Vector2(-3200, 500)
 
 [node name="SolidGound30" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
-position = Vector2(-2450, -900)
+position = Vector2(-2950, -900)
 
 [node name="SolidGound3" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
 position = Vector2(2900, 900)
@@ -436,7 +533,10 @@ metadata/_edit_lock_ = true
 position = Vector2(150, 100)
 
 [node name="SolidGound35" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
-position = Vector2(900, -650)
+position = Vector2(-2050, -2100)
+
+[node name="SolidGound39" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
+position = Vector2(-1250, -2800)
 
 [node name="SolidGound36" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
 position = Vector2(2350, 300)
@@ -445,7 +545,7 @@ position = Vector2(2350, 300)
 position = Vector2(-2950, -200)
 
 [node name="SolidGound38" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
-position = Vector2(-3250, -900)
+position = Vector2(-2650, -1350)
 
 [node name="SolidGound9" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
 position = Vector2(4050, -3300)
@@ -472,14 +572,17 @@ position = Vector2(-2650, -2100)
 metadata/_edit_lock_ = true
 
 [node name="SolidGound23" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
-position = Vector2(-2400, -1300)
+position = Vector2(-450, -1400)
+
+[node name="SolidGound40" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(450, -1400)
 
 [node name="SolidGound15" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
 position = Vector2(950, -3300)
 metadata/_edit_lock_ = true
 
 [node name="SolidGound16" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
-position = Vector2(1300, -1200)
+position = Vector2(2050, -2100)
 
 [node name="Walls" type="Node2D" parent="Statics"]
 
@@ -569,7 +672,10 @@ position = Vector2(-3200, -900)
 metadata/_edit_lock_ = true
 
 [node name="SolidWall39" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
-position = Vector2(-1600, -900)
+position = Vector2(-1000, -1300)
+
+[node name="SolidWall54" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(1000, -1300)
 
 [node name="SolidWall40" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
 position = Vector2(-3550, 500)
@@ -629,6 +735,21 @@ position = Vector2(-3000, 100)
 [node name="SolidWall44" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
 position = Vector2(-3500, -700)
 
+[node name="SolidWall50" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(-2400, -1250)
+
+[node name="SolidWall53" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(1500, -1900)
+
+[node name="SolidWall55" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(1000, -1900)
+
+[node name="SolidWall56" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(-1000, -2600)
+
+[node name="SolidWall49" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(-1500, -400)
+
 [node name="SolidWall26" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
 position = Vector2(1500, -3400)
 metadata/_edit_lock_ = true
@@ -660,6 +781,12 @@ metadata/_edit_lock_ = true
 [node name="SolidWall46" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
 position = Vector2(1700, 600)
 
+[node name="SolidWall51" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(-1500, -2400)
+
+[node name="SolidWall52" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(-1000, -1900)
+
 [node name="SolidWall48" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
 position = Vector2(-3800, -200)
 
@@ -686,6 +813,7 @@ air_dash_count = 1
 [node name="LevelExit" parent="." instance=ExtResource("11_a6t2m")]
 position = Vector2(-100, -5000)
 rotation = 1.5707964
+next_scene = ExtResource("30_vu37y")
 metadata/_edit_lock_ = true
 
 [editable path="PlayerStatePowerUp/Wing Collectable"]

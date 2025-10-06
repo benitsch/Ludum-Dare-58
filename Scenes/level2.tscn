@@ -1,6 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://csesghfgympjx"]
+[gd_scene load_steps=24 format=3 uid="uid://csesghfgympjx"]
 
+[ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_5qi50"]
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_051s1"]
+[ext_resource type="Texture2D" uid="uid://b4rv7bmvo71w" path="res://assets/Arts-WIP/ButtonShift.png" id="2_1apgh"]
 [ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="2_in4v8"]
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_mu7lp"]
 [ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="4_5qi50"]
@@ -19,11 +21,19 @@
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="17_5mqgo"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_d87oc"]
 [ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="19_6y803"]
-[ext_resource type="PackedScene" path="res://Scenes/level3.tscn" id="20_in4v8"]
+[ext_resource type="PackedScene" uid="uid://ck26neeep282r" path="res://Scenes/level3.tscn" id="20_in4v8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
 
 [node name="Riddle 3" type="Node2D"]
+
+[node name="BaseHintArea" parent="." node_paths=PackedStringArray("dependantAreas") instance=ExtResource("1_5qi50")]
+position = Vector2(2650, 328)
+dependantAreas = [NodePath("../BaseDeathArea")]
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseHintArea"]
+position = Vector2(0, -244)
+texture = ExtResource("2_1apgh")
 
 [node name="BaseDeathArea" parent="." instance=ExtResource("18_d87oc")]
 position = Vector2(0, 1500)
