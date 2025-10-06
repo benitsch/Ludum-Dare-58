@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c58ol5kq2lldg"]
 
-[ext_resource type="Script" path="res://Scenes/objects/box_button.gd" id="1_0saxe"]
-[ext_resource type="Texture2D" uid="uid://cffdsmjvddnhl" path="res://assets/button/box_button.png" id="2_indhu"]
-[ext_resource type="Texture2D" uid="uid://cnwt7t30fb0nx" path="res://assets/button/box_button_pressed.png" id="3_cssl1"]
+[ext_resource type="Script" uid="uid://dabjiscm2hoks" path="res://Scenes/objects/box_button.gd" id="1_0saxe"]
+[ext_resource type="Texture2D" uid="uid://u2vrhvf01t8n" path="res://assets/Arts-WIP/PushButton01.png" id="2_0saxe"]
+[ext_resource type="Texture2D" uid="uid://d20m6e0njlol1" path="res://assets/Arts-WIP/PushButton02.png" id="3_0saxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_button"]
 size = Vector2(64, 16)
@@ -16,13 +16,13 @@ sprite_on = NodePath("Sprite On")
 box_layer = 4
 
 [node name="Sprite Off" type="Sprite2D" parent="."]
-scale = Vector2(0.25079924, 0.25079924)
-texture = ExtResource("2_indhu")
+position = Vector2(0, -17)
+texture = ExtResource("2_0saxe")
 
 [node name="Sprite On" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.251, 0.251)
-texture = ExtResource("3_cssl1")
+position = Vector2(0, -17)
+texture = ExtResource("3_0saxe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_button")
