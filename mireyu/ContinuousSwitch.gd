@@ -28,7 +28,7 @@ func moveRod() -> void:
 	
 	rotateNode(rod, rotation)
 
-func rotateNode(node, rotation: float, duration: float = 0.15) -> void:
+func rotateNode(node: Node2D, rotation: float, duration: float = 0.15) -> void:
 	var tween_toggle = create_tween()
 	tween_toggle.set_trans(Tween.TRANS_CUBIC)
 	tween_toggle.set_ease(Tween.EASE_IN_OUT)
