@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/audio_set.gd" id="1_1fae0"]
 [ext_resource type="AudioStream" uid="uid://hibrmdkh30rk" path="res://assets/audio/sfx/jam/swosh-27.mp3" id="1_wlbj4"]
-[ext_resource type="AudioStream" uid="uid://crpt6vhpq44af" path="res://assets/audio/sfx/jam/wood_squeak_01.ogg" id="2_wlbj4"]
+[ext_resource type="AudioStream" uid="uid://dm7mjfrgas1k5" path="res://assets/audio/sfx/jam/wood_squeak_02.mp3" id="2_wlbj4"]
 [ext_resource type="AudioStream" uid="uid://bl82mh2n7frl8" path="res://assets/audio/sfx/jam/explosion_dull.mp3" id="3_0k2hg"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/jam/foom_0.wav" id="4_guuqk"]
+[ext_resource type="AudioStream" uid="uid://dq5ku2g8d35fp" path="res://assets/audio/sfx/jam/foom_0.mp3" id="4_wlbj4"]
 
 [resource]
 script = ExtResource("1_1fae0")
@@ -16,6 +16,6 @@ audio_set = Dictionary[String, AudioStream]({
 "landing": null,
 "light_upd": null,
 "mirror_rotate": null,
-"pickup": ExtResource("4_guuqk"),
+"pickup": ExtResource("4_wlbj4"),
 "walk": null
 })
