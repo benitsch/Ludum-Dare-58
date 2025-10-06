@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvwon6onbii8v"]
+[gd_scene load_steps=5 format=3 uid="uid://df8hrbps03bsg"]
 
 [ext_resource type="Script" uid="uid://djlt6njdpsdhc" path="res://Scripts/audio_player.gd" id="1_5cco8"]
-[ext_resource type="Script" uid="uid://bvq22e7o28ios" path="res://Scripts/audio_set.gd" id="2_8iswg"]
+[ext_resource type="Script" path="res://Scripts/audio_set.gd" id="2_8iswg"]
 [ext_resource type="Resource" uid="uid://dvtdwdicm6xac" path="res://default_audio_set.tres" id="3_h7pl6"]
+[ext_resource type="Resource" uid="uid://dc1uc2s2mib4d" path="res://jam_music_set.tres" id="4_h7pl6"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 volume_db = -10.0
@@ -12,6 +13,6 @@ sfx = Dictionary[String, ExtResource("2_8iswg")]({
 "default": ExtResource("3_h7pl6")
 })
 music = Dictionary[String, ExtResource("2_8iswg")]({
-"default": ExtResource("3_h7pl6")
+"default": ExtResource("4_h7pl6")
 })
 default_set = "default"

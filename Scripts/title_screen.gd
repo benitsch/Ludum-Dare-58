@@ -29,7 +29,8 @@ func _ready() -> void:
 func _on_start_button_pressed() -> void:
 	if userPressedStartButton:
 		return
-
+	
+	AudioPlayer.change_music("game");
 	userPressedStartButton = true
 	%CameraAnimationPlayer.play("ZoomOut")
 	%AnimPlayer.play("idle")
@@ -48,7 +49,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	# When main butterfly falls down and leaves the screen
 	SceneTransitionAnimation.play("fade_in")
 	await SceneTransitionAnimation.animation_finished
-	AudioPlayer.change_music("game");
 	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
 
 func _input(event: InputEvent) -> void:
