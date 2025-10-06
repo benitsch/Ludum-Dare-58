@@ -5,6 +5,7 @@ extends Node2D
 @onready var circle:= $RayCast2D/Circle
 
 @export var maxBounces: int = 5
+@export var beamLength: int = 1000
 
 var beamPoints: Array[Vector2] = []
 var currentStart: Vector2
@@ -34,7 +35,7 @@ func castLightUntilNextPoint(availableBounces: int) -> void:
 		return
 	
 	ray.global_position = currentStart
-	ray.target_position = currentDirection * 600 # 2000
+	ray.target_position = currentDirection * beamLength
 	ray.force_raycast_update()
 	circle.position = ray.target_position
 	
