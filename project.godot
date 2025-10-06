@@ -13,7 +13,7 @@ config_version=5
 config/name="Wingless"
 run/main_scene="uid://bgy03v83dmqwg"
 config/features=PackedStringArray("4.5", "Forward Plus")
-boot_splash/image="uid://c8s3p8e248gfj"
+boot_splash/image="res://assets/Arts-WIP/LogoScreen04.png"
 config/icon="uid://bj86vucpyi1wb"
 boot_splash/name="Ludum Dare 58"
 boot_splash/icon="res://icon.svg"
@@ -69,3 +69,8 @@ dash={
 
 common/max_physics_steps_per_frame=10
 common/physics_interpolation=true
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.14117648, 0.14117648, 0.14117648, 1)
+environment/bg_color=Color(0.14, 0.14, 0.14, 1)
