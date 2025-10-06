@@ -1,7 +1,7 @@
 extends Area2D
 
 # Export variable - drag your wall node here in the Inspector
-@export var target_wall: AnimatableBody2D
+@export var target_wall: Node2D
 @export_enum("Clockwise:1", "Counterclockwise:-1") var rotation_dir: int = 1
 @export var rotation_degree = 90
 @export var is_triggered: bool = false  # false = aus (links), true = ein (rechts)
