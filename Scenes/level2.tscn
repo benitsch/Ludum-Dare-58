@@ -31,10 +31,10 @@
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1000
 texture_repeat = 2
-position = Vector2(9, -315)
+position = Vector2(269, 1242)
+scale = Vector2(4, 4)
 texture = ExtResource("1_1apgh")
-region_enabled = true
-region_rect = Rect2(0, 0, 8000, 3000)
+region_rect = Rect2(0, 0, 4000, 1500)
 
 [node name="BaseHintArea" parent="." node_paths=PackedStringArray("dependantAreas") instance=ExtResource("1_5qi50")]
 position = Vector2(2650, 328)

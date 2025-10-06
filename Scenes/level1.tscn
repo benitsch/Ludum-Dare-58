@@ -1,5 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://blrmhs53itx8r"]
+[gd_scene load_steps=43 format=3 uid="uid://blrmhs53itx8r"]
 
+[ext_resource type="Texture2D" uid="uid://cee0b0pl2kgbn" path="res://assets/Arts-WIP/Background.png" id="1_dr50b"]
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_gqotu"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
 [ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_ocmlb"]
@@ -443,6 +444,14 @@ animations = [{
 }]
 
 [node name="Riddle0" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1000
+texture_repeat = 2
+position = Vector2(3455, -1564)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("1_dr50b")
+region_rect = Rect2(0, 0, 4000, 1500)
 
 [node name="BaseHintArea" parent="." node_paths=PackedStringArray("dependantAreas") instance=ExtResource("1_ocmlb")]
 position = Vector2(3820, 566)
