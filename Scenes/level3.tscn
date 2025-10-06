@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://ck26neeep282r"]
+[gd_scene load_steps=28 format=3 uid="uid://ck26neeep282r"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_3nkac"]
 [ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_eqm1k"]
 [ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_d08tm"]
 [ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="5_vn7r1"]
+[ext_resource type="Texture2D" uid="uid://dqlwbnokbwonh" path="res://assets/Arts-WIP/ButtonPlus.png" id="6_455hk"]
 [ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="6_fpsp3"]
 [ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="6_jfxh1"]
 [ext_resource type="PackedScene" uid="uid://dmaa2smwi751n" path="res://Scenes/level4.tscn" id="6_p2sx0"]
@@ -57,8 +58,12 @@ position = Vector2(282, -202)
 texture = ExtResource("16_455hk")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Interactables/BaseHintArea"]
-position = Vector2(480, 54)
+position = Vector2(477, 54)
 texture = ExtResource("16_455hk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Interactables/BaseHintArea"]
+position = Vector2(378, -74)
+texture = ExtResource("6_455hk")
 
 [node name="Player" parent="Interactables" instance=ExtResource("17_s5d5r")]
 z_index = 0
