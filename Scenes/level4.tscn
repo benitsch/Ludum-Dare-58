@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmaa2smwi751n"]
+[gd_scene load_steps=14 format=3 uid="uid://dmaa2smwi751n"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="1_7yhn4"]
 [ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="2_46vi4"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="6_egqhl"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="7_7u67b"]
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="9_e7bnd"]
+[ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="10_a6t2m"]
 [ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="11_a6t2m"]
+[ext_resource type="PackedScene" uid="uid://ttol8yv3daac" path="res://Scenes/areas/base_respawn_area.tscn" id="11_mg2ol"]
 
 [node name="Level4" type="Node2D"]
 
@@ -20,6 +22,36 @@ set_air_jump_count = true
 air_jump_count = 100
 set_air_dash_count = true
 air_dash_count = 10
+
+[node name="Exit Trigger" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Lamp" parent="Exit Trigger" instance=ExtResource("2_46vi4")]
+position = Vector2(450, -5350)
+rotation = -1.5707964
+beamLength = 5000
+
+[node name="LightCollector" parent="Exit Trigger" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
+position = Vector2(450, -5500)
+target = NodePath("../SemiSolidGround")
+positionModification = Vector2(0, -300)
+onlyTriggerOnce = true
+
+[node name="Toggle2" parent="Exit Trigger" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_adi6q")]
+position = Vector2(25.000004, -5130)
+scale = Vector2(6, 1)
+target_wall = NodePath("../Lamp")
+rotation_dir = -1
+
+[node name="SemiSolidGround" type="AnimatableBody2D" parent="Exit Trigger"]
+position = Vector2(0, -4900)
+scale = Vector2(1, 0.5)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit Trigger/SemiSolidGround"]
+polygon = PackedVector2Array(-150, 0, 200, 0, 200, 50, -150, 50)
+one_way_collision = true
 
 [node name="Light Ray" type="Node2D" parent="."]
 
@@ -40,27 +72,14 @@ position = Vector2(-650, 87)
 target_wall = NodePath("../Mirror")
 rotation_degree = 45
 
-[node name="Exit Trigger" type="Node2D" parent="."]
-
-[node name="Lamp" parent="Exit Trigger" instance=ExtResource("2_46vi4")]
-position = Vector2(-200, -1150)
-rotation = -1.5707964
-beamLength = 5000
-
-[node name="LightCollector" parent="Exit Trigger" instance=ExtResource("3_ohik4")]
-position = Vector2(250, -1150)
-shouldToggle = true
-
 [node name="Statics" type="Node2D" parent="."]
 
 [node name="Tilted Terror" type="Node2D" parent="Statics"]
 
 [node name="Not So Solid Ground" type="Node2D" parent="Statics"]
 
-[node name="SemiSolidGround" parent="Statics/Not So Solid Ground" instance=ExtResource("6_egqhl")]
-modulate = Color(1, 1, 1, 0.19607843)
-position = Vector2(0, -1100)
-scale = Vector2(1, 0.5)
+[node name="SemiSolidGround2" parent="Statics/Not So Solid Ground" instance=ExtResource("6_egqhl")]
+position = Vector2(12, -553)
 
 [node name="Ground" type="Node2D" parent="Statics"]
 
@@ -70,19 +89,32 @@ position = Vector2(0, 100)
 [node name="SolidGound2" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
 position = Vector2(-750, 100)
 
+[node name="SolidGound3" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(2900, 900)
+
 [node name="Walls" type="Node2D" parent="Statics"]
 
 [node name="SolidWall" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
-position = Vector2(-200, -900)
+position = Vector2(-200, -4900)
 
 [node name="SolidWall2" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
-position = Vector2(250, -900)
+position = Vector2(250, -4900)
+
+[node name="SolidWall3" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2600, 1000)
+
+[node name="SolidWall4" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(3200, 1000)
+
+[node name="BaseRespawnArea" parent="Statics/Walls" instance=ExtResource("11_mg2ol")]
+position = Vector2(2900, 750)
 
 [node name="Player" parent="." instance=ExtResource("2_125c2")]
 position = Vector2(0, -50)
 
 [node name="Camera2D" parent="Player" index="1"]
 limit_left = -5000
+limit_top = -5000
 limit_right = 5000
 limit_bottom = 1000
 
@@ -98,7 +130,7 @@ set_air_dash_count = true
 air_dash_count = 1
 
 [node name="LevelExit" parent="." instance=ExtResource("11_a6t2m")]
-position = Vector2(-100, -1000)
+position = Vector2(-100, -5000)
 rotation = 1.5707964
 
 [editable path="Player"]

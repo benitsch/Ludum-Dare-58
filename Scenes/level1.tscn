@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://blrmhs53itx8r"]
+[gd_scene load_steps=24 format=3 uid="uid://blrmhs53itx8r"]
 
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_gqotu"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="1_iinf0"]
+[ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_ocmlb"]
+[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_tlxhh"]
 [ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="2_u0jjk"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="3_xsev2"]
 [ext_resource type="PackedScene" uid="uid://d1t02mtwhsho0" path="res://chris/Rotating_Wall.tscn" id="4_8vlnf"]
@@ -24,6 +26,18 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u0jjk"]
 
 [node name="Riddle0" type="Node2D"]
+
+[node name="BaseHintArea" parent="." node_paths=PackedStringArray("dependantAreas") instance=ExtResource("1_ocmlb")]
+position = Vector2(3820, 566)
+dependantAreas = [NodePath("../BasePlayerStateArea")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BaseHintArea"]
+polygon = PackedVector2Array(-224, -168, 52, -168, 368, 124, -224, 124)
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseHintArea"]
+position = Vector2(73, -20.499992)
+scale = Vector2(1.184, 0.59)
+texture = ExtResource("2_tlxhh")
 
 [node name="BasePlayerStateArea" parent="." instance=ExtResource("10_43l53")]
 position = Vector2(3703, 589)
@@ -183,6 +197,9 @@ position = Vector2(-1459, -269)
 
 [node name="SolidWall10" parent="Statics/#Walls" instance=ExtResource("12_cr7m2")]
 position = Vector2(-700, -610)
+
+[node name="SolidWall11" parent="Statics/#Walls" instance=ExtResource("12_cr7m2")]
+position = Vector2(336, -367)
 
 [node name="BaseDeathArea" parent="Statics" instance=ExtResource("18_sdbcr")]
 position = Vector2(5250, 2200)
