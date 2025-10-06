@@ -427,8 +427,6 @@ metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 
 [node name="SceneTransitionAnimation" parent="Node" instance=ExtResource("14_ycay6")]
 unique_name_in_owner = true
-visible = false
-scale = Vector2(1, 0.9999999)
 
 [connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton" to="CanvasLayer/TitleScreen" method="_on_start_button_pressed"]
 [connection signal="screen_exited" from="Node/ButterflyBoard/MainButterfly/MainButterflyBody/VisibleOnScreenNotifier2D" to="CanvasLayer/TitleScreen" method="_on_visible_on_screen_notifier_2d_screen_exited"]

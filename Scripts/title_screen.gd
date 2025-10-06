@@ -11,7 +11,7 @@ var wingsToFallDown := []
 var last_input_time := 0.0
 var input_cooldown := 0.25
 
-@onready var SceneTransitionAnimation = %SceneTransitionAnimation/AnimationPlayer
+@onready var SceneTransitionAnimation = %SceneTransitionAnimation
 @onready var ShakeButtons = %ShakeButtons
 
 func _ready() -> void:
@@ -21,13 +21,9 @@ func _ready() -> void:
 		%WingRightUp,
 		%WingRightDown
 	]
-	# SceneTransitionAnimation is invisible in the editor for better development,
-	# but we need the SceneTransitionAnimation visible
-	%SceneTransitionAnimation.visible = true
 	# ShakeButtons initially invisible & transparent
 	ShakeButtons.visible = true
 	ShakeButtons.modulate.a = 0.0
-	SceneTransitionAnimation.play("fade_out")
 
 func _on_start_button_pressed() -> void:
 	if userPressedStartButton:

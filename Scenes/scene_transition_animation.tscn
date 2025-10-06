@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0axorjkbj4ng"]
+[gd_scene load_steps=7 format=3 uid="uid://0axorjkbj4ng"]
 
 [ext_resource type="Shader" uid="uid://g6k4pcjv2wma" path="res://shaders/image_fade.gdshader" id="1_735qd"]
 [ext_resource type="Texture2D" uid="uid://dqjfvf25lri0c" path="res://assets/Arts-WIP/TransitionMask.png" id="2_dadpg"]
@@ -8,8 +8,8 @@ resource_name = "fade_in"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionAnimation/CanvasLayer/ColorRect:color")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/scale")
+tracks/1/path = NodePath("SceneTransitionAnimation/CanvasLayer/TextureRect:material:shader_parameter/scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,7 +35,7 @@ resource_name = "fade_out"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/path = NodePath("SceneTransitionAnimation/CanvasLayer/ColorRect:color")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,7 +47,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/scale")
+tracks/1/path = NodePath("SceneTransitionAnimation/CanvasLayer/TextureRect:material:shader_parameter/scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -56,67 +56,23 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.9, 1)
 }
 
-[sub_resource type="Animation" id="Animation_dadpg"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.9969454)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dadpg"]
 _data = {
-&"RESET": SubResource("Animation_dadpg"),
 &"fade_in": SubResource("Animation_7y4hr"),
 &"fade_out": SubResource("Animation_735qd")
 }
 
-[sub_resource type="GDScript" id="GDScript_7y4hr"]
-script/source = "extends AnimationPlayer
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2s6a2"]
-shader = ExtResource("1_735qd")
-shader_parameter/scale = 0.0
-shader_parameter/offset = Vector2(0.02, 0)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_735qd"]
 shader = ExtResource("1_735qd")
-shader_parameter/scale = 0.0
+shader_parameter/scale = 16.0
 shader_parameter/offset = Vector2(0.02, 0)
 
-[node name="SceneTransitionAnimation" type="Node2D"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="SceneTransitionAnimation" type="AnimationPlayer"]
 libraries = {
 &"": SubResource("AnimationLibrary_dadpg")
 }
 autoplay = "fade_out"
 speed_scale = 1.3
-script = SubResource("GDScript_7y4hr")
-
-[node name="TransitionMask" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_2s6a2")
-texture = ExtResource("2_dadpg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -127,7 +83,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.9969454)
+color = Color(0, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_735qd")
@@ -140,4 +96,4 @@ mouse_filter = 2
 texture = ExtResource("2_dadpg")
 expand_mode = 1
 
-[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
