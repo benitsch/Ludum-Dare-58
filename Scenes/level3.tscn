@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://ck26neeep282r"]
+[gd_scene load_steps=21 format=3 uid="uid://ck26neeep282r"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_3nkac"]
 [ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_eqm1k"]
 [ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_d08tm"]
 [ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="5_vn7r1"]
 [ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="6_fpsp3"]
+[ext_resource type="PackedScene" uid="uid://dmaa2smwi751n" path="res://Scenes/level4.tscn" id="6_p2sx0"]
 [ext_resource type="PackedScene" uid="uid://dp8ci4oah0ovo" path="res://mireyu/ContinuousSwitch.tscn" id="6_tg0qr"]
 [ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="8_pdvwv"]
 [ext_resource type="PackedScene" uid="uid://da4prwg6ru22i" path="res://mireyu/Mirror.tscn" id="8_wffsm"]
@@ -17,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="16_tsss4"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="17_s5d5r"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_06tg8"]
-[ext_resource type="PackedScene" path="res://Scenes/level_exit.tscn" id="19_fgdcu"]
+[ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="19_fgdcu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
 
@@ -54,6 +55,7 @@ air_dash_count = 1
 
 [node name="LevelExit" parent="Interactables" instance=ExtResource("19_fgdcu")]
 position = Vector2(-2700, -478)
+next_scene = ExtResource("6_p2sx0")
 
 [node name="ContinuousSwitch" parent="Interactables" node_paths=PackedStringArray("target") instance=ExtResource("6_tg0qr")]
 position = Vector2(-575, 872)
@@ -62,7 +64,7 @@ target = NodePath("../../Environment/Mirror")
 [node name="ContinuousSwitch2" parent="Interactables" node_paths=PackedStringArray("target") instance=ExtResource("6_tg0qr")]
 position = Vector2(-258, 872)
 target = NodePath("../../Environment/Mirror")
-angle = -0.09773843811168285
+angle = -0.09773843811168284
 
 [node name="Environment" type="Node2D" parent="."]
 
