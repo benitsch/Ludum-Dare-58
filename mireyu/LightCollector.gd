@@ -14,7 +14,7 @@ func onBeamHit() -> void:
 
 func onBeamLeave() -> void:
 	sprite.set_texture(inactiveState)
-	if !reset:
+	if not allowReset:
 		return
 	
 	animateTarget(true)
