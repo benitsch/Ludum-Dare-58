@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dgqtudmhluc3g" path="res://Scenes/player/AnimPlayerStart.tscn" id="12_vfwvj"]
 [ext_resource type="Texture2D" uid="uid://676mu4jlfbmw" path="res://assets/Arts-WIP/Player-Wing02-start.png" id="13_t1jex"]
 [ext_resource type="Texture2D" uid="uid://1bj7313jvcam" path="res://assets/Arts-WIP/Player-Wing04-start.png" id="14_g3iaf"]
-[ext_resource type="PackedScene" path="res://Scenes/scene_transition_animation.tscn" id="14_ycay6"]
+[ext_resource type="PackedScene" uid="uid://0axorjkbj4ng" path="res://Scenes/scene_transition_animation.tscn" id="14_ycay6"]
 [ext_resource type="Texture2D" uid="uid://bkvnb0d0qjlbo" path="res://assets/Arts-WIP/Player-Wing01-start.png" id="15_qfn48"]
 [ext_resource type="Texture2D" uid="uid://cdpg3ukup5vev" path="res://assets/Arts-WIP/Butterfly01–Body.png" id="16_2ia2x"]
 [ext_resource type="Texture2D" uid="uid://df3eqp7yilpvf" path="res://assets/Arts-WIP/Butterfly01–wing02.png" id="17_1hrlb"]
