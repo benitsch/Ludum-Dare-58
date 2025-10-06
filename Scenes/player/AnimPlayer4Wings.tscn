@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwojakv10bfb6"]
+[gd_scene load_steps=23 format=3 uid="uid://bwojakv10bfb6"]
 
 [ext_resource type="Texture2D" uid="uid://bli62um6xhhy3" path="res://assets/Player/dash/left/player dash l 4/player dash l 4-0001.png" id="1_xttl5"]
 [ext_resource type="Texture2D" uid="uid://dpnpjgggrrb8w" path="res://assets/Player/dash/left/player dash l 4/player dash l 4-0002.png" id="2_xgplt"]
@@ -15,8 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://d310ncips60em" path="res://assets/Player/Idle/player idle 4-0001.png" id="13_xttl5"]
 [ext_resource type="Texture2D" uid="uid://c8f3loklf52hx" path="res://assets/Player/Idle/player idle 4-0002.png" id="14_xgplt"]
 [ext_resource type="Texture2D" uid="uid://bg7u111chp126" path="res://assets/Player/Idle/player idle 4-0003.png" id="15_ms5iy"]
+[ext_resource type="Texture2D" uid="uid://bc6eb16k3qpxk" path="res://assets/Player/jump/left/player l  4/player l  4-0001.png" id="16_b4th4"]
 [ext_resource type="Texture2D" uid="uid://bu0fevlrddo31" path="res://assets/Player/jump/right/player r 4/player r 4-0001.png" id="16_p16q2"]
+[ext_resource type="Texture2D" uid="uid://d2xooksc2c1p2" path="res://assets/Player/jump/left/player l  4/player l  4-0002.png" id="17_p4gmq"]
 [ext_resource type="Texture2D" uid="uid://dpnro7ront7y7" path="res://assets/Player/jump/right/player r 4/player r 4-0002.png" id="17_voeed"]
+[ext_resource type="Texture2D" uid="uid://cb55y7cr6thrv" path="res://assets/Player/jump/left/player l  4/player l  4-0003.png" id="18_cq2hd"]
 [ext_resource type="Texture2D" uid="uid://bjegntdqhsbn3" path="res://assets/Player/jump/right/player r 4/player r 4-0003.png" id="18_fwjuv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvq11"]
@@ -145,16 +148,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_tp57b")
+"texture": ExtResource("16_b4th4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_qt1l5")
+"texture": ExtResource("17_p4gmq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_kk5ny")
+"texture": ExtResource("16_b4th4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_pvq11")
+"texture": ExtResource("18_cq2hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cq2hd")
 }],
 "loop": false,
 "name": &"jump-left",
@@ -251,5 +257,5 @@ animations = [{
 
 [node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_pvq11")
-animation = &"jump-right"
+animation = &"jump-left"
 autoplay = "idle"

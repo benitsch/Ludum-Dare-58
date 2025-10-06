@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://10m3obdx4sk7"]
+[gd_scene load_steps=27 format=3 uid="uid://10m3obdx4sk7"]
 
 [ext_resource type="Texture2D" uid="uid://v5hs6h5pji50" path="res://assets/Player/walk/left/player l  4-0001.png" id="1_dwcfd"]
 [ext_resource type="Texture2D" uid="uid://bwby2sh4r6ebp" path="res://assets/Player/walk/left/player l  4-0002.png" id="2_rjld4"]
@@ -12,9 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://rhmpwxgi4sm" path="res://assets/Player/Idle/Lines0002.png" id="10_l8fxu"]
 [ext_resource type="Texture2D" uid="uid://crq4bsrotbmx8" path="res://assets/Player/Idle/Lines0003.png" id="11_whj4j"]
 [ext_resource type="Texture2D" uid="uid://eii0uxw3slk" path="res://assets/Player/walk/left/player l  0-0001.png" id="12_5hwdn"]
+[ext_resource type="Texture2D" uid="uid://dsvqp85qt53l2" path="res://assets/Player/jump/left/player l  0/player l  0-0001.png" id="12_mknik"]
 [ext_resource type="Texture2D" uid="uid://btpx3nmjvress" path="res://assets/Player/jump/right/player r 0/player r 0-0001.png" id="12_qion3"]
 [ext_resource type="Texture2D" uid="uid://da7wp6t631ln7" path="res://assets/Player/jump/right/player r 0/player r 0-0002.png" id="13_byad2"]
 [ext_resource type="Texture2D" uid="uid://4ca6pa3cvgni" path="res://assets/Player/walk/left/player l  0-0002.png" id="13_qxawy"]
+[ext_resource type="Texture2D" uid="uid://bfwloi3bai3et" path="res://assets/Player/jump/left/player l  0/player l  0-0002.png" id="13_tt6mv"]
+[ext_resource type="Texture2D" uid="uid://da3ean0g6thrg" path="res://assets/Player/jump/left/player l  0/player l  0-0003.png" id="14_0svhj"]
 [ext_resource type="Texture2D" uid="uid://dpspjnxxwpkl2" path="res://assets/Player/jump/right/player r 0/player r 0-0003.png" id="14_chabe"]
 [ext_resource type="Texture2D" uid="uid://ca5u6orowwv6c" path="res://assets/Player/walk/left/player l  0-0003.png" id="14_ms7vm"]
 [ext_resource type="Texture2D" uid="uid://dq3346b4csosm" path="res://assets/Player/walk/left/player l  0-0004.png" id="15_qion3"]
@@ -161,16 +164,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_dwcfd")
+"texture": ExtResource("12_mknik")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_rjld4")
+"texture": ExtResource("12_mknik")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_dr1s2")
+"texture": ExtResource("13_tt6mv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_h6uwf")
+"texture": ExtResource("14_0svhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0svhj")
 }],
 "loop": false,
 "name": &"jump-left",
@@ -267,7 +273,5 @@ animations = [{
 
 [node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_5hwdn")
-animation = &"jump-right"
+animation = &"jump-left"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0

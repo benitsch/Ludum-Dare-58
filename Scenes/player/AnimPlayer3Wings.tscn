@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://irqqnq6ijtwj"]
+[gd_scene load_steps=31 format=3 uid="uid://irqqnq6ijtwj"]
 
 [ext_resource type="Texture2D" uid="uid://v5hs6h5pji50" path="res://assets/Player/walk/left/player l  4-0001.png" id="1_0fo1w"]
 [ext_resource type="Texture2D" uid="uid://bq5tlacw3msc2" path="res://assets/Player/dash/left/player dash l 3/player dash l 3-0001.png" id="1_7t8cv"]
@@ -15,10 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://bb7hq62l8eteb" path="res://assets/Player/Idle/player idle 3-0001.png" id="13_7t8cv"]
 [ext_resource type="Texture2D" uid="uid://boybb1t0y4rqf" path="res://assets/Player/Idle/player idle 3-0002.png" id="14_bavn1"]
 [ext_resource type="Texture2D" uid="uid://bnex4fya7e2mw" path="res://assets/Player/Idle/player idle 3-0003.png" id="15_jo5yd"]
+[ext_resource type="Texture2D" uid="uid://clx8tl2am1n3i" path="res://assets/Player/jump/left/player l  3/player l  3-0001.png" id="16_fb8sg"]
 [ext_resource type="Texture2D" uid="uid://o68xgbjvxo8g" path="res://assets/Player/walk/left/player l  3-0001.png" id="16_l0doq"]
 [ext_resource type="Texture2D" uid="uid://csh0ieihr6ts6" path="res://assets/Player/jump/right/player r 3/player r 3-0001.png" id="16_s84s6"]
 [ext_resource type="Texture2D" uid="uid://5ypp5hlv6bd3" path="res://assets/Player/jump/right/player r 3/player r 3-0002.png" id="17_4nedn"]
 [ext_resource type="Texture2D" uid="uid://b0hhe7mta2cls" path="res://assets/Player/walk/left/player l  3-0002.png" id="17_ktr3c"]
+[ext_resource type="Texture2D" uid="uid://8rlqg7nadyo5" path="res://assets/Player/jump/left/player l  3/player l  3-0002.png" id="17_qrtpa"]
+[ext_resource type="Texture2D" uid="uid://41qy3ynpn30m" path="res://assets/Player/jump/left/player l  3/player l  3-0003.png" id="18_cwsbp"]
 [ext_resource type="Texture2D" uid="uid://cxra51k5cy561" path="res://assets/Player/jump/right/player r 3/player r 3-0003.png" id="18_pstuf"]
 [ext_resource type="Texture2D" uid="uid://d2chw78kojqg8" path="res://assets/Player/walk/left/player l  3-0003.png" id="18_ttic8"]
 [ext_resource type="Texture2D" uid="uid://7atukok4n6vr" path="res://assets/Player/walk/left/player l  3-0004.png" id="19_s84s6"]
@@ -153,16 +156,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0fo1w")
+"texture": ExtResource("16_fb8sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_5x3u6")
+"texture": ExtResource("16_fb8sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_mwl6x")
+"texture": ExtResource("17_qrtpa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_spm7q")
+"texture": ExtResource("18_cwsbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cwsbp")
 }],
 "loop": false,
 "name": &"jump-left",
@@ -259,7 +265,5 @@ animations = [{
 
 [node name="AnimPlayer2" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0fo1w")
-animation = &"jump-right"
+animation = &"jump-left"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
