@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmaa2smwi751n"]
+[gd_scene load_steps=7 format=3 uid="uid://dmaa2smwi751n"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="1_7yhn4"]
+[ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="2_46vi4"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="2_125c2"]
+[ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="3_ohik4"]
+[ext_resource type="PackedScene" uid="uid://da4prwg6ru22i" path="res://mireyu/Mirror.tscn" id="4_adi6q"]
+[ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="5_7u67b"]
 
 [node name="Level4" type="Node2D"]
 
@@ -12,6 +16,17 @@ air_jump_count = 100
 set_air_dash_count = true
 air_dash_count = 10
 
+[node name="Light Ray" type="Node2D" parent="."]
+
+[node name="Lamp" parent="Light Ray" instance=ExtResource("2_46vi4")]
+position = Vector2(-1000, -200)
+
+[node name="LightCollector" parent="Light Ray" instance=ExtResource("3_ohik4")]
+position = Vector2(1050, -50)
+
+[node name="Mirror" parent="Light Ray" instance=ExtResource("4_adi6q")]
+position = Vector2(-850, -50)
+
 [node name="Statics" type="Node2D" parent="."]
 
 [node name="Tilted Terror" type="Node2D" parent="Statics"]
@@ -20,9 +35,18 @@ air_dash_count = 10
 
 [node name="Ground" type="Node2D" parent="Statics"]
 
+[node name="SolidGound" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(0, 100)
+
 [node name="Walls" type="Node2D" parent="Statics"]
 
 [node name="Player" parent="." instance=ExtResource("2_125c2")]
+position = Vector2(0, -50)
+
+[node name="Camera2D" parent="Player" index="1"]
+limit_left = -5000
+limit_right = 5000
+limit_bottom = 1000
 
 [node name="PlayerStateReset" parent="Player" instance=ExtResource("1_7yhn4")]
 position = Vector2(0, 2)
@@ -34,3 +58,5 @@ set_dash_allowed = true
 dash_allowed = true
 set_air_dash_count = true
 air_dash_count = 1
+
+[editable path="Player"]
