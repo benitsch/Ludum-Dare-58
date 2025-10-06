@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_d08tm"]
 [ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="5_vn7r1"]
 [ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="6_fpsp3"]
+[ext_resource type="PackedScene" uid="uid://dp8ci4oah0ovo" path="res://mireyu/ContinuousSwitch.tscn" id="6_tg0qr"]
 [ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="8_pdvwv"]
 [ext_resource type="PackedScene" uid="uid://da4prwg6ru22i" path="res://mireyu/Mirror.tscn" id="8_wffsm"]
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="9_w46me"]
@@ -20,10 +21,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwkqt"]
-size = Vector2(2000, 200)
-
-[node name="Riddle 3" type="Node2D"]
+[node name="Riddle 4" type="Node2D"]
 
 [node name="Interactables" type="Node2D" parent="."]
 
@@ -39,7 +37,12 @@ texture = ExtResource("5_d08tm")
 offset = Vector2(75, -75)
 
 [node name="Player" parent="Interactables" instance=ExtResource("17_s5d5r")]
+z_index = 0
 position = Vector2(-1556, -399)
+
+[node name="Camera2D" parent="Interactables/Player" index="1"]
+limit_left = -2710
+limit_bottom = 1200
 
 [node name="PlayerStateInitial" parent="Interactables/Player" instance=ExtResource("3_3nkac")]
 set_jump_allowed = true
@@ -52,11 +55,22 @@ air_dash_count = 1
 [node name="LevelExit" parent="Interactables" instance=ExtResource("19_fgdcu")]
 position = Vector2(-2700, -478)
 
+[node name="ContinuousSwitch" parent="Interactables" node_paths=PackedStringArray("target") instance=ExtResource("6_tg0qr")]
+position = Vector2(-575, 872)
+target = NodePath("../../Environment/Mirror")
+
+[node name="ContinuousSwitch2" parent="Interactables" node_paths=PackedStringArray("target") instance=ExtResource("6_tg0qr")]
+position = Vector2(-258, 872)
+target = NodePath("../../Environment/Mirror")
+angle = -0.09773843811168285
+
 [node name="Environment" type="Node2D" parent="."]
 
-[node name="LightCollector" parent="Environment" instance=ExtResource("6_fpsp3")]
+[node name="LightCollector" parent="Environment" node_paths=PackedStringArray("target") instance=ExtResource("6_fpsp3")]
 position = Vector2(-28, 159)
 rotation = 3.1415927
+target = NodePath("../../FloorsAndWalls/SectionLeft/SolidWall5")
+positionModification = Vector2(0, 500)
 
 [node name="Lamp" parent="Environment" instance=ExtResource("5_vn7r1")]
 position = Vector2(-1011, -620)
@@ -113,6 +127,12 @@ position = Vector2(-1310, 901)
 [node name="SolidWall4" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
 position = Vector2(180, 513)
 
+[node name="SolidWall5" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
+position = Vector2(380, 20)
+
+[node name="SolidWall8" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
+position = Vector2(585, 520)
+
 [node name="SolidWall2" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("16_tsss4")]
 position = Vector2(-1509, 299)
 
@@ -136,10 +156,5 @@ position = Vector2(0, 1500)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathAreas/BaseDeathArea"]
 shape = SubResource("WorldBoundaryShape2D_hx4q4")
 
-[node name="BehindExit" parent="DeathAreas" instance=ExtResource("18_06tg8")]
-position = Vector2(-3725, 321)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathAreas/BehindExit"]
-shape = SubResource("RectangleShape2D_vwkqt")
-
 [editable path="Interactables/PlayerStatePowerUp/Wing Collectable"]
+[editable path="Interactables/Player"]
