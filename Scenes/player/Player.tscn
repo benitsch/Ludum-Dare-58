@@ -52,7 +52,7 @@ height = 214.0
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 2
-collision_mask = 5
+collision_mask = 69
 floor_snap_length = 45.0
 script = ExtResource("1_xf0b5")
 player_states = Array[ExtResource("2_r5va5")]([SubResource("Resource_mphk7"), SubResource("Resource_trp67"), SubResource("Resource_xb7k6"), SubResource("Resource_v18lm"), SubResource("Resource_1u68r")])

@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://okeb1rdii00v" path="res://assets/Arts-WIP/SemiSolidGround.png" id="1_nhxkc"]
 
 [node name="SemiSolidGround" type="StaticBody2D"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, 45)
