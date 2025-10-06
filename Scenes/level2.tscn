@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://csesghfgympjx"]
+[gd_scene load_steps=25 format=3 uid="uid://csesghfgympjx"]
 
+[ext_resource type="Texture2D" uid="uid://cee0b0pl2kgbn" path="res://assets/Arts-WIP/Background.png" id="1_1apgh"]
 [ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_5qi50"]
 [ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_051s1"]
 [ext_resource type="Texture2D" uid="uid://b4rv7bmvo71w" path="res://assets/Arts-WIP/ButtonShift.png" id="2_1apgh"]
@@ -26,6 +27,14 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
 
 [node name="Riddle 3" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1000
+texture_repeat = 2
+position = Vector2(9, -315)
+texture = ExtResource("1_1apgh")
+region_enabled = true
+region_rect = Rect2(0, 0, 8000, 3000)
 
 [node name="BaseHintArea" parent="." node_paths=PackedStringArray("dependantAreas") instance=ExtResource("1_5qi50")]
 position = Vector2(2650, 328)
@@ -177,7 +186,7 @@ position = Vector2(2650, 422)
 position = Vector2(3350, 322)
 
 [node name="SolidGound15" parent="Statics/Ground" instance=ExtResource("13_u1na6")]
-position = Vector2(-250, -1180)
+position = Vector2(-250, -1205)
 
 [node name="SolidGound16" parent="Statics/Ground" instance=ExtResource("11_yjaoa")]
 position = Vector2(-3100, -478)
@@ -233,10 +242,10 @@ position = Vector2(3900, -578)
 position = Vector2(3900, -778)
 
 [node name="SolidWall19" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
-position = Vector2(0, -1080)
+position = Vector2(0, -1105)
 
 [node name="SolidWall20" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
-position = Vector2(-500, -1080)
+position = Vector2(-500, -1105)
 
 [node name="SolidWall17" parent="Statics/Walls" instance=ExtResource("16_ukdoj")]
 position = Vector2(1300, 22)
