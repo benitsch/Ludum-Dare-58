@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhsssrgwptn62"]
+[gd_scene load_steps=8 format=3 uid="uid://dhsssrgwptn62"]
 
 [ext_resource type="Texture2D" uid="uid://c5jbw32sjvi8s" path="res://assets/Arts-WIP/EndSceen.png" id="1_gcms0"]
 [ext_resource type="Texture2D" uid="uid://d48dapntcmtg" path="res://assets/Arts-WIP/ButtonBonusLevel.png" id="2_2ohhu"]
 [ext_resource type="PackedScene" uid="uid://daijkp6p2stup" path="res://Skunky/challenge.tscn" id="3_3gukv"]
 [ext_resource type="PackedScene" uid="uid://0axorjkbj4ng" path="res://Scenes/scene_transition_animation.tscn" id="3_jrx8a"]
+[ext_resource type="Texture2D" uid="uid://nhfgu620myov" path="res://assets/Arts-WIP/ButtonStart.png" id="4_d234m"]
+[ext_resource type="PackedScene" uid="uid://bgy03v83dmqwg" path="res://Scenes/title_screen.tscn" id="5_tslor"]
 
 [sub_resource type="GDScript" id="GDScript_2ohhu"]
 script/source = "extends TextureButton
@@ -58,6 +60,27 @@ script = SubResource("GDScript_2ohhu")
 scene_to_load = ExtResource("3_3gukv")
 animator = NodePath("../../SceneTransitionAnimation")
 
+[node name="TextureButton2" type="TextureButton" parent="TextureRect" node_paths=PackedStringArray("animator")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.568
+anchor_top = 0.80100006
+anchor_right = 0.81100005
+anchor_bottom = 0.94100004
+offset_left = -453.336
+offset_top = -0.048034668
+offset_right = -453.27203
+offset_bottom = 0.23199463
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("4_d234m")
+ignore_texture_size = true
+stretch_mode = 5
+script = SubResource("GDScript_2ohhu")
+scene_to_load = ExtResource("5_tslor")
+animator = NodePath("../../SceneTransitionAnimation")
+
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("3_jrx8a")]
 
 [connection signal="pressed" from="TextureRect/TextureButton" to="TextureRect/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureRect/TextureButton2" to="TextureRect/TextureButton2" method="_on_pressed"]
