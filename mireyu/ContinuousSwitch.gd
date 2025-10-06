@@ -1,5 +1,7 @@
 extends AnimationArea2D
 
+@export var invert_toggle_side : bool = false
+
 @onready var rod := $ToggleRod
 
 var isStandingInSwitch := false
@@ -23,6 +25,7 @@ func moveRod() -> void:
 	if !isStandingInSwitch:
 		rodRotation = -rodRotation
 	
+	if invert_toggle_side: rodRotation = -rodRotation
 	rotateNode(rod, rodRotation)
 
 func _physics_process(delta: float) -> void:

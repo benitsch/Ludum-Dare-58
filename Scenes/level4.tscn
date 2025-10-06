@@ -132,10 +132,9 @@ rotation = 3.1415927
 target = NodePath("../Lift")
 positionModification = Vector2(0, -350)
 
-[node name="LightCollector2" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
+[node name="LightCollector2" parent="Light Ray" instance=ExtResource("3_ohik4")]
 position = Vector2(-2800, 0)
 rotation = 1.5707964
-target = NodePath("")
 
 [node name="Mirror" parent="Light Ray" instance=ExtResource("4_adi6q")]
 position = Vector2(-1250, 300)
@@ -180,6 +179,7 @@ angle = -0.08726646259971647
 position = Vector2(-3550, -200)
 target = NodePath("../Mirror4")
 angle = 0.08726646259971647
+invert_toggle_side = true
 
 [node name="Statics" type="Node2D" parent="."]
 
