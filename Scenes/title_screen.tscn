@@ -1,12 +1,12 @@
-[gd_scene load_steps=58 format=3 uid="uid://bgy03v83dmqwg"]
+[gd_scene load_steps=61 format=3 uid="uid://bgy03v83dmqwg"]
 
 [ext_resource type="Script" uid="uid://dbm8j44i6dtmb" path="res://Scripts/title_screen.gd" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://nhfgu620myov" path="res://assets/Arts-WIP/ButtonStart.png" id="2_vfwvj"]
-[ext_resource type="Texture2D" uid="uid://c8s3p8e248gfj" path="res://assets/Arts-WIP/Background01.png" id="2_ycay6"]
 [ext_resource type="Texture2D" uid="uid://n0omnwrdj7g2" path="res://assets/Arts-WIP/ButtonSettings.png" id="3_4lfus"]
 [ext_resource type="Texture2D" uid="uid://d8y1icnaxerp" path="res://assets/Arts-WIP/Frame01.png" id="3_ycay6"]
 [ext_resource type="PackedScene" uid="uid://dwbpkt3o837wb" path="res://Scenes/settings_screen.tscn" id="4_4lfus"]
 [ext_resource type="Script" uid="uid://dt0k1ik8w2s2h" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="4_55kwv"]
+[ext_resource type="Texture2D" uid="uid://cee0b0pl2kgbn" path="res://assets/Arts-WIP/Background.png" id="5_2aetq"]
 [ext_resource type="Script" uid="uid://buxgkvex4moma" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="5_sqelc"]
 [ext_resource type="Script" uid="uid://by0ddd7sx2hqr" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="6_w5sh6"]
 [ext_resource type="Script" uid="uid://cdieqvotu6bmh" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="7_o1e67"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dgqtudmhluc3g" path="res://Scenes/player/AnimPlayerStart.tscn" id="12_vfwvj"]
 [ext_resource type="Texture2D" uid="uid://676mu4jlfbmw" path="res://assets/Arts-WIP/Player-Wing02-start.png" id="13_t1jex"]
 [ext_resource type="Texture2D" uid="uid://1bj7313jvcam" path="res://assets/Arts-WIP/Player-Wing04-start.png" id="14_g3iaf"]
-[ext_resource type="PackedScene" uid="uid://0axorjkbj4ng" path="res://Scenes/scene_transition_animation.tscn" id="14_ycay6"]
+[ext_resource type="PackedScene" path="res://Scenes/scene_transition_animation.tscn" id="14_ycay6"]
 [ext_resource type="Texture2D" uid="uid://bkvnb0d0qjlbo" path="res://assets/Arts-WIP/Player-Wing01-start.png" id="15_qfn48"]
 [ext_resource type="Texture2D" uid="uid://cdpg3ukup5vev" path="res://assets/Arts-WIP/Butterfly01–Body.png" id="16_2ia2x"]
 [ext_resource type="Texture2D" uid="uid://df3eqp7yilpvf" path="res://assets/Arts-WIP/Butterfly01–wing02.png" id="17_1hrlb"]
@@ -47,6 +47,9 @@
 [ext_resource type="Texture2D" uid="uid://dddkbaj3p3du5" path="res://assets/Arts-WIP/NeedleLeft02.png" id="42_vfwvj"]
 [ext_resource type="Texture2D" uid="uid://cpny7dfmu8hdp" path="res://assets/Arts-WIP/NeedleRight02.png" id="43_tv3xl"]
 [ext_resource type="Texture2D" uid="uid://c6rfc7b7cepma" path="res://assets/Arts-WIP/NeedleRight01.png" id="44_4lfus"]
+[ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="48_4j2le"]
+[ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="49_q71se"]
+[ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="50_s0wjx"]
 
 [sub_resource type="Animation" id="Animation_twnyg"]
 length = 0.001
@@ -154,8 +157,10 @@ layout_mode = 1
 [node name="Node" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Node"]
-scale = Vector2(2, 1.727941)
-texture = ExtResource("2_ycay6")
+modulate = Color(1, 1, 1, 0.25490198)
+scale = Vector2(4, 3.456)
+texture = ExtResource("5_2aetq")
+region_rect = Rect2(0, 0, 2000, 1616)
 
 [node name="Camera2D" type="Camera2D" parent="Node"]
 zoom = Vector2(0.5, 0.5)
@@ -447,6 +452,57 @@ metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 
 [node name="SceneTransitionAnimation" parent="Node" instance=ExtResource("14_ycay6")]
 unique_name_in_owner = true
+
+[node name="SolidWall" parent="." instance=ExtResource("48_4j2le")]
+position = Vector2(-2382, 491)
+
+[node name="SolidWall9" parent="." instance=ExtResource("48_4j2le")]
+position = Vector2(1506, -1130)
+
+[node name="SolidWall10" parent="." instance=ExtResource("48_4j2le")]
+position = Vector2(2703, 760)
+
+[node name="SolidWall11" parent="." instance=ExtResource("48_4j2le")]
+position = Vector2(3201, 7)
+
+[node name="SolidWall12" parent="." instance=ExtResource("48_4j2le")]
+position = Vector2(1479, 1453)
+
+[node name="SolidWall2" parent="." instance=ExtResource("49_q71se")]
+position = Vector2(-2388, -612)
+
+[node name="SolidWall13" parent="." instance=ExtResource("49_q71se")]
+position = Vector2(-3054, -1110)
+
+[node name="SolidWall14" parent="." instance=ExtResource("49_q71se")]
+position = Vector2(-1803, 1056)
+
+[node name="SolidWall15" parent="." instance=ExtResource("49_q71se")]
+position = Vector2(-2638, 1567)
+
+[node name="SolidWall16" parent="." instance=ExtResource("49_q71se")]
+position = Vector2(3277, 1466)
+
+[node name="SolidWall17" parent="." instance=ExtResource("49_q71se")]
+position = Vector2(2173, -405)
+
+[node name="SolidWall3" parent="." instance=ExtResource("50_s0wjx")]
+position = Vector2(2805, -908)
+
+[node name="SolidWall4" parent="." instance=ExtResource("50_s0wjx")]
+position = Vector2(1883, 491)
+
+[node name="SolidWall5" parent="." instance=ExtResource("50_s0wjx")]
+position = Vector2(-2295, -236)
+
+[node name="SolidWall6" parent="." instance=ExtResource("50_s0wjx")]
+position = Vector2(-3176, -660)
+
+[node name="SolidWall7" parent="." instance=ExtResource("50_s0wjx")]
+position = Vector2(-3062, 712)
+
+[node name="SolidWall8" parent="." instance=ExtResource("50_s0wjx")]
+position = Vector2(-142, -1441)
 
 [connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton/StartButton" to="CanvasLayer/TitleScreen" method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton/SettingsButton" to="CanvasLayer/TitleScreen" method="_on_settings_button_pressed"]
