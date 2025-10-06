@@ -11,6 +11,7 @@ collision_mask = 7
 mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_l5ul6")
 gravity_scale = 2.0
+can_sleep = false
 lock_rotation = true
 linear_damp = 1.0
 
