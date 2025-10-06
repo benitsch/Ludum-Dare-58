@@ -31,8 +31,10 @@ var input: float
 var falling: bool = true
 var dashing: bool = false
 var dash_timer: float = 0
+var previously_on_floor: bool = true
 
 var objectList : Array[Node2D]
+var current_walking_sfx: AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -84,6 +86,8 @@ func _physics_process(delta: float) -> void:
 		input = Input.get_axis("move_left", "move_right");
 	if not is_zero_approx(input):
 		direction = 1 if input > 0 else -1;
+		if is_on_floor() and not current_walking_sfx:
+			current_walking_sfx = AudioPlayer.play_sfx("walk")
 	apply_animation()
 	# refresh dash and jump count even during dash
 	if is_on_floor():
@@ -112,7 +116,10 @@ func _physics_process(delta: float) -> void:
 			delta,
 			horizontal_half_time
 	);
-	
+	if not previously_on_floor and is_on_floor():
+		falling = true; # var name makes no sense, but idc anymore
+		AudioPlayer.play_sfx("landing");
+	previously_on_floor = is_on_floor()
 	move_and_slide();
 	
 	for i in get_slide_collision_count():
@@ -142,9 +149,11 @@ func on_ground_touch():
 func try_jump():
 	if not PlayerState.can_jump: return;
 	if is_on_floor():
+		AudioPlayer.play_sfx("jump");
 		velocity.y = -sqrt(2 * ascend_gravity * jump_height);
 		current_animator.play("jump-left" if direction < 0 else "jump-right")
 	elif cur_air_jumps > 0:
+		AudioPlayer.play_sfx("jump");
 		velocity.y = -sqrt(2 * ascend_gravity * air_jump_height);
 		cur_air_jumps -= 1;
 		current_animator.play("double-jump-left" if direction < 0 else "double-jump-right")
@@ -160,6 +169,7 @@ func try_jump():
 func try_dash():
 	if not PlayerState.can_dash: return;
 	if dashing or cur_air_dashes <= 0: return;
+	AudioPlayer.play_sfx("dash");
 	dashing = true;
 	dash_timer = 0;
 	velocity.y = 0;
