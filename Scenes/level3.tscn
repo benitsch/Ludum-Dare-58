@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ck26neeep282r"]
+[gd_scene load_steps=24 format=3 uid="uid://ck26neeep282r"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_3nkac"]
 [ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_eqm1k"]
@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="17_s5d5r"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_06tg8"]
 [ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="19_fgdcu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nkac"]
+size = Vector2(196, 210)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
 
@@ -64,8 +67,12 @@ next_scene = ExtResource("6_p2sx0")
 [node name="LightCollector" parent="Interactables/LightPuzzle1" node_paths=PackedStringArray("target") instance=ExtResource("6_fpsp3")]
 position = Vector2(-28, 159)
 rotation = -3.1415925
+allowReset = null
 target = NodePath("../../Button1")
+angleModification = null
 positionModification = Vector2(0, 300)
+shouldToggle = null
+onlyTriggerOnce = null
 
 [node name="Lamp" parent="Interactables/LightPuzzle1" instance=ExtResource("5_vn7r1")]
 position = Vector2(-1011, -620)
@@ -135,12 +142,65 @@ positionModification = Vector2(0, 1140)
 position = Vector2(1988, -2000)
 
 [node name="PushButton" parent="Interactables/Button5" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
-target = NodePath("../../../Environment/SectionRight/SolidGound")
+target = NodePath("../../../Environment/SectionMid/SolidGound")
 positionModification = Vector2(0, 1140)
 
 [node name="SolidGound" parent="Interactables/Button5" instance=ExtResource("13_mf2hp")]
 
 [node name="LightPuzzle2" type="Node2D" parent="Interactables"]
+
+[node name="Lamp" parent="Interactables/LightPuzzle2" instance=ExtResource("5_vn7r1")]
+position = Vector2(4688, -1513)
+maxBounces = 6
+beamLength = 5000
+
+[node name="Mirror" parent="Interactables/LightPuzzle2" instance=ExtResource("8_wffsm")]
+position = Vector2(4687, -1140)
+rotation = -3.7437313
+
+[node name="Mirror2" parent="Interactables/LightPuzzle2" instance=ExtResource("8_wffsm")]
+position = Vector2(5493, -829)
+rotation = -0.9773844
+
+[node name="Mirror3" parent="Interactables/LightPuzzle2" instance=ExtResource("8_wffsm")]
+position = Vector2(5972, -316)
+rotation = -0.6632251
+
+[node name="Mirror4" parent="Interactables/LightPuzzle2" instance=ExtResource("8_wffsm")]
+position = Vector2(6286, 160)
+rotation = 2.0699606
+
+[node name="Mirror5" parent="Interactables/LightPuzzle2" instance=ExtResource("8_wffsm")]
+position = Vector2(7156, 170)
+rotation = -0.76096356
+
+[node name="LightCollector" parent="Interactables/LightPuzzle2" node_paths=PackedStringArray("target") instance=ExtResource("6_fpsp3")]
+position = Vector2(7122, 710)
+allowReset = null
+target = NodePath("../../../Environment/SectionMid/SolidWall")
+angleModification = null
+positionModification = Vector2(0, 300)
+shouldToggle = null
+onlyTriggerOnce = null
+
+[node name="Button6" type="Node2D" parent="Interactables"]
+position = Vector2(7820, 1000)
+
+[node name="PushButton" parent="Interactables/Button6" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
+position = Vector2(0, -224)
+target = NodePath("../Elevator")
+positionModification = Vector2(0, -3480)
+durationModification = 5.0
+
+[node name="Elevator" type="AnimatableBody2D" parent="Interactables/Button6"]
+position = Vector2(-7820, -1000)
+
+[node name="SolidWall" parent="Interactables/Button6/Elevator" instance=ExtResource("16_tsss4")]
+position = Vector2(7820, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Button6/Elevator"]
+position = Vector2(7820, 905)
+shape = SubResource("RectangleShape2D_3nkac")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -201,32 +261,104 @@ position = Vector2(-631, 304)
 [node name="SemiSolidGround4" parent="Environment/SectionLeft" instance=ExtResource("8_pdvwv")]
 position = Vector2(-678, -3)
 
-[node name="SectionRight" type="Node2D" parent="Environment"]
+[node name="SectionMid" type="Node2D" parent="Environment"]
 
-[node name="SolidGound" parent="Environment/SectionRight" instance=ExtResource("13_mf2hp")]
+[node name="SolidGound" parent="Environment/SectionMid" instance=ExtResource("13_mf2hp")]
 position = Vector2(2588, -2000)
 
-[node name="SolidGound2" parent="Environment/SectionRight" instance=ExtResource("12_5qe4c")]
+[node name="SolidGound2" parent="Environment/SectionMid" instance=ExtResource("12_5qe4c")]
 position = Vector2(3188, -860)
 
-[node name="SolidSlopeRight" parent="Environment/SectionRight" instance=ExtResource("6_jfxh1")]
+[node name="SolidSlopeRight" parent="Environment/SectionMid" instance=ExtResource("6_jfxh1")]
 position = Vector2(3790, -862)
 
-[node name="SolidSlopeRight2" parent="Environment/SectionRight" instance=ExtResource("6_jfxh1")]
+[node name="SolidSlopeRight2" parent="Environment/SectionMid" instance=ExtResource("6_jfxh1")]
 position = Vector2(4638.0005, -610.00006)
 rotation = 0.34906584
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="SolidSlopeRight3" parent="Environment/SectionRight" instance=ExtResource("6_jfxh1")]
+[node name="SolidSlopeRight3" parent="Environment/SectionMid" instance=ExtResource("6_jfxh1")]
 position = Vector2(5355.0005, -79.000244)
 rotation = 0.6981317
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="SolidGound3" parent="Environment/SectionRight" instance=ExtResource("11_2jf1r")]
+[node name="SolidGound3" parent="Environment/SectionMid" instance=ExtResource("11_2jf1r")]
 position = Vector2(6076, 805)
 
-[node name="SolidGound4" parent="Environment/SectionRight" instance=ExtResource("11_2jf1r")]
+[node name="SolidGound4" parent="Environment/SectionMid" instance=ExtResource("11_2jf1r")]
 position = Vector2(6651, 805)
+
+[node name="SolidGound5" parent="Environment/SectionMid" instance=ExtResource("12_5qe4c")]
+position = Vector2(7398, 803)
+
+[node name="SolidGound6" parent="Environment/SectionMid" instance=ExtResource("12_5qe4c")]
+position = Vector2(8268, 806)
+
+[node name="SemiSolidGround" parent="Environment/SectionMid" instance=ExtResource("8_pdvwv")]
+position = Vector2(7128, 563)
+
+[node name="SemiSolidGround2" parent="Environment/SectionMid" instance=ExtResource("8_pdvwv")]
+position = Vector2(6950.9995, 710)
+rotation = -1.3962634
+
+[node name="SemiSolidGround3" parent="Environment/SectionMid" instance=ExtResource("8_pdvwv")]
+position = Vector2(7302, 710.00006)
+rotation = 1.3962634
+
+[node name="SolidWall" parent="Environment/SectionMid" instance=ExtResource("15_5v8i3")]
+position = Vector2(7616, 310)
+
+[node name="SectionRight" type="Node2D" parent="Environment"]
+
+[node name="SemiSolidGround" parent="Environment/SectionRight" instance=ExtResource("8_pdvwv")]
+position = Vector2(7833, -2690)
+
+[node name="LeftWall" type="Node2D" parent="Environment/SectionRight"]
+position = Vector2(7620, 0)
+
+[node name="SolidWall3" parent="Environment/SectionRight/LeftWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(7616, 310)
+
+[node name="SolidWall4" parent="Environment/SectionRight/LeftWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, -290)
+
+[node name="SolidWall5" parent="Environment/SectionRight/LeftWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, -1290)
+
+[node name="SolidWall6" parent="Environment/SectionRight/LeftWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, -2090)
+
+[node name="SolidWall" parent="Environment/SectionRight/LeftWall" instance=ExtResource("14_1alju")]
+position = Vector2(0, -890)
+
+[node name="SolidWall2" parent="Environment/SectionRight/LeftWall" instance=ExtResource("16_tsss4")]
+position = Vector2(0, -1890)
+
+[node name="SolidWall7" parent="Environment/SectionRight/LeftWall" instance=ExtResource("16_tsss4")]
+position = Vector2(0, 808)
+
+[node name="RightWall" type="Node2D" parent="Environment/SectionRight"]
+position = Vector2(8020, 808)
+
+[node name="SolidWall7" parent="Environment/SectionRight/RightWall" instance=ExtResource("15_5v8i3")]
+
+[node name="SolidWall8" parent="Environment/SectionRight/RightWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, -600)
+
+[node name="SolidWall" parent="Environment/SectionRight/RightWall" instance=ExtResource("16_tsss4")]
+position = Vector2(0, -1200)
+
+[node name="SolidWall2" parent="Environment/SectionRight/RightWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, -1400)
+
+[node name="SolidWall3" parent="Environment/SectionRight/RightWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, -2000)
+
+[node name="SolidWall4" parent="Environment/SectionRight/RightWall" instance=ExtResource("14_1alju")]
+position = Vector2(0, -2600)
+
+[node name="SolidWall5" parent="Environment/SectionRight/RightWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, -3000)
 
 [node name="DeathAreas" type="Node2D" parent="."]
 
