@@ -1,20 +1,20 @@
 [gd_scene load_steps=17 format=3 uid="uid://irqqnq6ijtwj"]
 
 [ext_resource type="Texture2D" uid="uid://v5hs6h5pji50" path="res://assets/Player/walk/left/player l  4-0001.png" id="1_0fo1w"]
-[ext_resource type="Texture2D" uid="uid://c1wu7ljc0xg76" path="res://assets/Player/Idle/Lines0001.png" id="1_6d76r"]
 [ext_resource type="Texture2D" uid="uid://bq5tlacw3msc2" path="res://assets/Player/dash/left/player dash l 3/player dash l 3-0001.png" id="1_7t8cv"]
-[ext_resource type="Texture2D" uid="uid://rhmpwxgi4sm" path="res://assets/Player/Idle/Lines0002.png" id="2_3osnv"]
 [ext_resource type="Texture2D" uid="uid://bwby2sh4r6ebp" path="res://assets/Player/walk/left/player l  4-0002.png" id="2_5x3u6"]
 [ext_resource type="Texture2D" uid="uid://c0dtr4kjr5o47" path="res://assets/Player/dash/left/player dash l 3/player dash l 3-0002.png" id="2_bavn1"]
 [ext_resource type="Texture2D" uid="uid://8px1e7t22ceq" path="res://assets/Player/dash/right/player dash r 3/player dash r 3-0001.png" id="3_jo5yd"]
 [ext_resource type="Texture2D" uid="uid://7a8cfi56gbgf" path="res://assets/Player/walk/left/player l  4-0003.png" id="3_mwl6x"]
-[ext_resource type="Texture2D" uid="uid://crq4bsrotbmx8" path="res://assets/Player/Idle/Lines0003.png" id="3_oxk8c"]
 [ext_resource type="Texture2D" uid="uid://d1s85jrnssmvw" path="res://assets/Player/dash/right/player dash r 3/player dash r 3-0002.png" id="4_8bes5"]
 [ext_resource type="Texture2D" uid="uid://ccxrgqoslwe5" path="res://assets/Player/walk/left/player l  4-0004.png" id="4_spm7q"]
 [ext_resource type="Texture2D" uid="uid://d1iaxgujwmem3" path="res://assets/Player/walk/right/player r 4-0001.png" id="5_7t8cv"]
 [ext_resource type="Texture2D" uid="uid://tiyrdwe2iv5r" path="res://assets/Player/walk/right/player r 4-0002.png" id="6_bavn1"]
 [ext_resource type="Texture2D" uid="uid://bmi6aahv7mo15" path="res://assets/Player/walk/right/player r 4-0003.png" id="7_jo5yd"]
 [ext_resource type="Texture2D" uid="uid://ccunnw0f4lm2f" path="res://assets/Player/walk/right/player r 4-0004.png" id="8_8bes5"]
+[ext_resource type="Texture2D" uid="uid://bb7hq62l8eteb" path="res://assets/Player/Idle/player idle 3-0001.png" id="13_7t8cv"]
+[ext_resource type="Texture2D" uid="uid://boybb1t0y4rqf" path="res://assets/Player/Idle/player idle 3-0002.png" id="14_bavn1"]
+[ext_resource type="Texture2D" uid="uid://bnex4fya7e2mw" path="res://assets/Player/Idle/player idle 3-0003.png" id="15_jo5yd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0fo1w"]
 animations = [{
@@ -110,31 +110,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_6d76r")
+"texture": ExtResource("13_7t8cv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_6d76r")
+"texture": ExtResource("13_7t8cv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3osnv")
+"texture": ExtResource("14_bavn1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_oxk8c")
+"texture": ExtResource("15_jo5yd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_6d76r")
+"texture": ExtResource("13_7t8cv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_6d76r")
+"texture": ExtResource("13_7t8cv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3osnv")
+"texture": ExtResource("14_bavn1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3osnv")
+"texture": ExtResource("14_bavn1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_oxk8c")
+"texture": ExtResource("15_jo5yd")
 }],
 "loop": true,
 "name": &"idle",
@@ -245,6 +245,5 @@ animations = [{
 
 [node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0fo1w")
-animation = &"dash-left"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.94552845

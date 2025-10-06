@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://cuyxnkswxf5od"]
 
 [ext_resource type="Texture2D" uid="uid://v5hs6h5pji50" path="res://assets/Player/walk/left/player l  4-0001.png" id="1_ltnlq"]
-[ext_resource type="Texture2D" uid="uid://c1wu7ljc0xg76" path="res://assets/Player/Idle/Lines0001.png" id="1_pp5i0"]
-[ext_resource type="Texture2D" uid="uid://rhmpwxgi4sm" path="res://assets/Player/Idle/Lines0002.png" id="2_3akjk"]
 [ext_resource type="Texture2D" uid="uid://bwby2sh4r6ebp" path="res://assets/Player/walk/left/player l  4-0002.png" id="2_qv7u6"]
 [ext_resource type="Texture2D" uid="uid://7a8cfi56gbgf" path="res://assets/Player/walk/left/player l  4-0003.png" id="3_1m305"]
-[ext_resource type="Texture2D" uid="uid://crq4bsrotbmx8" path="res://assets/Player/Idle/Lines0003.png" id="3_jglni"]
 [ext_resource type="Texture2D" uid="uid://ccxrgqoslwe5" path="res://assets/Player/walk/left/player l  4-0004.png" id="4_envsy"]
 [ext_resource type="Texture2D" uid="uid://d1iaxgujwmem3" path="res://assets/Player/walk/right/player r 4-0001.png" id="5_mmsot"]
 [ext_resource type="Texture2D" uid="uid://tiyrdwe2iv5r" path="res://assets/Player/walk/right/player r 4-0002.png" id="6_gh3ka"]
 [ext_resource type="Texture2D" uid="uid://bmi6aahv7mo15" path="res://assets/Player/walk/right/player r 4-0003.png" id="7_578sb"]
 [ext_resource type="Texture2D" uid="uid://ccunnw0f4lm2f" path="res://assets/Player/walk/right/player r 4-0004.png" id="8_sckqd"]
+[ext_resource type="Texture2D" uid="uid://n7bgl5lgtsx4" path="res://assets/Player/Idle/player idle 1-0001.png" id="9_ltnlq"]
+[ext_resource type="Texture2D" uid="uid://4fonos7e5p13" path="res://assets/Player/Idle/player idle 1-0002.png" id="10_qv7u6"]
+[ext_resource type="Texture2D" uid="uid://cfjyxsurfgjsq" path="res://assets/Player/Idle/player idle 1-0003.png" id="11_1m305"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0xtjr"]
 animations = [{
@@ -118,31 +118,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_pp5i0")
+"texture": ExtResource("9_ltnlq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_pp5i0")
+"texture": ExtResource("9_ltnlq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3akjk")
+"texture": ExtResource("10_qv7u6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_jglni")
+"texture": ExtResource("11_1m305")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_pp5i0")
+"texture": ExtResource("9_ltnlq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_pp5i0")
+"texture": ExtResource("9_ltnlq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3akjk")
+"texture": ExtResource("10_qv7u6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3akjk")
+"texture": ExtResource("10_qv7u6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_jglni")
+"texture": ExtResource("11_1m305")
 }],
 "loop": true,
 "name": &"idle",
@@ -253,5 +253,7 @@ animations = [{
 
 [node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0xtjr")
-animation = &"walk-left"
+animation = &"idle"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.08511219
