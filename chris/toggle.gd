@@ -2,18 +2,21 @@ extends Area2D
 
 # Export variable - drag your wall node here in the Inspector
 @export var target_wall: AnimatableBody2D
-@export_enum("Clockwise:90", "Counterclockwise:-90") var rotation_direction: int = 90
+@export_enum("Clockwise:1", "Counterclockwise:-1") var rotation_dir: int = 1
+@export var rotation_degree = 90
 @export var is_triggered: bool = false  # false = aus (links), true = ein (rechts)
 
 # Toggle state
 var can_toggle = false
 var static_sprite_offset: Vector2 = Vector2.ZERO
+var rotation_direction : float
 
 @onready var rodSprite: Sprite2D = $ToggleRod
 
 func _ready():
 	if target_wall == null: return
 	can_toggle = true
+	rotation_direction = rotation_degree * rotation_dir
 	
 	# Set initial toggle rotation
 	if is_triggered:
