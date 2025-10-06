@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=3 uid="uid://dmaa2smwi751n"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="1_7yhn4"]
-[ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_e1ips"]
+[ext_resource type="PackedScene" uid="uid://elj4hqirplhh" path="res://Scenes/areas/base_hint_area.tscn" id="1_e1ips"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="1_evoni"]
 [ext_resource type="Texture2D" uid="uid://cee0b0pl2kgbn" path="res://assets/Arts-WIP/Background.png" id="1_s41we"]
 [ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="2_46vi4"]
@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="16_q5xce"]
 [ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="18_ywl3f"]
 [ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="19_ywl3f"]
-[ext_resource type="PackedScene" uid="uid://daijkp6p2stup" path="res://Skunky/challenge.tscn" id="30_vu37y"]
+[ext_resource type="PackedScene" uid="uid://dhsssrgwptn62" path="res://Scenes/EndScreen.tscn" id="31_s41we"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fsrl6"]
 
@@ -819,7 +819,7 @@ air_dash_count = 1
 [node name="LevelExit" parent="." instance=ExtResource("11_a6t2m")]
 position = Vector2(-100, -5000)
 rotation = 1.5707964
-next_scene = ExtResource("30_vu37y")
+next_scene = ExtResource("31_s41we")
 metadata/_edit_lock_ = true
 
 [editable path="PlayerStatePowerUp/Wing Collectable"]
