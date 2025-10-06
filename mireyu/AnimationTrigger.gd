@@ -18,11 +18,14 @@ var wasTriggered := false
 var modificationModifier := 1
 var changes: Dictionary = {}
 var isAnimating := false
+var originalValues: Dictionary = {}
 
 func _ready() -> void:
 	add_child(timer)
 	timer.wait_time = 1.5
 	timer.one_shot = true
+	originalValues["position"] = target.position
+	originalValues["rotation"] = target.rotation
 
 func animateTarget(reset := false) -> void:
 	if not target:
@@ -45,33 +48,25 @@ func animateTarget(reset := false) -> void:
 	
 	if reset:
 		for animation in changes:
-			changes[animation]["target"] = changes[animation]["original"]
+			changes[animation] = originalValues[animation]
 	
 	isAnimating = true
 	timer.start()
 	
 	for animation in changes:
-		tween.tween_property(target, animation, changes[animation]["target"], 1.0)
+		tween.tween_property(target, animation, changes[animation], 1.0)
 
 func discoverPositionModification() -> void:
 	if positionModification == DEFAULT_POSITION:
 		return
 	
-	if not wasTriggered:
-		changes["position"] = {}
-		changes["position"]["original"] = target.position
-	
-	changes["position"]["target"] = target.position + calculateModifier(positionModification)
+	changes["position"] = target.position + calculateModifier(positionModification)
 	
 func discoverAngleModification() -> void:
 	if angleModification == DEFAULT_ANGLE:
 		return
 	
-	if not wasTriggered:
-		changes["rotation"] = {}
-		changes["rotation"]["original"] = target.rotation
-	
-	changes["rotation"]["target"] = target.rotation + calculateModifier(angleModification)
+	changes["rotation"] = target.rotation + calculateModifier(angleModification)
 
 func calculateModifier(modifier):
 	if shouldToggle and isToggleOn:
