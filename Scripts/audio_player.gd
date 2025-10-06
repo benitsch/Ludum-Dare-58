@@ -11,6 +11,24 @@ var volume: float = 0
 @onready var current_music_set: AudioSet = music[default_set]
 
 
+func change_audio_set(name: String) -> void:
+	if sfx.has(name):
+		current_sfx_set = sfx[name];
+	if music.has(name):
+		current_music_set = music[name];
+		var music := current_music
+		current_music = "";
+		change_music(current_music)
+
+
+func change_sfx_volume(new_volume: float) -> void:
+	volume = new_volume;
+
+
+func change_music_volume(new_volume: float) -> void:
+	volume_db = new_volume;
+
+
 func play_sfx(sfx_name: String) -> AudioStreamPlayer:
 	if not current_music_set.audio_set.has(sfx_name): return null;
 	var stream := current_sfx_set.audio_set[sfx_name]

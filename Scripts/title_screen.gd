@@ -1,5 +1,8 @@
 extends Control
 
+
+@export var settings_screen: SettingsScreen
+
 var userPressedStartButton := false
 var mainButterflyIsFalling := false
 var allShakesDone := 0
@@ -15,6 +18,7 @@ var input_cooldown := 0.25
 @onready var ShakeButtons = %ShakeButtons
 
 func _ready() -> void:
+	_on_settings_screen_close_menu();
 	wingsToFallDown = [
 		%WingLeftDown,
 		%WingLeftUp,
@@ -113,3 +117,12 @@ func showShakeButtons() -> void:
 func hideShakeButtons() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(ShakeButtons, "modulate:a", 0.0, 1.0)
+
+
+func _on_settings_button_pressed() -> void:
+	add_child(settings_screen);
+	settings_screen.visible = true;
+
+
+func _on_settings_screen_close_menu() -> void:
+	remove_child(settings_screen);

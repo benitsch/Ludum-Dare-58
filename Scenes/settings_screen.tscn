@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwbpkt3o837wb"]
+
+[ext_resource type="Script" uid="uid://bvmo1q1g4rk2w" path="res://Scripts/settings_screen.gd" id="1_85ujs"]
+[ext_resource type="Texture2D" uid="uid://cytiwr7pvidws" path="res://assets/Arts-WIP/ButtonAccept.png" id="2_bu2iy"]
+
+[node name="SettingsScreen" type="Control" node_paths=PackedStringArray("music_menu", "sfx_slider", "music_slider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_85ujs")
+music_menu = NodePath("PanelContainer/Control/HBoxContainer/MenuButton")
+sfx_slider = NodePath("PanelContainer/Control/VBoxContainer/HBoxContainer/HSlider")
+music_slider = NodePath("PanelContainer/Control/VBoxContainer/HBoxContainer2/HSlider")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.05
+anchor_right = 0.98
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Control"]
+layout_mode = 1
+offset_left = 50.799995
+offset_top = 39.199997
+offset_right = 197.79999
+offset_bottom = 70.2
+
+[node name="Label" type="Label" parent="PanelContainer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Music-set:"
+
+[node name="MenuButton" type="MenuButton" parent="PanelContainer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Default"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -465.9599
+offset_top = 49.199997
+offset_right = -64.99988
+offset_bottom = 121.2
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SFX: "
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -15.0
+max_value = 10.0
+step = 0.2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Music: "
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -15.0
+max_value = 10.0
+step = 0.2
+
+[node name="CloseButton" type="TextureButton" parent="PanelContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_left = -186.0
+offset_top = -125.0
+offset_right = 185.5
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("2_bu2iy")
+stretch_mode = 5
+
+[connection signal="pressed" from="PanelContainer/Control/CloseButton" to="." method="close_button_pressed"]

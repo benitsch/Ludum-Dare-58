@@ -1,8 +1,11 @@
-[gd_scene load_steps=55 format=3 uid="uid://bgy03v83dmqwg"]
+[gd_scene load_steps=58 format=3 uid="uid://bgy03v83dmqwg"]
 
 [ext_resource type="Script" uid="uid://dbm8j44i6dtmb" path="res://Scripts/title_screen.gd" id="1_klylv"]
+[ext_resource type="Texture2D" uid="uid://nhfgu620myov" path="res://assets/Arts-WIP/ButtonStart.png" id="2_vfwvj"]
 [ext_resource type="Texture2D" uid="uid://c8s3p8e248gfj" path="res://assets/Arts-WIP/Background01.png" id="2_ycay6"]
+[ext_resource type="Texture2D" uid="uid://n0omnwrdj7g2" path="res://assets/Arts-WIP/ButtonSettings.png" id="3_4lfus"]
 [ext_resource type="Texture2D" uid="uid://d8y1icnaxerp" path="res://assets/Arts-WIP/Frame01.png" id="3_ycay6"]
+[ext_resource type="PackedScene" uid="uid://dwbpkt3o837wb" path="res://Scenes/settings_screen.tscn" id="4_4lfus"]
 [ext_resource type="Script" uid="uid://dt0k1ik8w2s2h" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="4_55kwv"]
 [ext_resource type="Script" uid="uid://buxgkvex4moma" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="5_sqelc"]
 [ext_resource type="Script" uid="uid://by0ddd7sx2hqr" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="6_w5sh6"]
@@ -107,7 +110,7 @@ metadata/_custom_type_script = "uid://ct8qs6ohbgkcp"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TitleScreen" type="Control" parent="CanvasLayer"]
+[node name="TitleScreen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("settings_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,21 +118,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_klylv")
+settings_screen = NodePath("SettingsScreen")
 
-[node name="StartButton" type="Button" parent="CanvasLayer/TitleScreen"]
+[node name="StartButton" type="VBoxContainer" parent="CanvasLayer/TitleScreen"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.8
+anchor_top = 0.95
 anchor_right = 0.5
-anchor_bottom = 0.8
-offset_left = -48.0
-offset_top = -40.0
-offset_right = 48.0
+anchor_bottom = 0.95
+offset_top = -174.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Start"
+
+[node name="StartButton" type="TextureButton" parent="CanvasLayer/TitleScreen/StartButton"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_vfwvj")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SettingsButton" type="TextureButton" parent="CanvasLayer/TitleScreen/StartButton"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture_normal = ExtResource("3_4lfus")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SettingsScreen" parent="CanvasLayer/TitleScreen" instance=ExtResource("4_4lfus")]
+visible = false
+layout_mode = 1
 
 [node name="Node" type="Node2D" parent="."]
 
@@ -428,5 +448,7 @@ metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 [node name="SceneTransitionAnimation" parent="Node" instance=ExtResource("14_ycay6")]
 unique_name_in_owner = true
 
-[connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton" to="CanvasLayer/TitleScreen" method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton/StartButton" to="CanvasLayer/TitleScreen" method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TitleScreen/StartButton/SettingsButton" to="CanvasLayer/TitleScreen" method="_on_settings_button_pressed"]
+[connection signal="close_menu" from="CanvasLayer/TitleScreen/SettingsScreen" to="CanvasLayer/TitleScreen" method="_on_settings_screen_close_menu"]
 [connection signal="screen_exited" from="Node/ButterflyBoard/MainButterfly/MainButterflyBody/VisibleOnScreenNotifier2D" to="CanvasLayer/TitleScreen" method="_on_visible_on_screen_notifier_2d_screen_exited"]
