@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=3 uid="uid://dmaa2smwi751n"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="1_7yhn4"]
-[ext_resource type="PackedScene" uid="uid://elj4hqirplhh" path="res://Scenes/areas/base_hint_area.tscn" id="1_e1ips"]
+[ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_e1ips"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="1_evoni"]
 [ext_resource type="Texture2D" uid="uid://cee0b0pl2kgbn" path="res://assets/Arts-WIP/Background.png" id="1_s41we"]
 [ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="2_46vi4"]
@@ -40,6 +40,7 @@ size = Vector2(600, 350)
 [node name="Level4" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.23529412)
 z_index = -1000
 texture_repeat = 2
 position = Vector2(300, -2100)
