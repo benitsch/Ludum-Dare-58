@@ -9,7 +9,7 @@ const DEFAULT_ANGLE := 0.0
 @export_range(0, 360, 0.1, "radians_as_degrees") var angleModification: float = DEFAULT_ANGLE
 @export var positionModification := DEFAULT_POSITION
 @export var shouldToggle := false
-@export var onlyTriggerOnce := false
+@export var onlyTriggerOnce := true
 
 @onready var timer: Timer = Timer.new()
 
