@@ -6,6 +6,7 @@ class_name SettingsScreen
 @export var sfx_slider: Range
 @export var music_slider: Range
 var music_popup: PopupMenu
+var hint_sound: AudioStreamPlayer
 
 signal close_menu
 
@@ -33,6 +34,8 @@ func close_button_pressed():
 
 func sfx_changed(value: float) -> void:
 	AudioPlayer.change_sfx_volume(value)
+	if not hint_sound:
+		hint_sound = AudioPlayer.play_sfx("blip")
 
 
 func music_changed(value: float) -> void:

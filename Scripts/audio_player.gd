@@ -11,14 +11,14 @@ var volume: float = 0
 @onready var current_music_set: AudioSet = music[default_set]
 
 
-func change_audio_set(name: String) -> void:
-	if sfx.has(name):
-		current_sfx_set = sfx[name];
-	if music.has(name):
-		current_music_set = music[name];
-		var music := current_music
+func change_audio_set(audio_set_name: String) -> void:
+	if sfx.has(audio_set_name):
+		current_sfx_set = sfx[audio_set_name];
+	if music.has(audio_set_name):
+		current_music_set = music[audio_set_name];
+		var temp_music := current_music
 		current_music = "";
-		change_music(current_music)
+		change_music(temp_music)
 
 
 func change_sfx_volume(new_volume: float) -> void:
@@ -30,12 +30,12 @@ func change_music_volume(new_volume: float) -> void:
 
 
 func play_sfx(sfx_name: String) -> AudioStreamPlayer:
-	if not current_music_set.audio_set.has(sfx_name): return null;
-	var stream := current_sfx_set.audio_set[sfx_name]
+	if not current_sfx_set.audio_set.has(sfx_name): return null;
+	var sfx_stream := current_sfx_set.audio_set[sfx_name]
 	
 	var asp := AudioStreamPlayer.new()
 	asp.volume_db = volume
-	asp.stream = stream
+	asp.stream = sfx_stream
 	asp.name = "SFX-"+sfx_name
 	
 	add_child(asp)
