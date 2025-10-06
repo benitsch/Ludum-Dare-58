@@ -5,7 +5,26 @@
 
 [node name="Level4" type="Node2D"]
 
-[node name="BasePlayerStateArea" parent="." instance=ExtResource("1_7yhn4")]
+[node name="PlayerStatePowerUp" parent="." instance=ExtResource("1_7yhn4")]
+position = Vector2(-6, -1239)
+set_air_jump_count = true
+air_jump_count = 100
+set_air_dash_count = true
+air_dash_count = 10
+
+[node name="Statics" type="Node2D" parent="."]
+
+[node name="Tilted Terror" type="Node2D" parent="Statics"]
+
+[node name="Not So Solid Ground" type="Node2D" parent="Statics"]
+
+[node name="Ground" type="Node2D" parent="Statics"]
+
+[node name="Walls" type="Node2D" parent="Statics"]
+
+[node name="Player" parent="." instance=ExtResource("2_125c2")]
+
+[node name="PlayerStateReset" parent="Player" instance=ExtResource("1_7yhn4")]
 position = Vector2(0, 2)
 set_jump_allowed = true
 jump_allowd = true
@@ -15,5 +34,3 @@ set_dash_allowed = true
 dash_allowed = true
 set_air_dash_count = true
 air_dash_count = 1
-
-[node name="Player" parent="." instance=ExtResource("2_125c2")]

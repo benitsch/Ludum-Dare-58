@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cdtfg486xo1je"]
 
 [ext_resource type="Script" uid="uid://ds0klgvdu2ra0" path="res://Skunky/player.gd" id="1_xf0b5"]
-[ext_resource type="Script" uid="uid://cpyksyfyt0kyb" path="res://Skunky/player_state_animation.gd" id="2_r5va5"]
+[ext_resource type="Script" path="res://Skunky/player_state_animation.gd" id="2_r5va5"]
 [ext_resource type="PackedScene" uid="uid://bwojakv10bfb6" path="res://Scenes/player/AnimPlayer4Wings.tscn" id="3_mphk7"]
 [ext_resource type="PackedScene" uid="uid://btq2l7jxks6xx" path="res://Scenes/player/AnimPlayer2Wings.tscn" id="4_hg0hj"]
 [ext_resource type="PackedScene" uid="uid://irqqnq6ijtwj" path="res://Scenes/player/AnimPlayer3Wings.tscn" id="4_trp67"]
@@ -50,6 +50,7 @@ radius = 44.0
 height = 214.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 5
 floor_snap_length = 45.0

@@ -6,6 +6,7 @@
 size = Vector2(71, 540)
 
 [node name="RotatingWall" type="AnimatableBody2D"]
+z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-45, -10)

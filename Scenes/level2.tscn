@@ -34,7 +34,7 @@ position = Vector2(-2174, -4)
 position = Vector2(1926, -804)
 
 [node name="BoxButton" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("2_in4v8")]
-position = Vector2(-207, 114)
+position = Vector2(-198, 114)
 debug_mode = false
 target_wall = NodePath("../Statics/Ground/SolidGound3")
 

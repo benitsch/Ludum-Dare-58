@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="4_q8yft"]
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="5_6n5an"]
 [ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="5_qdwan"]
-[ext_resource type="PackedScene" path="res://chris/Toggle.tscn" id="5_xsev2"]
+[ext_resource type="PackedScene" uid="uid://d0cdxec53g8gd" path="res://chris/Toggle.tscn" id="5_xsev2"]
 [ext_resource type="PackedScene" uid="uid://nnqivrg6gycy" path="res://chris/Rotating_Wall_Small.tscn" id="6_q8yft"]
 [ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="7_gqotu"]
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="10_43l53"]
@@ -42,6 +42,7 @@ position = Vector2(758, 20)
 rotation = 3.1415927
 
 [node name="Toggle" parent="Main Door Start" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
+position = Vector2(55, -26)
 target_wall = NodePath("../RotatingWall")
 
 [node name="First Gate" type="Node2D" parent="."]
@@ -67,24 +68,24 @@ rotation_direction = -90
 
 [node name="Statics" type="Node2D" parent="."]
 
-[node name="#Slopes" type="Node2D" parent="Statics"]
+[node name="#Pain" type="Node2D" parent="Statics"]
 
-[node name="SolidSlopeLeft" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
+[node name="SolidSlopeLeft" parent="Statics/#Pain" instance=ExtResource("10_q8yft")]
 position = Vector2(2402, 975)
 
-[node name="SolidSlopeRight" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
+[node name="SolidSlopeRight" parent="Statics/#Pain" instance=ExtResource("11_6n5an")]
 position = Vector2(691, 131)
 
-[node name="SolidSlopeRight1" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
+[node name="SolidSlopeRight1" parent="Statics/#Pain" instance=ExtResource("11_6n5an")]
 position = Vector2(3302, 975)
 
-[node name="SolidSlopeLeft1" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
+[node name="SolidSlopeLeft1" parent="Statics/#Pain" instance=ExtResource("10_q8yft")]
 position = Vector2(7470, 949)
 
-[node name="SolidSlopeRight2" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
+[node name="SolidSlopeRight2" parent="Statics/#Pain" instance=ExtResource("11_6n5an")]
 position = Vector2(5143, 645)
 
-[node name="SolidSlopeLeft2" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
+[node name="SolidSlopeLeft2" parent="Statics/#Pain" instance=ExtResource("10_q8yft")]
 position = Vector2(6624, 1257)
 
 [node name="#Sugestions" type="Node2D" parent="Statics"]
@@ -181,7 +182,6 @@ shape = SubResource("WorldBoundaryShape2D_u0jjk")
 position = Vector2(-700, -360)
 
 [node name="Player1" parent="." instance=ExtResource("1_iinf0")]
-z_index = 1
 
 [node name="Camera2D" parent="Player1" index="1"]
 limit_left = -700

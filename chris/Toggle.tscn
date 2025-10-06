@@ -1,36 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://kg2c7ccba5ap"]
+[gd_scene load_steps=5 format=3 uid="uid://d0cdxec53g8gd"]
 
 [ext_resource type="Script" uid="uid://dw3g1umxdqn2w" path="res://chris/toggle.gd" id="1_cs1o6"]
+[ext_resource type="Texture2D" uid="uid://jnfsvwiy13qw" path="res://assets/Arts-WIP/SwitchTop.png" id="2_6nnmk"]
+[ext_resource type="Texture2D" uid="uid://8g1arb32ja31" path="res://assets/Arts-WIP/SwitchBottom.png" id="3_y1oky"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6nnmk"]
-size = Vector2(50, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqd0g"]
-size = Vector2(36, 103.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qjpa"]
+radius = 16.0
+height = 154.0
 
 [node name="Toggle" type="Area2D" node_paths=PackedStringArray("static_sprite")]
+z_index = -1
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_cs1o6")
-static_sprite = NodePath("Sprite2D3")
+static_sprite = NodePath("ToggleBase")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="ToggleRod" type="Sprite2D" parent="."]
+texture = ExtResource("2_6nnmk")
+offset = Vector2(4, -45)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(6.1035156e-05, -90)
-scale = Vector2(0.5199975, 0.5199975)
-texture = SubResource("PlaceholderTexture2D_6nnmk")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
-position = Vector2(0, -65.47531)
-scale = Vector2(0.16000001, 1)
-texture = SubResource("PlaceholderTexture2D_6nnmk")
+[node name="ToggleBase" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.791605)
+texture = ExtResource("3_y1oky")
+offset = Vector2(6, -55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -52.25)
-shape = SubResource("RectangleShape2D_tqd0g")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(0, -20.737656)
-scale = Vector2(0.8, 0.791605)
-texture = SubResource("PlaceholderTexture2D_6nnmk")
+z_index = -1
+position = Vector2(0, -74)
+shape = SubResource("CapsuleShape2D_7qjpa")
