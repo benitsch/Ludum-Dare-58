@@ -1,27 +1,80 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmaa2smwi751n"]
+[gd_scene load_steps=30 format=3 uid="uid://dmaa2smwi751n"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="1_7yhn4"]
+[ext_resource type="PackedScene" path="res://Scenes/areas/base_hint_area.tscn" id="1_e1ips"]
+[ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="1_evoni"]
 [ext_resource type="PackedScene" uid="uid://bti63t2a4tx4d" path="res://mireyu/Lamp.tscn" id="2_46vi4"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="2_125c2"]
+[ext_resource type="Texture2D" uid="uid://dktjfidtvpfff" path="res://assets/Square.png" id="2_n4fv4"]
 [ext_resource type="PackedScene" uid="uid://c658polvmmsx6" path="res://mireyu/LightCollector.tscn" id="3_ohik4"]
 [ext_resource type="PackedScene" uid="uid://da4prwg6ru22i" path="res://mireyu/Mirror.tscn" id="4_adi6q"]
+[ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="4_bkb0e"]
 [ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="5_7u67b"]
 [ext_resource type="PackedScene" uid="uid://d0cdxec53g8gd" path="res://chris/Toggle.tscn" id="5_adi6q"]
+[ext_resource type="Texture2D" uid="uid://iovlkmm5y1mw" path="res://assets/Arts-WIP/Butterfly04–wing01.png" id="5_n4fv4"]
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="6_egqhl"]
 [ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="7_7u67b"]
 [ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="9_e7bnd"]
+[ext_resource type="PackedScene" uid="uid://6a08w86cwjku" path="res://Scenes/areas/death_spike.tscn" id="10_81lxm"]
 [ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="10_a6t2m"]
+[ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="10_evoni"]
 [ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="11_a6t2m"]
+[ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="11_evoni"]
+[ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="11_fsrl6"]
 [ext_resource type="PackedScene" uid="uid://ttol8yv3daac" path="res://Scenes/areas/base_respawn_area.tscn" id="11_mg2ol"]
+[ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="13_fsrl6"]
+[ext_resource type="PackedScene" uid="uid://nnqivrg6gycy" path="res://chris/Rotating_Wall_Small.tscn" id="14_fsrl6"]
+[ext_resource type="PackedScene" uid="uid://dp8ci4oah0ovo" path="res://mireyu/ContinuousSwitch.tscn" id="15_q5xce"]
+[ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="16_q5xce"]
+[ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="19_ywl3f"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fsrl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1odp"]
+size = Vector2(400, 350)
 
 [node name="Level4" type="Node2D"]
 
+[node name="BaseDeathArea" parent="." instance=ExtResource("1_evoni")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseDeathArea"]
+position = Vector2(0, 1400)
+shape = SubResource("WorldBoundaryShape2D_fsrl6")
+
+[node name="BaseHintArea" parent="." node_paths=PackedStringArray("dependantAreas") instance=ExtResource("1_e1ips")]
+position = Vector2(2900, 750)
+dependantAreas = [NodePath("../PlayerStatePowerUp")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BaseHintArea"]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_s1odp")
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseHintArea"]
+position = Vector2(0, -100)
+texture = ExtResource("2_n4fv4")
+
 [node name="PlayerStatePowerUp" parent="." instance=ExtResource("1_7yhn4")]
-position = Vector2(0, -350)
+position = Vector2(2900, 550)
 set_air_jump_count = true
 air_jump_count = 100
 set_air_dash_count = true
 air_dash_count = 10
+metadata/_edit_lock_ = true
+
+[node name="Wing Collectable" parent="PlayerStatePowerUp" instance=ExtResource("4_bkb0e")]
+
+[node name="Sprite2D" parent="PlayerStatePowerUp/Wing Collectable" index="1"]
+texture = ExtResource("5_n4fv4")
+offset = Vector2(-30, -55)
+
+[node name="BaseRespawnArea" parent="." instance=ExtResource("11_mg2ol")]
+position = Vector2(2900, 750)
+metadata/_edit_lock_ = true
+
+[node name="BaseRespawnArea2" parent="." instance=ExtResource("11_mg2ol")]
+position = Vector2(4100, -2900)
+metadata/_edit_lock_ = true
 
 [node name="Exit Trigger" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -30,92 +83,555 @@ metadata/_edit_lock_ = true
 position = Vector2(450, -5350)
 rotation = -1.5707964
 beamLength = 5000
+metadata/_edit_lock_ = true
 
 [node name="LightCollector" parent="Exit Trigger" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
 position = Vector2(450, -5500)
 target = NodePath("../SemiSolidGround")
 positionModification = Vector2(0, -300)
 onlyTriggerOnce = true
+metadata/_edit_lock_ = true
 
 [node name="Toggle2" parent="Exit Trigger" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_adi6q")]
 position = Vector2(25.000004, -5130)
 scale = Vector2(6, 1)
 target_wall = NodePath("../Lamp")
 rotation_dir = -1
+metadata/_edit_lock_ = true
 
 [node name="SemiSolidGround" type="AnimatableBody2D" parent="Exit Trigger"]
 position = Vector2(0, -4900)
 scale = Vector2(1, 0.5)
 collision_layer = 64
 collision_mask = 64
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit Trigger/SemiSolidGround"]
 polygon = PackedVector2Array(-150, 0, 200, 0, 200, 50, -150, 50)
 one_way_collision = true
+metadata/_edit_lock_ = true
+
+[node name="PushingBox" parent="." instance=ExtResource("10_evoni")]
+position = Vector2(1250, 200)
+
+[node name="BoxButton" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("11_fsrl6")]
+position = Vector2(2350, 300)
+target_wall = NodePath("../Statics/Walls/SolidWall7")
+metadata/_edit_lock_ = true
 
 [node name="Light Ray" type="Node2D" parent="."]
 
 [node name="Lamp" parent="Light Ray" instance=ExtResource("2_46vi4")]
-position = Vector2(-1150, -450)
-beamLength = 5000
+position = Vector2(1250, -2900)
+maxBounces = 10
+beamLength = 10000
 
-[node name="LightCollector" parent="Light Ray" instance=ExtResource("3_ohik4")]
-position = Vector2(1050, 0)
-shouldToggle = true
+[node name="LiftCollector" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
+position = Vector2(1000, 250)
+rotation = 3.1415927
+target = NodePath("../Lift")
+positionModification = Vector2(0, -350)
+
+[node name="LightCollector2" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("3_ohik4")]
+position = Vector2(-2800, 0)
+rotation = 1.5707964
+target = NodePath("")
 
 [node name="Mirror" parent="Light Ray" instance=ExtResource("4_adi6q")]
-position = Vector2(-1150, 0)
-rotation = 1.5707964
+position = Vector2(-1250, 300)
+rotation = 0.7853982
+
+[node name="Mirror2" parent="Light Ray" instance=ExtResource("4_adi6q")]
+position = Vector2(-3250.0002, 299.99994)
+rotation = 2.3561945
+
+[node name="Mirror4" parent="Light Ray" instance=ExtResource("4_adi6q")]
+position = Vector2(-3250.0002, -649.99994)
+rotation = 4.712389
+
+[node name="Mirror3" parent="Light Ray" instance=ExtResource("4_adi6q")]
+position = Vector2(-1650, -200)
 
 [node name="Toggle" parent="Light Ray" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_adi6q")]
-position = Vector2(-650, 87)
+position = Vector2(750, 100)
 target_wall = NodePath("../Mirror")
-rotation_degree = 45
+rotation_dir = -1
+
+[node name="Lift" type="AnimatableBody2D" parent="Light Ray"]
+position = Vector2(1250, 350)
+collision_layer = 64
+collision_mask = 64
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Light Ray/Lift"]
+polygon = PackedVector2Array(-150, 0, 150, 0, 150, 50, -150, 50)
+one_way_collision = true
+metadata/_edit_lock_ = true
+
+[node name="RotatingWallSmall" parent="Light Ray" instance=ExtResource("14_fsrl6")]
+position = Vector2(650, 150)
+
+[node name="ContinuousSwitch" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("15_q5xce")]
+position = Vector2(-2950, -200)
+target = NodePath("../Mirror4")
+angle = -0.08726646259971647
+
+[node name="ContinuousSwitch2" parent="Light Ray" node_paths=PackedStringArray("target") instance=ExtResource("15_q5xce")]
+position = Vector2(-3550, -200)
+target = NodePath("../Mirror4")
+angle = 0.08726646259971647
 
 [node name="Statics" type="Node2D" parent="."]
 
+[node name="Auchies" type="Node2D" parent="Statics"]
+
+[node name="BaseDeathArea" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(3200, -2100)
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea2" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(3400, -2100)
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea8" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(3200, -3100)
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea20" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2400, -2900)
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea21" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2200, -2900)
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea22" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(600, -3300)
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea25" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(800, -3300)
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea3" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(3200, -2600)
+rotation = 3.1415927
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea23" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(600, -3800)
+rotation = 3.1415927
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea24" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(800, -3800)
+rotation = 3.1415927
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea9" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(3300, -3600)
+rotation = 3.1415927
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea11" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(3100, -3600)
+rotation = 3.1415927
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea10" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(3500, -3600)
+rotation = 3.1415927
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea4" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(3400, -2600)
+rotation = 3.1415927
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea5" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2700, -1900)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea12" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(1600, -3000)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea18" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(1600, -3200)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea19" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(1600, -3400)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea13" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2200, -3600)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea14" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2200, -3800)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea15" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2200, -4000)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea16" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2200, -4200)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea17" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2200, -4400)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea6" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2700, -1700)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="BaseDeathArea7" parent="Statics/Auchies" instance=ExtResource("10_81lxm")]
+position = Vector2(2700, -1500)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
 [node name="Tilted Terror" type="Node2D" parent="Statics"]
+
+[node name="SolidSlopeLeft" parent="Statics/Tilted Terror" instance=ExtResource("11_evoni")]
+position = Vector2(1850, -4200)
+metadata/_edit_lock_ = true
 
 [node name="Not So Solid Ground" type="Node2D" parent="Statics"]
 
 [node name="SemiSolidGround2" parent="Statics/Not So Solid Ground" instance=ExtResource("6_egqhl")]
-position = Vector2(12, -553)
+position = Vector2(-600, -400)
+
+[node name="SemiSolidGround" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(4150, -2700)
+metadata/_edit_lock_ = true
+
+[node name="SemiSolidGround3" parent="Statics/Not So Solid Ground" instance=ExtResource("6_egqhl")]
+position = Vector2(1800, -3600)
+metadata/_edit_lock_ = true
+
+[node name="SemiSolidGround4" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(1250, 0)
+
+[node name="SemiSolidGround6" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(-1250, -400)
+
+[node name="SemiSolidGround7" parent="Statics/Not So Solid Ground" instance=ExtResource("13_fsrl6")]
+position = Vector2(-3250, -200)
 
 [node name="Ground" type="Node2D" parent="Statics"]
 
 [node name="SolidGound" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
-position = Vector2(0, 100)
+position = Vector2(300, 100)
+
+[node name="SolidGound26" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(-1250, 450)
+
+[node name="SolidGound31" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(-3700, -200)
+
+[node name="SolidGound32" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(-2800, 100)
+
+[node name="SolidGound34" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(-2700, 400)
 
 [node name="SolidGound2" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
-position = Vector2(-750, 100)
+position = Vector2(-450, 100)
+
+[node name="SolidGound24" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(350, 350)
+
+[node name="SolidGound25" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-550, 350)
+
+[node name="SolidGound27" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-1950, 350)
+
+[node name="SolidGound28" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-2050, 100)
+
+[node name="SolidGound29" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-3200, 500)
+
+[node name="SolidGound30" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-2450, -900)
 
 [node name="SolidGound3" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
 position = Vector2(2900, 900)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound4" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(2800, -2900)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound10" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(3300, -3700)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound12" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(2900, -4600)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound13" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(2300, -4600)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound19" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(600, -3900)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound17" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(1100, 350)
+
+[node name="SolidGound5" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(3400, -2700)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound6" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(3400, -2100)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound7" parent="Statics/Ground" instance=ExtResource("5_7u67b")]
+position = Vector2(4000, -2100)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound8" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
+position = Vector2(3850, -2700)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound18" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
+position = Vector2(750, 100)
+
+[node name="SolidGound33" parent="Statics/Ground" instance=ExtResource("16_q5xce")]
+position = Vector2(-2950, -200)
+
+[node name="SolidGound9" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(4050, -3300)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound11" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(2050, -2900)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound14" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(50, -3300)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound20" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-850, -3300)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound21" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-1750, -3300)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound22" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-2650, -2100)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound23" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(-3550, -900)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound15" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(950, -3300)
+metadata/_edit_lock_ = true
+
+[node name="SolidGound16" parent="Statics/Ground" instance=ExtResource("7_7u67b")]
+position = Vector2(2050, 300)
+metadata/_edit_lock_ = true
 
 [node name="Walls" type="Node2D" parent="Statics"]
 
 [node name="SolidWall" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
 position = Vector2(-200, -4900)
+metadata/_edit_lock_ = true
 
 [node name="SolidWall2" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
 position = Vector2(250, -4900)
+metadata/_edit_lock_ = true
 
 [node name="SolidWall3" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
-position = Vector2(2600, 1000)
+position = Vector2(2500, 1000)
+metadata/_edit_lock_ = true
 
 [node name="SolidWall4" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
-position = Vector2(3200, 1000)
+position = Vector2(3300, 1000)
+metadata/_edit_lock_ = true
 
-[node name="BaseRespawnArea" parent="Statics/Walls" instance=ExtResource("11_mg2ol")]
-position = Vector2(2900, 750)
+[node name="SolidWall5" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2600, 400)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall6" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(3200, 400)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall7" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2600, -200)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall8" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(3200, -200)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall9" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2600, -800)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall10" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(3200, -800)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall11" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2600, -1400)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall13" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2600, -2000)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall19" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2600, -2900)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall20" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2600, -3500)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall23" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(2100, -3500)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall28" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-1000, 200)
+
+[node name="SolidWall42" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-1500, 200)
+
+[node name="SolidWall29" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(1500, 600)
+
+[node name="SolidWall30" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-300, -3900)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall32" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-300, -3300)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall35" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-3200, -1500)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall38" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-3200, -900)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall39" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-3900, -200)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall40" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-3550, 500)
+
+[node name="SolidWall37" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-2300, -2100)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall36" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(-2300, -2700)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall31" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(350, -3900)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall21" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(3100, -3700)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall16" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(4400, -2000)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall17" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(4400, -2600)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall12" parent="Statics/Walls" instance=ExtResource("10_a6t2m")]
+position = Vector2(3200, -1400)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall14" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(2600, -2600)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall22" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(3100, -4300)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall25" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(1500, -2800)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall41" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(1000, 150)
+
+[node name="SolidWall43" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(-3000, 100)
+
+[node name="SolidWall44" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(-1700, -800)
+
+[node name="SolidWall26" parent="Statics/Walls" instance=ExtResource("9_e7bnd")]
+position = Vector2(1500, -3400)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall15" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(3200, -2700)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall18" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(3700, -3300)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall24" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(2100, -4100)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall33" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(-250, -4500)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall34" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(300, -4500)
+metadata/_edit_lock_ = true
+
+[node name="SolidWall27" parent="Statics/Walls" instance=ExtResource("19_ywl3f")]
+position = Vector2(1500, -3000)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_125c2")]
 position = Vector2(0, -50)
 
 [node name="Camera2D" parent="Player" index="1"]
-limit_left = -5000
+limit_left = -4000
 limit_top = -5000
-limit_right = 5000
+limit_right = 4500
 limit_bottom = 1000
 
 [node name="PlayerStateReset" parent="Player" instance=ExtResource("1_7yhn4")]
@@ -132,5 +648,7 @@ air_dash_count = 1
 [node name="LevelExit" parent="." instance=ExtResource("11_a6t2m")]
 position = Vector2(-100, -5000)
 rotation = 1.5707964
+metadata/_edit_lock_ = true
 
+[editable path="PlayerStatePowerUp/Wing Collectable"]
 [editable path="Player"]
