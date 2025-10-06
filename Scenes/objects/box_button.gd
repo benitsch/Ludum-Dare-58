@@ -21,15 +21,6 @@ signal button_pressed
 signal button_released
 
 func _ready():
-	print("=== BoxButton Ready ===")
-	print("collision_layer: ", collision_layer)
-	print("collision_mask: ", collision_mask)
-	print("box_layer: ", box_layer)
-	print("sprite_off: ", sprite_off)
-	print("sprite_on: ", sprite_on)
-	print("target_wall: ", target_wall)
-	print("wall_mode: ", "Remover" if wall_mode == 0 else "Activator")
-	
 	# Connect signals
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -45,56 +36,29 @@ func _ready():
 			# Start hidden
 			set_wall_visible(false)
 		# Remover mode starts visible (default)
-	
-	print("Initial sprite state set")
 
 func _physics_process(_delta):
 	# Check all overlapping bodies/areas
 	check_overlap()
 
 func _on_body_entered(body: Node2D):
-	if debug_mode:
-		print("Body entered: ", body.name, " | Layer: ", body.collision_layer)
-	
 	# Prüfe ob es eine Box ist (anhand der collision layer)
-	if body is RigidBody2D or body is StaticBody2D or body is CharacterBody2D:
-		if debug_mode:
-			print("  -> Is physics body. Checking layer: ", body.collision_layer & box_layer)
-		
-		if body.collision_layer & box_layer:
-			if body not in overlapping_boxes:
-				overlapping_boxes.append(body)
-				if debug_mode:
-					print("  -> BOX ADDED! Total boxes: ", overlapping_boxes.size())
+	if body is PhysicsBody2D and body.collision_layer & box_layer and body not in overlapping_boxes:
+		overlapping_boxes.append(body)
 
 func _on_body_exited(body: Node2D):
-	if debug_mode:
-		print("Body exited: ", body.name)
-	
 	if body in overlapping_boxes:
 		overlapping_boxes.erase(body)
-		if debug_mode:
-			print("  -> BOX REMOVED! Total boxes: ", overlapping_boxes.size())
 
 func _on_area_entered(area: Node2D):
-	if debug_mode:
-		print("Area entered: ", area.name, " | Layer: ", area.collision_layer)
-	
 	# Falls Boxen als Area2D implementiert sind
 	if area.collision_layer & box_layer:
 		if area not in overlapping_boxes:
 			overlapping_boxes.append(area)
-			if debug_mode:
-				print("  -> AREA BOX ADDED! Total boxes: ", overlapping_boxes.size())
 
 func _on_area_exited(area: Node2D):
-	if debug_mode:
-		print("Area exited: ", area.name)
-	
 	if area in overlapping_boxes:
 		overlapping_boxes.erase(area)
-		if debug_mode:
-			print("  -> AREA BOX REMOVED! Total boxes: ", overlapping_boxes.size())
 
 func check_overlap():
 	if overlapping_boxes.size() == 0:
@@ -103,8 +67,6 @@ func check_overlap():
 			update_sprite_state()
 			update_wall_state(false)
 			emit_signal("button_released")
-			if debug_mode:
-				print("!!! BUTTON RELEASED !!!")
 		return
 	
 	var should_be_pressed = false
@@ -117,27 +79,22 @@ func check_overlap():
 		
 		var overlap_percent = calculate_overlap_percentage(box)
 		
-		if debug_mode and Engine.get_physics_frames() % 60 == 0:  # Every 60 frames
-			print("Box: ", box.name, " | Overlap: ", "%.1f" % (overlap_percent * 100), "%")
-		
 		if overlap_percent >= overlap_threshold:
 			should_be_pressed = true
 			break
 	
 	# Update button state if changed
-	if should_be_pressed != is_pressed:
-		is_pressed = should_be_pressed
-		update_sprite_state()
-		update_wall_state(is_pressed)
-		
-		if is_pressed:
-			emit_signal("button_pressed")
-			if debug_mode:
-				print("!!! BUTTON PRESSED !!!")
-		else:
-			emit_signal("button_released")
-			if debug_mode:
-				print("!!! BUTTON RELEASED !!!")
+	if should_be_pressed == is_pressed:
+		return
+	
+	is_pressed = should_be_pressed
+	update_sprite_state()
+	update_wall_state(is_pressed)
+	
+	if is_pressed:
+		emit_signal("button_pressed")
+	else:
+		emit_signal("button_released")
 
 func update_wall_state(button_active: bool):
 	if not target_wall:
@@ -149,9 +106,6 @@ func update_wall_state(button_active: bool):
 		should_show = not button_active  # Hide when button active
 	else:  # Activator mode
 		should_show = button_active  # Show when button active
-	
-	if debug_mode:
-		print("Wall update - Mode: ", "Remover" if wall_mode == 0 else "Activator", " | Show: ", should_show)
 	
 	animate_wall(should_show)
 
@@ -198,15 +152,13 @@ func calculate_overlap_percentage(box: Node2D) -> float:
 	# Get button's collision shape
 	var button_shape = get_collision_shape()
 	if not button_shape:
-		if debug_mode:
-			print("ERROR: Button has no collision shape!")
+		# Button has no collision shape!
 		return 0.0
 	
 	# Get box's collision shape
 	var box_shape = get_box_collision_shape(box)
 	if not box_shape:
-		if debug_mode:
-			print("ERROR: Box ", box.name, " has no collision shape!")
+		# Box has no collision shape!
 		return 0.0
 	
 	# Calculate overlap based on x-axis
@@ -230,12 +182,15 @@ func calculate_overlap_percentage(box: Node2D) -> float:
 func get_collision_shape() -> Vector2:
 	# Find first CollisionShape2D child
 	for child in get_children():
-		if child is CollisionShape2D:
-			var shape = child.shape
-			if shape is RectangleShape2D:
-				return shape.size / 2
-			elif shape is CircleShape2D:
-				return Vector2(shape.radius, shape.radius)
+		if child is not CollisionShape2D:
+			continue
+		
+		var shape = child.shape
+		if shape is RectangleShape2D:
+			return shape.size / 2
+		elif shape is CircleShape2D:
+			return Vector2(shape.radius, shape.radius)
+	
 	return Vector2.ZERO
 
 func get_box_collision_shape(box: Node2D) -> Vector2:
@@ -266,16 +221,11 @@ func get_box_collision_shape(box: Node2D) -> Vector2:
 				var height = max_y - min_y
 				return Vector2(width / 2, height / 2)
 	
-	if debug_mode:
-		print("WARNING: No collision shape found for ", box.name)
+	# No collision shape found for box
+	
 	return Vector2.ZERO
 
 func update_sprite_state():
 	if sprite_off and sprite_on:
 		sprite_off.visible = not is_pressed
 		sprite_on.visible = is_pressed
-		if debug_mode:
-			print("Sprites updated - Off visible: ", sprite_off.visible, " | On visible: ", sprite_on.visible)
-	else:
-		if debug_mode:
-			print("ERROR: Sprites not assigned!")
