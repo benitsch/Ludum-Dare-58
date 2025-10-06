@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp8ci4oah0ovo"]
+
+[ext_resource type="Script" uid="uid://bjjo3jm32beor" path="res://mireyu/ContinuousSwitch.gd" id="1_3gofe"]
+[ext_resource type="Texture2D" uid="uid://jnfsvwiy13qw" path="res://assets/Arts-WIP/SwitchTop.png" id="1_o2tfx"]
+[ext_resource type="Texture2D" uid="uid://8g1arb32ja31" path="res://assets/Arts-WIP/SwitchBottom.png" id="2_3gofe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fidwx"]
+size = Vector2(120, 150)
+
+[node name="ContinuousSwitch" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_3gofe")
+
+[node name="ToggleRod" type="Sprite2D" parent="."]
+texture = ExtResource("1_o2tfx")
+offset = Vector2(4, -45)
+
+[node name="ToggleBase" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.791605)
+texture = ExtResource("2_3gofe")
+offset = Vector2(6, -55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(0, -74)
+shape = SubResource("RectangleShape2D_fidwx")
