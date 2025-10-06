@@ -99,12 +99,10 @@ texture = ExtResource("5_n4fv4")
 offset = Vector2(-30, -55)
 
 [node name="BaseRespawnArea" parent="." instance=ExtResource("11_mg2ol")]
-position = Vector2(2900, 750)
-metadata/_edit_lock_ = true
+position = Vector2(2900, 700)
 
 [node name="BaseRespawnArea2" parent="." instance=ExtResource("11_mg2ol")]
-position = Vector2(4100, -2900)
-metadata/_edit_lock_ = true
+position = Vector2(3850, -2900)
 
 [node name="BaseRespawnArea3" parent="." instance=ExtResource("11_mg2ol")]
 visible = false
