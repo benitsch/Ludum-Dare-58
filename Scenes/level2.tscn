@@ -1,239 +1,241 @@
 [gd_scene load_steps=21 format=3 uid="uid://csesghfgympjx"]
 
-[ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_dmhhv"]
-[ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="2_tbe4x"]
-[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="3_cxlf7"]
-[ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="4_ox076"]
-[ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="4_tppea"]
-[ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_3pcd5"]
-[ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="5_y6k7c"]
-[ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="6_pd5wm"]
-[ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="7_uccny"]
-[ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="8_hx4q4"]
-[ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="8_opmp4"]
-[ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="8_v6a4y"]
-[ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="10_hx4q4"]
-[ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="12_ey1o0"]
-[ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="13_3pcd5"]
-[ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="13_ox076"]
-[ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="14_3pcd5"]
-[ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="15_v6a4y"]
-[ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="18_p71kr"]
+[ext_resource type="PackedScene" uid="uid://bqfyrjgy4vfve" path="res://Scenes/objects/pushing box.tscn" id="1_051s1"]
+[ext_resource type="PackedScene" uid="uid://c58ol5kq2lldg" path="res://Scenes/objects/BoxButton.tscn" id="2_in4v8"]
+[ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_mu7lp"]
+[ext_resource type="PackedScene" uid="uid://d3v7clfwajmgd" path="res://Scenes/objects/wing_collectable.tscn" id="4_5qi50"]
+[ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_1apgh"]
+[ext_resource type="PackedScene" uid="uid://52fbnfjpvhf2" path="res://Scenes/enviroment/solid_gound_sloped_right.tscn" id="6_ue4po"]
+[ext_resource type="PackedScene" uid="uid://bwck7wb1741am" path="res://Scenes/enviroment/solid_gound_sloped_left.tscn" id="7_uoomo"]
+[ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="8_4jqg0"]
+[ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="9_7k4fu"]
+[ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="10_tp0ft"]
+[ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="11_yjaoa"]
+[ext_resource type="PackedScene" uid="uid://dnj8hmfaq3a7y" path="res://Scenes/enviroment/solid_gound_large.tscn" id="12_o1sn7"]
+[ext_resource type="PackedScene" uid="uid://c2pw1sco0rh5q" path="res://Scenes/enviroment/solid_gound_small.tscn" id="13_u1na6"]
+[ext_resource type="PackedScene" uid="uid://clxsardlukuba" path="res://Scenes/enviroment/solid_wall.tscn" id="14_se7y5"]
+[ext_resource type="PackedScene" uid="uid://bcs0vhs7cfyh6" path="res://Scenes/enviroment/solid_wall_large.tscn" id="15_uvwjj"]
+[ext_resource type="PackedScene" uid="uid://cr3ndbvsiuj7p" path="res://Scenes/enviroment/solid_wall_small.tscn" id="16_ukdoj"]
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="17_5mqgo"]
+[ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_d87oc"]
+[ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="19_6y803"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
 
 [node name="Riddle 3" type="Node2D"]
 
-[node name="PushingBox" parent="." instance=ExtResource("1_dmhhv")]
+[node name="PushingBox" parent="." instance=ExtResource("1_051s1")]
 position = Vector2(446, -3)
 
-[node name="PushingBox1" parent="." instance=ExtResource("1_dmhhv")]
+[node name="PushingBox1" parent="." instance=ExtResource("1_051s1")]
 position = Vector2(-2174, -4)
 
-[node name="PushingBox2" parent="." instance=ExtResource("1_dmhhv")]
+[node name="PushingBox2" parent="." instance=ExtResource("1_051s1")]
 position = Vector2(1926, -804)
 
-[node name="BoxButton" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+[node name="BoxButton" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("2_in4v8")]
 position = Vector2(-207, 114)
 debug_mode = false
 target_wall = NodePath("../Statics/Ground/SolidGound3")
 
-[node name="BoxButton2" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+[node name="BoxButton2" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("2_in4v8")]
 position = Vector2(1087, 614)
 debug_mode = false
 target_wall = NodePath("../Statics/Walls/SolidWall")
 
-[node name="BoxButton3" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+[node name="BoxButton3" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("2_in4v8")]
 position = Vector2(1541, 513)
 debug_mode = false
 target_wall = NodePath("../Statics/Walls/SolidWall17")
 wall_mode = 1
 
-[node name="BoxButton4" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("4_tppea")]
+[node name="BoxButton4" parent="." node_paths=PackedStringArray("target_wall") instance=ExtResource("2_in4v8")]
 position = Vector2(1541, 513)
 debug_mode = false
 target_wall = NodePath("../Statics/Semisolids/SemiSolidGround10")
 wall_mode = 1
 
-[node name="PlayerStateReset" parent="." instance=ExtResource("2_tbe4x")]
+[node name="PlayerStateReset" parent="." instance=ExtResource("3_mu7lp")]
+position = Vector2(-398, -101)
 set_jump_allowed = true
 jump_allowd = true
 
-[node name="PlayerStateGiveDash" parent="." instance=ExtResource("2_tbe4x")]
+[node name="PlayerStateGiveDash" parent="." instance=ExtResource("3_mu7lp")]
 position = Vector2(2650, 328)
 set_dash_allowed = true
 dash_allowed = true
 set_air_dash_count = true
 air_dash_count = 1
 
-[node name="Wing Collectable" parent="PlayerStateGiveDash" instance=ExtResource("4_ox076")]
+[node name="Wing Collectable" parent="PlayerStateGiveDash" instance=ExtResource("4_5qi50")]
 
 [node name="Sprite2D" parent="PlayerStateGiveDash/Wing Collectable" index="1"]
-texture = ExtResource("5_3pcd5")
+texture = ExtResource("5_1apgh")
 offset = Vector2(75, -75)
 
 [node name="Statics" type="Node2D" parent="."]
 
 [node name="Jank" type="Node2D" parent="Statics"]
 
-[node name="SolidSlopeRight" parent="Statics/Jank" instance=ExtResource("7_uccny")]
+[node name="SolidSlopeRight" parent="Statics/Jank" instance=ExtResource("6_ue4po")]
 position = Vector2(-2150, 122)
 
-[node name="SolidSlopeLeft" parent="Statics/Jank" instance=ExtResource("8_hx4q4")]
+[node name="SolidSlopeLeft" parent="Statics/Jank" instance=ExtResource("7_uoomo")]
 position = Vector2(-1543, -778)
 
 [node name="Semisolids" type="Node2D" parent="Statics"]
 
-[node name="SemiSolidGround" parent="Statics/Semisolids" instance=ExtResource("10_hx4q4")]
+[node name="SemiSolidGround" parent="Statics/Semisolids" instance=ExtResource("8_4jqg0")]
 position = Vector2(1950, 22)
 
-[node name="SemiSolidGround2" parent="Statics/Semisolids" instance=ExtResource("5_y6k7c")]
+[node name="SemiSolidGround2" parent="Statics/Semisolids" instance=ExtResource("9_7k4fu")]
 position = Vector2(-1100, 122)
 
-[node name="SemiSolidGround3" parent="Statics/Semisolids" instance=ExtResource("5_y6k7c")]
+[node name="SemiSolidGround3" parent="Statics/Semisolids" instance=ExtResource("9_7k4fu")]
 position = Vector2(-1700, 122)
 
-[node name="SemiSolidGround4" parent="Statics/Semisolids" instance=ExtResource("5_y6k7c")]
+[node name="SemiSolidGround4" parent="Statics/Semisolids" instance=ExtResource("9_7k4fu")]
 position = Vector2(900, 122)
 
-[node name="SemiSolidGround5" parent="Statics/Semisolids" instance=ExtResource("5_y6k7c")]
+[node name="SemiSolidGround5" parent="Statics/Semisolids" instance=ExtResource("9_7k4fu")]
 position = Vector2(3200, 22)
 
-[node name="SemiSolidGround7" parent="Statics/Semisolids" instance=ExtResource("10_hx4q4")]
+[node name="SemiSolidGround7" parent="Statics/Semisolids" instance=ExtResource("8_4jqg0")]
 position = Vector2(3650, -278)
 
-[node name="SemiSolidGround8" parent="Statics/Semisolids" instance=ExtResource("10_hx4q4")]
+[node name="SemiSolidGround8" parent="Statics/Semisolids" instance=ExtResource("8_4jqg0")]
 position = Vector2(3350, -578)
 
-[node name="SemiSolidGround6" parent="Statics/Semisolids" instance=ExtResource("13_3pcd5")]
+[node name="SemiSolidGround6" parent="Statics/Semisolids" instance=ExtResource("10_tp0ft")]
 position = Vector2(-943, -778)
 
-[node name="SemiSolidGround10" parent="Statics/Semisolids" instance=ExtResource("5_y6k7c")]
+[node name="SemiSolidGround10" parent="Statics/Semisolids" instance=ExtResource("9_7k4fu")]
 position = Vector2(300, -778)
 
-[node name="SemiSolidGround9" parent="Statics/Semisolids" instance=ExtResource("10_hx4q4")]
+[node name="SemiSolidGround9" parent="Statics/Semisolids" instance=ExtResource("8_4jqg0")]
 position = Vector2(1450, -478)
 
 [node name="Ground" type="Node2D" parent="Statics"]
 
-[node name="SolidGound" parent="Statics/Ground" instance=ExtResource("12_ey1o0")]
+[node name="SolidGound" parent="Statics/Ground" instance=ExtResource("11_yjaoa")]
 position = Vector2(0, 122)
 
-[node name="SolidGound2" parent="Statics/Ground" instance=ExtResource("13_ox076")]
+[node name="SolidGound2" parent="Statics/Ground" instance=ExtResource("12_o1sn7")]
 position = Vector2(750, 622)
 
-[node name="SolidGound3" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
+[node name="SolidGound3" parent="Statics/Ground" instance=ExtResource("13_u1na6")]
 position = Vector2(-650, 122)
 
-[node name="SolidGound4" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
+[node name="SolidGound4" parent="Statics/Ground" instance=ExtResource("13_u1na6")]
 position = Vector2(-50, 622)
 
-[node name="SolidGound5" parent="Statics/Ground" instance=ExtResource("12_ey1o0")]
+[node name="SolidGound5" parent="Statics/Ground" instance=ExtResource("11_yjaoa")]
 position = Vector2(1500, 22)
 
-[node name="SolidGound6" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
+[node name="SolidGound6" parent="Statics/Ground" instance=ExtResource("13_u1na6")]
 position = Vector2(450, 122)
 
-[node name="SolidGound7" parent="Statics/Ground" instance=ExtResource("12_ey1o0")]
+[node name="SolidGound7" parent="Statics/Ground" instance=ExtResource("11_yjaoa")]
 position = Vector2(-700, 622)
 
-[node name="SolidGound8" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
+[node name="SolidGound8" parent="Statics/Ground" instance=ExtResource("13_u1na6")]
 position = Vector2(-1200, 422)
 
-[node name="SolidGound9" parent="Statics/Ground" instance=ExtResource("12_ey1o0")]
+[node name="SolidGound9" parent="Statics/Ground" instance=ExtResource("11_yjaoa")]
 position = Vector2(-1200, 522)
 
-[node name="SolidGound10" parent="Statics/Ground" instance=ExtResource("13_ox076")]
+[node name="SolidGound10" parent="Statics/Ground" instance=ExtResource("12_o1sn7")]
 position = Vector2(1850, 522)
 
-[node name="SolidGound11" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
+[node name="SolidGound11" parent="Statics/Ground" instance=ExtResource("13_u1na6")]
 position = Vector2(-2650, -478)
 
-[node name="SolidGound12" parent="Statics/Ground" instance=ExtResource("12_ey1o0")]
+[node name="SolidGound12" parent="Statics/Ground" instance=ExtResource("11_yjaoa")]
 position = Vector2(2100, -678)
 
-[node name="SolidGound13" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
+[node name="SolidGound13" parent="Statics/Ground" instance=ExtResource("13_u1na6")]
 position = Vector2(2650, 422)
 
-[node name="SolidGound14" parent="Statics/Ground" instance=ExtResource("13_ox076")]
+[node name="SolidGound14" parent="Statics/Ground" instance=ExtResource("12_o1sn7")]
 position = Vector2(3350, 322)
 
-[node name="SolidGound15" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
+[node name="SolidGound15" parent="Statics/Ground" instance=ExtResource("13_u1na6")]
 position = Vector2(-250, -1180)
 
 [node name="Walls" type="Node2D" parent="Statics"]
 
-[node name="SolidWall" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+[node name="SolidWall" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
 position = Vector2(1700, 22)
 
-[node name="SolidWall2" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
+[node name="SolidWall2" parent="Statics/Walls" instance=ExtResource("15_uvwjj")]
 position = Vector2(1300, 722)
 
-[node name="SolidWall3" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+[node name="SolidWall3" parent="Statics/Walls" instance=ExtResource("16_ukdoj")]
 position = Vector2(-400, 222)
 
-[node name="SolidWall4" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+[node name="SolidWall4" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
 position = Vector2(200, 1022)
 
-[node name="SolidWall5" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+[node name="SolidWall5" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
 position = Vector2(-300, 1022)
 
-[node name="SolidWall6" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+[node name="SolidWall6" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
 position = Vector2(1700, -378)
 
-[node name="SolidWall7" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+[node name="SolidWall7" parent="Statics/Walls" instance=ExtResource("16_ukdoj")]
 position = Vector2(-1100, 822)
 
-[node name="SolidWall8" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+[node name="SolidWall8" parent="Statics/Walls" instance=ExtResource("16_ukdoj")]
 position = Vector2(-2400, 222)
 
-[node name="SolidWall9" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
+[node name="SolidWall9" parent="Statics/Walls" instance=ExtResource("15_uvwjj")]
 position = Vector2(-2600, 222)
 
-[node name="SolidWall10" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+[node name="SolidWall10" parent="Statics/Walls" instance=ExtResource("16_ukdoj")]
 position = Vector2(2400, 622)
 
-[node name="SolidWall11" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+[node name="SolidWall11" parent="Statics/Walls" instance=ExtResource("16_ukdoj")]
 position = Vector2(2900, 622)
 
-[node name="SolidWall12" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+[node name="SolidWall12" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
 position = Vector2(3900, 422)
 
-[node name="SolidWall13" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
+[node name="SolidWall13" parent="Statics/Walls" instance=ExtResource("15_uvwjj")]
 position = Vector2(3900, 22)
 
-[node name="SolidWall14" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+[node name="SolidWall14" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
 position = Vector2(3100, -278)
 
-[node name="SolidWall15" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+[node name="SolidWall15" parent="Statics/Walls" instance=ExtResource("16_ukdoj")]
 position = Vector2(3900, -578)
 
-[node name="SolidWall16" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
+[node name="SolidWall16" parent="Statics/Walls" instance=ExtResource("15_uvwjj")]
 position = Vector2(3900, -778)
 
-[node name="SolidWall19" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+[node name="SolidWall19" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
 position = Vector2(0, -1080)
 
-[node name="SolidWall20" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+[node name="SolidWall20" parent="Statics/Walls" instance=ExtResource("14_se7y5")]
 position = Vector2(-500, -1080)
 
-[node name="SolidWall17" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+[node name="SolidWall17" parent="Statics/Walls" instance=ExtResource("16_ukdoj")]
 position = Vector2(1300, 22)
 
-[node name="Player" parent="." instance=ExtResource("3_cxlf7")]
+[node name="Player" parent="." instance=ExtResource("17_5mqgo")]
+position = Vector2(-398, -101)
 
 [node name="Camera2D" parent="Player" index="1"]
 limit_left = -2700
 limit_right = 4000
 limit_bottom = 1000
 
-[node name="BaseDeathArea" parent="." instance=ExtResource("15_v6a4y")]
+[node name="BaseDeathArea" parent="." instance=ExtResource("18_d87oc")]
 position = Vector2(0, 1500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseDeathArea"]
 shape = SubResource("WorldBoundaryShape2D_hx4q4")
 
-[node name="LevelExit" parent="." instance=ExtResource("18_p71kr")]
+[node name="LevelExit" parent="." instance=ExtResource("19_6y803")]
 position = Vector2(-2700, -478)
 
 [editable path="PlayerStateGiveDash/Wing Collectable"]

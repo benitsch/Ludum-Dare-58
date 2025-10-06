@@ -155,7 +155,7 @@ func update_wall_state(button_active: bool):
 	
 	animate_wall(should_show)
 
-func animate_wall(show: bool):
+func animate_wall(showWall: bool):
 	if not target_wall:
 		return
 	
@@ -164,7 +164,7 @@ func animate_wall(show: bool):
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	
-	if show:
+	if showWall:
 		# Fade in and enable collision
 		target_wall.modulate.a = 0
 		target_wall.visible = true
@@ -178,12 +178,12 @@ func animate_wall(show: bool):
 			set_wall_collision(false)
 		)
 
-func set_wall_visible(visible: bool):
+func set_wall_visible(setVisibility: bool):
 	if not target_wall:
 		return
-	target_wall.visible = visible
-	target_wall.modulate.a = 1.0 if visible else 0.0
-	set_wall_collision(visible)
+	target_wall.visible = setVisibility
+	target_wall.modulate.a = 1.0 if setVisibility else 0.0
+	set_wall_collision(setVisibility)
 
 func set_wall_collision(enabled: bool):
 	if not target_wall:

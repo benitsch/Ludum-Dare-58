@@ -142,10 +142,10 @@ func try_jump():
 		cur_air_jumps -= 1;
 		current_animator.play("double-jump-left" if direction < 0 else "double-jump-right")
 	if dashing:
-		velocity * 1.2;
+		velocity *= 1.2;
 		dashing = false
 	falling = false
-	current_animator
+	#current_animator
 	await current_animator.animation_finished
 	falling = true
 	current_animator.play("falling-left" if direction < 0 else "falling-right")
