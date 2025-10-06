@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cuyxnkswxf5od"]
+[gd_scene load_steps=21 format=3 uid="uid://cuyxnkswxf5od"]
 
 [ext_resource type="Texture2D" uid="uid://v5hs6h5pji50" path="res://assets/Player/walk/left/player l  4-0001.png" id="1_ltnlq"]
 [ext_resource type="Texture2D" uid="uid://bwby2sh4r6ebp" path="res://assets/Player/walk/left/player l  4-0002.png" id="2_qv7u6"]
@@ -11,6 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://n7bgl5lgtsx4" path="res://assets/Player/Idle/player idle 1-0001.png" id="9_ltnlq"]
 [ext_resource type="Texture2D" uid="uid://4fonos7e5p13" path="res://assets/Player/Idle/player idle 1-0002.png" id="10_qv7u6"]
 [ext_resource type="Texture2D" uid="uid://cfjyxsurfgjsq" path="res://assets/Player/Idle/player idle 1-0003.png" id="11_1m305"]
+[ext_resource type="Texture2D" uid="uid://baxokfjnj5al8" path="res://assets/Player/walk/left/player l  1-0001.png" id="12_mmsot"]
+[ext_resource type="Texture2D" uid="uid://blx4rypbcla0g" path="res://assets/Player/walk/left/player l  1-0002.png" id="13_gh3ka"]
+[ext_resource type="Texture2D" uid="uid://dvn4x6pgc36ko" path="res://assets/Player/walk/left/player l  1-0003.png" id="14_578sb"]
+[ext_resource type="Texture2D" uid="uid://774sti25x2hq" path="res://assets/Player/walk/left/player l  1-0004.png" id="15_sckqd"]
+[ext_resource type="Texture2D" uid="uid://b27g3hiwahwue" path="res://assets/Player/walk/right/player r 1-0001.png" id="16_0xtjr"]
+[ext_resource type="Texture2D" uid="uid://bejma2fiopfy3" path="res://assets/Player/walk/right/player r 1-0002.png" id="17_2be7s"]
+[ext_resource type="Texture2D" uid="uid://4752gyr35s6h" path="res://assets/Player/walk/right/player r 1-0003.png" id="18_kxpko"]
+[ext_resource type="Texture2D" uid="uid://b2i8jtmsbbohb" path="res://assets/Player/walk/right/player r 1-0004.png" id="19_4l8py"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0xtjr"]
 animations = [{
@@ -218,16 +226,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ltnlq")
+"texture": ExtResource("12_mmsot")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_qv7u6")
+"texture": ExtResource("13_gh3ka")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_1m305")
+"texture": ExtResource("14_578sb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_envsy")
+"texture": ExtResource("15_sckqd")
 }],
 "loop": true,
 "name": &"walk-left",
@@ -235,25 +243,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_mmsot")
+"texture": ExtResource("16_0xtjr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_gh3ka")
+"texture": ExtResource("17_2be7s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_578sb")
+"texture": ExtResource("18_kxpko")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_sckqd")
+"texture": ExtResource("19_4l8py")
 }],
 "loop": true,
 "name": &"walk-right",
 "speed": 8.0
 }]
 
-[node name="AnimPlayer" type="AnimatedSprite2D"]
+[node name="AnimPlayer2" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0xtjr")
-animation = &"idle"
+animation = &"walk-right"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.08511219
+frame_progress = 0.08000252

@@ -245,5 +245,5 @@ animations = [{
 
 [node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_pvq11")
-animation = &"idle"
+animation = &"walk-left"
 autoplay = "idle"
