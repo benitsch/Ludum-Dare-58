@@ -21,6 +21,7 @@ func _ready() -> void:
 		%WingRightUp,
 		%WingRightDown
 	]
+	AudioPlayer.change_music("title");
 	# ShakeButtons initially invisible & transparent
 	ShakeButtons.visible = true
 	ShakeButtons.modulate.a = 0.0
@@ -47,6 +48,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	# When main butterfly falls down and leaves the screen
 	SceneTransitionAnimation.play("fade_in")
 	await SceneTransitionAnimation.animation_finished
+	AudioPlayer.change_music("game");
 	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
 
 func _input(event: InputEvent) -> void:
