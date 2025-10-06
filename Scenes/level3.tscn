@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://ck26neeep282r"]
+[gd_scene load_steps=29 format=3 uid="uid://ck26neeep282r"]
 
+[ext_resource type="Texture2D" uid="uid://cee0b0pl2kgbn" path="res://assets/Arts-WIP/Background.png" id="1_pdvwv"]
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_3nkac"]
 [ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_eqm1k"]
 [ext_resource type="Texture2D" uid="uid://3cw6dd7043a3" path="res://assets/Arts-WIP/Butterfly01–wing01.png" id="5_d08tm"]
@@ -32,6 +33,15 @@ size = Vector2(200, 200)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
 
 [node name="Riddle 4" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1000
+texture_repeat = 2
+position = Vector2(2967, -2243)
+scale = Vector2(4, 4)
+texture = ExtResource("1_pdvwv")
+region_enabled = true
+region_rect = Rect2(0, 0, 4000, 2500)
 
 [node name="Interactables" type="Node2D" parent="."]
 
