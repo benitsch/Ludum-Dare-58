@@ -98,16 +98,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_dwcfd")
+"texture": ExtResource("14_ms7vm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_rjld4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_dr1s2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_h6uwf")
+"texture": ExtResource("15_qion3")
 }],
 "loop": true,
 "name": &"falling-left",
@@ -115,16 +109,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_1duky")
+"texture": ExtResource("18_mknik")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_bdmxl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_t61b6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_qke1u")
+"texture": ExtResource("19_tt6mv")
 }],
 "loop": true,
 "name": &"falling-right",
@@ -273,5 +261,6 @@ animations = [{
 
 [node name="AnimPlayer" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_5hwdn")
-animation = &"jump-left"
+animation = &"falling-right"
 autoplay = "idle"
+frame_progress = 0.83949435

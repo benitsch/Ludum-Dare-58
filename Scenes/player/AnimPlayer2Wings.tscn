@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://btq2l7jxks6xx"]
+[gd_scene load_steps=33 format=3 uid="uid://btq2l7jxks6xx"]
 
 [ext_resource type="Texture2D" uid="uid://v5hs6h5pji50" path="res://assets/Player/walk/left/player l  4-0001.png" id="1_8rsw5"]
 [ext_resource type="Texture2D" uid="uid://dfgomnyx115yr" path="res://assets/Player/dash/left/player dash l 2/player dash l 2-0001.png" id="1_nkcfj"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bmi6aahv7mo15" path="res://assets/Player/walk/right/player r 4-0003.png" id="7_hptdd"]
 [ext_resource type="Texture2D" uid="uid://ccunnw0f4lm2f" path="res://assets/Player/walk/right/player r 4-0004.png" id="8_xvkue"]
 [ext_resource type="Texture2D" uid="uid://cahcuq6gjn1f2" path="res://assets/Player/Idle/player idle 2-0001.png" id="13_f60ii"]
+[ext_resource type="Texture2D" uid="uid://d2chw78kojqg8" path="res://assets/Player/walk/left/player l  3-0003.png" id="13_tq4fk"]
+[ext_resource type="Texture2D" uid="uid://7atukok4n6vr" path="res://assets/Player/walk/left/player l  3-0004.png" id="14_fw7wy"]
 [ext_resource type="Texture2D" uid="uid://dcva54ria0ys7" path="res://assets/Player/Idle/player idle 2-0002.png" id="14_vkxwh"]
 [ext_resource type="Texture2D" uid="uid://egmoi8oyq1jt" path="res://assets/Player/Idle/player idle 2-0003.png" id="15_hptdd"]
 [ext_resource type="Texture2D" uid="uid://cvr6afjncf42e" path="res://assets/Player/walk/left/player l  2-0001.png" id="16_ffgwr"]
@@ -90,16 +92,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_8rsw5")
+"texture": ExtResource("13_tq4fk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_07f4c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_nkcfj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_u173j")
+"texture": ExtResource("14_fw7wy")
 }],
 "loop": true,
 "name": &"falling-left",
@@ -107,16 +103,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_f60ii")
+"texture": ExtResource("22_mkgi6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_vkxwh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_hptdd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_xvkue")
+"texture": ExtResource("23_86768")
 }],
 "loop": true,
 "name": &"falling-right",
@@ -265,5 +255,5 @@ animations = [{
 
 [node name="AnimPlayer2" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_76l10")
-animation = &"jump-left"
+animation = &"falling-right"
 autoplay = "idle"
