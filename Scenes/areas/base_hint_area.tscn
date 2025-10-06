@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://elj4hqirplhh"]
+
+[ext_resource type="Script" uid="uid://bpqh3l8c6jql3" path="res://Skunky/hint_area.gd" id="1_js7nc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rdl8"]
+size = Vector2(200, 200)
+
+[node name="BaseHintArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_js7nc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7rdl8")
