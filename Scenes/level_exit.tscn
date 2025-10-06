@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4awdoi1yv1dv"]
+[gd_scene load_steps=5 format=3 uid="uid://d4awdoi1yv1dv"]
 
 [ext_resource type="PackedScene" uid="uid://bodt58pl6kojk" path="res://nata/wingParticle.tscn" id="1_845nk"]
+[ext_resource type="Script" uid="uid://dggmx1ecoxnkv" path="res://Scripts/level_exit_area.gd" id="1_tuocj"]
+[ext_resource type="PackedScene" uid="uid://0axorjkbj4ng" path="res://Scenes/scene_transition_animation.tscn" id="2_7rawc"]
 
-[node name="LevelExit" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rawc"]
+size = Vector2(20, 250)
+
+[node name="LevelExit" type="Area2D" node_paths=PackedStringArray("animator")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_tuocj")
+animator = NodePath("SceneTransitionAnimation")
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("2_7rawc")]
 
 [node name="Particle highlight" parent="." instance=ExtResource("1_845nk")]
 position = Vector2(0, -50)
@@ -31,3 +42,7 @@ scale = Vector2(0.5, 1)
 [node name="Particle highlight7" parent="." instance=ExtResource("1_845nk")]
 position = Vector2(0, -200)
 scale = Vector2(0.5, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -125)
+shape = SubResource("RectangleShape2D_7rawc")

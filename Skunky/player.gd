@@ -26,6 +26,8 @@ var direction: int
 var cur_air_jumps := PlayerState.air_jump_amount
 var cur_air_dashes := PlayerState.air_dash_amount
 
+var ending: bool = false
+var input: float
 var falling: bool = true
 var dashing: bool = false
 var dash_timer: float = 0
@@ -42,14 +44,20 @@ func _ready() -> void:
 	reset_animator()
 
 
+func end_level() -> void:
+	ending = true;
+
+
 func kill() -> void:
 	dashing = false
 	velocity = Vector2.ZERO
 	dying = true;
 	await get_tree().create_timer(dying_time).timeout
+	current_animator.play("idle")
 	global_position = respawn_pos;
 	await get_tree().create_timer(spawning_time).timeout
 	dying = false
+	falling = true
 
 
 func reset_animator() -> void:
@@ -72,10 +80,11 @@ func reset_animator() -> void:
 
 func _physics_process(delta: float) -> void:
 	if dying: return
-	var input := Input.get_axis("move_left", "move_right");
+	if not ending:
+		input = Input.get_axis("move_left", "move_right");
 	if not is_zero_approx(input):
 		direction = 1 if input > 0 else -1;
-	apply_animation(input)
+	apply_animation()
 	# refresh dash and jump count even during dash
 	if is_on_floor():
 		on_ground_touch();
@@ -112,11 +121,9 @@ func _physics_process(delta: float) -> void:
 			var r : RigidBody2D
 			r = c.get_collider() 
 			if abs(r.linear_velocity.x) < push_force : r.linear_velocity.x = -c.get_normal().x * push_force
-	
-	input = 0;
 
 
-func apply_animation(input: float) -> void:
+func apply_animation() -> void:
 	if not falling: return;
 	if is_on_floor():
 		if is_zero_approx(input):
@@ -163,6 +170,7 @@ func try_dash():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if dying: return
+	if ending: return
 	if event.is_action_pressed("jump"):
 		try_jump();
 	if event.is_action_pressed("dash"):
