@@ -24,6 +24,7 @@ boot_splash/icon="res://icon.svg"
 
 Shaker="*res://addons/shaker/src/Shaker.gd"
 PlayerState="*res://Skunky/player_state.gd"
+AudioPlayer="*res://Scenes/AudioPlayer.tscn"
 
 [display]
 

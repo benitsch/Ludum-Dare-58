@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioSet" load_steps=2 format=3 uid="uid://dvtdwdicm6xac"]
+
+[ext_resource type="Script" uid="uid://bvq22e7o28ios" path="res://Scripts/audio_set.gd" id="1_ysuml"]
+
+[resource]
+script = ExtResource("1_ysuml")
+audio_set = Dictionary[String, AudioStream]({
+"dash": null,
+"door_open": null,
+"hard_landing": null,
+"jump": null,
+"landing": null,
+"light_upd": null,
+"mirror_rotate": null,
+"pickup": null,
+"walk": null
+})
+metadata/_custom_type_script = "uid://bvq22e7o28ios"
