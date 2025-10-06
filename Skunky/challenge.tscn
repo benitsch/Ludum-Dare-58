@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://daijkp6p2stup"]
+[gd_scene load_steps=18 format=3 uid="uid://daijkp6p2stup"]
 
 [ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="1_dcp40"]
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="2_f53rw"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://b4rv7bmvo71w" path="res://assets/Arts-WIP/ButtonShift.png" id="12_av2ve"]
 [ext_resource type="Texture2D" uid="uid://b62lggaett0q4" path="res://assets/Arts-WIP/ButtonSpace.png" id="13_p1iib"]
 [ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="14_p1iib"]
-[ext_resource type="PackedScene" uid="uid://dhsssrgwptn62" path="res://Scenes/EndScreen.tscn" id="15_mqr67"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_goha4"]
 
@@ -450,6 +449,9 @@ position = Vector2(250, -750)
 [node name="SolidWall8" parent="FancyCoridor4" instance=ExtResource("10_mqr67")]
 position = Vector2(200, 400)
 
+[node name="LevelExit" parent="." instance=ExtResource("14_p1iib")]
+position = Vector2(8000, -2700)
+
 [node name="SolidWall" parent="." instance=ExtResource("8_av2ve")]
 position = Vector2(8000, -2950)
 
@@ -458,9 +460,5 @@ position = Vector2(7450, -3150)
 
 [node name="SolidWall3" parent="." instance=ExtResource("9_p1iib")]
 position = Vector2(7700, -3300)
-
-[node name="LevelExit" parent="." instance=ExtResource("14_p1iib")]
-position = Vector2(8000, -2700)
-next_scene = ExtResource("15_mqr67")
 
 [editable path="Player"]
