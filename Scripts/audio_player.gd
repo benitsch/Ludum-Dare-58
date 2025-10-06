@@ -7,8 +7,8 @@ extends AudioStreamPlayer
 
 var current_music : String
 var volume: float = 0
-var current_sfx_set: AudioSet = sfx[default_set]
-var current_music_set: AudioSet = music[default_set]
+@onready var current_sfx_set: AudioSet = sfx[default_set]
+@onready var current_music_set: AudioSet = music[default_set]
 
 
 func play_sfx(sfx_name: String) -> AudioStreamPlayer:
