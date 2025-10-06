@@ -60,12 +60,20 @@ func castLightUntilNextPoint(availableBounces: int) -> void:
 			if not hitCollectors.has(collider):
 				hitCollectors.append(collider)
 			collider.onBeamHit()
+		else:
+			resetHitCollectors()
 	else:
 		beamPoints.append(to_local(ray.to_global(ray.target_position)))
-		if not hitCollectors.is_empty():
-			for collector in hitCollectors:
-				collector.onBeamLeave()
-			hitCollectors = []
+		resetHitCollectors()
+
+func resetHitCollectors() -> void:
+	if hitCollectors.is_empty():
+		return
+		
+	for collector in hitCollectors:
+		collector.onBeamLeave()
+	
+	hitCollectors = []
 
 func reflectMirror(direction: Vector2, collisionPoint: Vector2) -> void:
 	# Get mirror normal and reflect
