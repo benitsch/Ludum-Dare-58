@@ -31,6 +31,6 @@ func _physics_process(delta: float) -> void:
 	
 	delay += delta
 	
-	if delay > 0.5:
+	if delay > calculateDurationWithModification(0.5):
 		delay = 0.0
 		rotateTarget(angleModification, 0.4)
