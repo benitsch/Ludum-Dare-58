@@ -147,15 +147,15 @@ libraries = {
 }
 
 [node name="ButterflyBoard" type="Sprite2D" parent="Node"]
-position = Vector2(40.000008, 89.99996)
+position = Vector2(39.999973, 89.99989)
 scale = Vector2(1.4460641, 1.3626943)
 texture = ExtResource("3_ycay6")
 
 [node name="ButterflyBoardShakerComponent2D" type="Node2D" parent="Node/ButterflyBoard"]
 unique_name_in_owner = true
 script = ExtResource("4_55kwv")
-intensity = 5.0
-duration = 1.0
+intensity = 8.0
+duration = 0.5
 shakerPreset = SubResource("Resource_07cxn")
 metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"
 
@@ -177,11 +177,13 @@ texture = ExtResource("15_qfn48")
 
 [node name="MainButterflyBody" type="Sprite2D" parent="Node/ButterflyBoard/MainButterfly"]
 unique_name_in_owner = true
+position = Vector2(1.0728836e-06, 1.0728836e-06)
 script = ExtResource("10_o1e67")
 
 [node name="MainButterflyShakerComponent2D" type="Node2D" parent="Node/ButterflyBoard/MainButterfly/MainButterflyBody"]
 unique_name_in_owner = true
 script = ExtResource("4_55kwv")
+intensity = 2.0
 duration = 1.0
 shakerPreset = SubResource("Resource_sqelc")
 metadata/_custom_type_script = "uid://dt0k1ik8w2s2h"

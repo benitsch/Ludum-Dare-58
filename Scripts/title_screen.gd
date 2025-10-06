@@ -84,10 +84,14 @@ func handle_shake() -> void:
 		mainButterflyIsFalling = true
 		%MainButterflyBody.fallDown()
 		%AnimPlayer.fallDown()
+		%MainButterflyShakerComponent2D.stop_shake()
+		%ButterflyBoardShakerComponent2D.stop_shake()
+		
 
 func playShakes() -> void:
-	%MainButterflyShakerComponent2D.play_shake()
-	%ButterflyBoardShakerComponent2D.play_shake()
+	if !mainButterflyIsFalling:
+		%MainButterflyShakerComponent2D.play_shake()
+		%ButterflyBoardShakerComponent2D.play_shake()
 
 func wingFallDown() -> void:
 	if wingsToFallDown.size() > 0:
