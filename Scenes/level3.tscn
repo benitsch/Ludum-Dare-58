@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ck26neeep282r"]
+[gd_scene load_steps=22 format=3 uid="uid://ck26neeep282r"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_3nkac"]
 [ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_eqm1k"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dmaa2smwi751n" path="res://Scenes/level4.tscn" id="6_p2sx0"]
 [ext_resource type="PackedScene" uid="uid://dp8ci4oah0ovo" path="res://mireyu/ContinuousSwitch.tscn" id="6_tg0qr"]
 [ext_resource type="PackedScene" uid="uid://jqf26vy86am5" path="res://Scenes/enviroment/semi_solid_ground_small.tscn" id="8_pdvwv"]
+[ext_resource type="PackedScene" uid="uid://bqa5enk35rc0p" path="res://mireyu/PushButton.tscn" id="8_tc3ri"]
 [ext_resource type="PackedScene" uid="uid://da4prwg6ru22i" path="res://mireyu/Mirror.tscn" id="8_wffsm"]
 [ext_resource type="PackedScene" uid="uid://de2r5kats3pud" path="res://Scenes/enviroment/semi_solid_ground.tscn" id="9_w46me"]
 [ext_resource type="PackedScene" uid="uid://bvmue67tauy14" path="res://Scenes/enviroment/solid_gound.tscn" id="11_2jf1r"]
@@ -29,7 +30,7 @@
 [node name="PlayerStatePowerUp" parent="Interactables" instance=ExtResource("3_3nkac")]
 position = Vector2(-1818, -193)
 set_air_jump_count = true
-air_jump_count = 1
+air_jump_count = 2
 
 [node name="Wing Collectable" parent="Interactables/PlayerStatePowerUp" instance=ExtResource("4_eqm1k")]
 
@@ -57,30 +58,93 @@ air_dash_count = 1
 position = Vector2(-2700, -478)
 next_scene = ExtResource("6_p2sx0")
 
-[node name="ContinuousSwitch" parent="Interactables" node_paths=PackedStringArray("target") instance=ExtResource("6_tg0qr")]
-position = Vector2(-575, 872)
-target = NodePath("../../Environment/Mirror")
+[node name="LightPuzzle1" type="Node2D" parent="Interactables"]
 
-[node name="ContinuousSwitch2" parent="Interactables" node_paths=PackedStringArray("target") instance=ExtResource("6_tg0qr")]
-position = Vector2(-258, 872)
-target = NodePath("../../Environment/Mirror")
-angle = -0.09773843811168284
-
-[node name="Environment" type="Node2D" parent="."]
-
-[node name="LightCollector" parent="Environment" node_paths=PackedStringArray("target") instance=ExtResource("6_fpsp3")]
+[node name="LightCollector" parent="Interactables/LightPuzzle1" node_paths=PackedStringArray("target") instance=ExtResource("6_fpsp3")]
 position = Vector2(-28, 159)
-rotation = 3.1415927
-target = NodePath("../../FloorsAndWalls/SectionLeft/SolidWall5")
-positionModification = Vector2(0, 500)
+rotation = -3.1415925
+target = NodePath("../../Button1")
+positionModification = Vector2(0, 300)
 
-[node name="Lamp" parent="Environment" instance=ExtResource("5_vn7r1")]
+[node name="Lamp" parent="Interactables/LightPuzzle1" instance=ExtResource("5_vn7r1")]
 position = Vector2(-1011, -620)
 beamLength = 3000
 
-[node name="Mirror" parent="Environment" instance=ExtResource("8_wffsm")]
+[node name="Mirror" parent="Interactables/LightPuzzle1" instance=ExtResource("8_wffsm")]
 position = Vector2(-995.00006, 698.00006)
 rotation = 2.2863812
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="ContinuousSwitch" parent="Interactables/LightPuzzle1" node_paths=PackedStringArray("target") instance=ExtResource("6_tg0qr")]
+position = Vector2(-575, 872)
+target = NodePath("../Mirror")
+angleModification = 0.09817477042468103
+
+[node name="ContinuousSwitch2" parent="Interactables/LightPuzzle1" node_paths=PackedStringArray("target") instance=ExtResource("6_tg0qr")]
+position = Vector2(-258, 872)
+target = NodePath("../Mirror")
+angleModification = -0.09817477042468103
+
+[node name="Button1" type="Node2D" parent="Interactables"]
+position = Vector2(381, 0)
+
+[node name="SolidWall5" parent="Interactables/Button1" instance=ExtResource("15_5v8i3")]
+
+[node name="PushButton" parent="Interactables/Button1" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
+position = Vector2(0, -624)
+target = NodePath("../../Button2")
+positionModification = Vector2(0, -425)
+
+[node name="Button2" type="Node2D" parent="Interactables"]
+position = Vector2(589, 500)
+
+[node name="SolidWall5" parent="Interactables/Button2" instance=ExtResource("15_5v8i3")]
+
+[node name="PushButton" parent="Interactables/Button2" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
+position = Vector2(0, -624)
+target = NodePath("../../Button3")
+positionModification = Vector2(0, 620)
+
+[node name="Button3" type="Node2D" parent="Interactables"]
+position = Vector2(788, -800)
+
+[node name="SolidWall5" parent="Interactables/Button3" instance=ExtResource("15_5v8i3")]
+
+[node name="SolidWall6" parent="Interactables/Button3" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, 600)
+
+[node name="SolidWall7" parent="Interactables/Button3" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, 1200)
+
+[node name="PushButton" parent="Interactables/Button3" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
+position = Vector2(0, -624)
+target = NodePath("../../Button4")
+positionModification = Vector2(0, 1140)
+
+[node name="Button4" type="Node2D" parent="Interactables"]
+position = Vector2(1388, -2000)
+
+[node name="PushButton" parent="Interactables/Button4" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
+target = NodePath("../../Button5")
+positionModification = Vector2(0, 1140)
+
+[node name="SolidGound" parent="Interactables/Button4" instance=ExtResource("13_mf2hp")]
+
+[node name="Button5" type="Node2D" parent="Interactables"]
+position = Vector2(1988, -2000)
+
+[node name="PushButton" parent="Interactables/Button5" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
+target = NodePath("../../Button6")
+positionModification = Vector2(0, 1140)
+
+[node name="SolidGound" parent="Interactables/Button5" instance=ExtResource("13_mf2hp")]
+
+[node name="Button6" type="Node2D" parent="Interactables"]
+position = Vector2(2588, -2000)
+
+[node name="SolidGound" parent="Interactables/Button6" instance=ExtResource("13_mf2hp")]
+
+[node name="Environment" type="Node2D" parent="."]
 
 [node name="FloorsAndWalls" type="Node2D" parent="."]
 
@@ -128,12 +192,6 @@ position = Vector2(-1310, 901)
 
 [node name="SolidWall4" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
 position = Vector2(180, 513)
-
-[node name="SolidWall5" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
-position = Vector2(380, 20)
-
-[node name="SolidWall8" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("15_5v8i3")]
-position = Vector2(585, 520)
 
 [node name="SolidWall2" parent="FloorsAndWalls/SectionLeft" instance=ExtResource("16_tsss4")]
 position = Vector2(-1509, 299)
