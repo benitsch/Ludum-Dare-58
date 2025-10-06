@@ -6,7 +6,6 @@ class_name LightCollector
 var inactiveState: Texture2D = preload("res://Solar01.png")
 var activeState: Texture2D = preload("res://Solar02.png")
 
-
 func _init() -> void:
 	onlyTriggerOnce = true
 
