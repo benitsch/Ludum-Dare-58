@@ -3,87 +3,55 @@ extends Area2D
 # Export variable - drag your wall node here in the Inspector
 @export var target_wall: AnimatableBody2D
 @export_enum("Clockwise:90", "Counterclockwise:-90") var rotation_direction: int = 90
-@export var static_sprite: Sprite2D  # Das Sprite das sich nicht drehen soll
-@export var start_position_on: bool = false  # false = aus (links), true = ein (rechts)
+@export var is_triggered: bool = false  # false = aus (links), true = ein (rechts)
 
 # Toggle state
-var is_right = false
-var can_toggle = true
+var can_toggle = false
 var static_sprite_offset: Vector2 = Vector2.ZERO
-var timeout : float = 0.0
+
+@onready var rodSprite: Sprite2D = $ToggleRod
 
 func _ready():
-	# Connect the body_entered signal
-	body_entered.connect(_on_body_entered)
-	
-	# Set start position based on export variable
-	is_right = start_position_on
+	if target_wall == null: return
+	can_toggle = true
 	
 	# Set initial toggle rotation
-	if is_right:
-		rotation_degrees = 30  # On position (right)
-		# Rotate wall to start position if assigned
-		if target_wall:
-			target_wall.rotation = target_wall.rotation + deg_to_rad(rotation_direction)
+	if is_triggered:
+		rodSprite.rotation = rodSprite.rotation + deg_to_rad(30)
+		target_wall.rotation = target_wall.rotation + deg_to_rad(rotation_direction)
 	else:
-		rotation_degrees = -30  # Off position (left)
-	
-	# Set static sprite as top_level if assigned
-	if static_sprite:
-		# Speichere den ursprünglichen Offset BEVOR wir top_level setzen
-		static_sprite_offset = static_sprite.position
-		# Jetzt setze top_level
-		static_sprite.top_level = true
-
-func _process(delta):
-	if timeout > 0: timeout -= delta
-	
-	# Keep static sprite at toggle position + offset without rotation
-	if static_sprite:
-		static_sprite.global_position = global_position + static_sprite_offset
+		rodSprite.rotation = rodSprite.rotation - deg_to_rad(30)
 
 func _on_body_entered(body):
-	# Check if it's a CharacterBody2D (the player)
-	if body is CharacterBody2D and can_toggle:
-		toggle_switch()
-
-func toggle_switch():
+	if !can_toggle: return
 	can_toggle = false
-	is_right = !is_right
+	if body is CharacterBody2D: trigger_switch()
+	await get_tree().create_timer(1.1).timeout
+	can_toggle = true
+
+func trigger_switch():
+	is_triggered = !is_triggered
 	
 	# Animate toggle visual rotation
 	var tween_toggle = create_tween()
 	tween_toggle.set_trans(Tween.TRANS_CUBIC)
 	tween_toggle.set_ease(Tween.EASE_IN_OUT)
 	
-	var toggle_rotation = -30.0  # Off position (left)
-	if is_right:
-		toggle_rotation = 30.0  # On position (right)
-	
-	tween_toggle.tween_property(self, "rotation_degrees", toggle_rotation, 0.3)
-	
-	# Rotate the wall
-	if target_wall: rotate_wall()
-	
-	# Prevent rapid toggling
-	await get_tree().create_timer(1.5).timeout
-	can_toggle = true
-
-func rotate_wall():
-	if not target_wall:
-		return
-	
 	# Create a tween for smooth rotation
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.set_ease(Tween.EASE_IN_OUT)
+	var tween_wall = create_tween()
+	tween_wall.set_trans(Tween.TRANS_CUBIC)
+	tween_wall.set_ease(Tween.EASE_IN_OUT)
 	
 	# Calculate target rotation based on selected direction
-	var target_rotation = 0.0
-	if is_right:
-		target_rotation = target_wall.rotation + deg_to_rad(rotation_direction)  # Rotate to selected direction
-	else:
-		target_rotation = target_wall.rotation - deg_to_rad(rotation_direction)
+	var toggle_rotation = 0.0 
+	var wall_rotation = 0.0
+	if is_triggered: 
+		toggle_rotation = rodSprite.rotation + deg_to_rad(60.0)  # On position (right)
+		wall_rotation = target_wall.rotation + deg_to_rad(rotation_direction)
+	else: 
+		toggle_rotation = rodSprite.rotation - deg_to_rad(60.0)
+		wall_rotation = target_wall.rotation - deg_to_rad(rotation_direction)
 	
-	# Animate the rotation over 1 second
-	tween.tween_property(target_wall, "rotation", target_rotation, 1.0)
+	# Animate toggle and wall
+	tween_toggle.tween_property(rodSprite, "rotation", toggle_rotation, 0.3)
+	tween_wall.tween_property(target_wall, "rotation", wall_rotation, 1.0)
