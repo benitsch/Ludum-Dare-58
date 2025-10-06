@@ -67,12 +67,8 @@ next_scene = ExtResource("6_p2sx0")
 [node name="LightCollector" parent="Interactables/LightPuzzle1" node_paths=PackedStringArray("target") instance=ExtResource("6_fpsp3")]
 position = Vector2(-28, 159)
 rotation = -3.1415925
-allowReset = null
 target = NodePath("../../Button1")
-angleModification = null
 positionModification = Vector2(0, 300)
-shouldToggle = null
-onlyTriggerOnce = null
 
 [node name="Lamp" parent="Interactables/LightPuzzle1" instance=ExtResource("5_vn7r1")]
 position = Vector2(-1011, -620)
@@ -176,12 +172,8 @@ rotation = -0.76096356
 
 [node name="LightCollector" parent="Interactables/LightPuzzle2" node_paths=PackedStringArray("target") instance=ExtResource("6_fpsp3")]
 position = Vector2(7122, 710)
-allowReset = null
 target = NodePath("../../../Environment/SectionMid/SolidWall")
-angleModification = null
 positionModification = Vector2(0, 300)
-shouldToggle = null
-onlyTriggerOnce = null
 
 [node name="Button6" type="Node2D" parent="Interactables"]
 position = Vector2(7820, 1000)
