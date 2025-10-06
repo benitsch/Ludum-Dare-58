@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://dmaa2smwi751n"]
+[gd_scene load_steps=3 format=3 uid="uid://dmaa2smwi751n"]
+
+[ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="1_7yhn4"]
+[ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="2_125c2"]
 
 [node name="Level4" type="Node2D"]
+
+[node name="BasePlayerStateArea" parent="." instance=ExtResource("1_7yhn4")]
+position = Vector2(0, 2)
+set_jump_allowed = true
+jump_allowd = true
+set_air_jump_count = true
+air_jump_count = 1
+set_dash_allowed = true
+dash_allowed = true
+set_air_dash_count = true
+air_dash_count = 1
+
+[node name="Player" parent="." instance=ExtResource("2_125c2")]
