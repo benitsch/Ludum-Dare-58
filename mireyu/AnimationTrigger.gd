@@ -5,7 +5,7 @@ class_name AnimationTrigger
 const DEFAULT_POSITION := Vector2.ZERO
 const DEFAULT_ANGLE := 0.0
 
-@export var target: StaticBody2D
+@export var target: Node2D
 @export_range(0, 360, 0.1, "radians_as_degrees") var angleModification: float = DEFAULT_ANGLE
 @export var positionModification := DEFAULT_POSITION
 @export var shouldToggle := false
