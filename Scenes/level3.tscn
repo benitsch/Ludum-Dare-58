@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ck26neeep282r"]
+[gd_scene load_steps=25 format=3 uid="uid://ck26neeep282r"]
 
 [ext_resource type="PackedScene" uid="uid://b14wugwclngar" path="res://Scenes/areas/base_player_state_area.tscn" id="3_3nkac"]
 [ext_resource type="PackedScene" path="res://Scenes/objects/wing_collectable.tscn" id="4_eqm1k"]
@@ -21,9 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://cdtfg486xo1je" path="res://Scenes/player/Player.tscn" id="17_s5d5r"]
 [ext_resource type="PackedScene" uid="uid://c14oj18jvj1c7" path="res://Scenes/areas/base_death_area.tscn" id="18_06tg8"]
 [ext_resource type="PackedScene" uid="uid://d4awdoi1yv1dv" path="res://Scenes/level_exit.tscn" id="19_fgdcu"]
+[ext_resource type="PackedScene" uid="uid://b3y82b72i56tq" path="res://Scenes/enviroment/semi_solid_ground_large.tscn" id="21_eqm1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nkac"]
-size = Vector2(196, 210)
+size = Vector2(200, 200)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hx4q4"]
 
@@ -32,9 +33,9 @@ size = Vector2(196, 210)
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="PlayerStatePowerUp" parent="Interactables" instance=ExtResource("3_3nkac")]
-position = Vector2(-1818, -193)
+position = Vector2(6175, -2810)
 set_air_jump_count = true
-air_jump_count = 2
+air_jump_count = 1
 
 [node name="Wing Collectable" parent="Interactables/PlayerStatePowerUp" instance=ExtResource("4_eqm1k")]
 
@@ -44,7 +45,7 @@ offset = Vector2(75, -75)
 
 [node name="Player" parent="Interactables" instance=ExtResource("17_s5d5r")]
 z_index = 0
-position = Vector2(3737, -1038)
+position = Vector2(-1562, -218)
 
 [node name="Camera2D" parent="Interactables/Player" index="1"]
 limit_left = -2710
@@ -186,12 +187,31 @@ durationModification = 5.0
 
 [node name="Elevator" type="AnimatableBody2D" parent="Interactables/Button6"]
 position = Vector2(-7820, -1000)
+collision_mask = 2
 
 [node name="SolidWall" parent="Interactables/Button6/Elevator" instance=ExtResource("16_tsss4")]
 position = Vector2(7820, 1000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Button6/Elevator"]
 position = Vector2(7820, 905)
+shape = SubResource("RectangleShape2D_3nkac")
+
+[node name="Button7" type="Node2D" parent="Interactables"]
+
+[node name="PushButton" parent="Interactables/Button7" node_paths=PackedStringArray("target") instance=ExtResource("8_tc3ri")]
+position = Vector2(4384, -4900)
+target = NodePath("../Elevator2")
+positionModification = Vector2(-8700, 0)
+durationModification = 8.0
+
+[node name="Elevator2" type="AnimatableBody2D" parent="Interactables/Button7"]
+position = Vector2(7125, -4895)
+collision_mask = 2
+
+[node name="SolidWall" parent="Interactables/Button7/Elevator2" instance=ExtResource("16_tsss4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Button7/Elevator2"]
+position = Vector2(0, -100)
 shape = SubResource("RectangleShape2D_3nkac")
 
 [node name="Environment" type="Node2D" parent="."]
@@ -305,6 +325,10 @@ position = Vector2(7616, 310)
 [node name="SemiSolidGround" parent="Environment/SectionRight" instance=ExtResource("8_pdvwv")]
 position = Vector2(7833, -2690)
 
+[node name="Lamp" parent="Environment/SectionRight" instance=ExtResource("5_vn7r1")]
+position = Vector2(7820, -3100)
+beamLength = 4000
+
 [node name="LeftWall" type="Node2D" parent="Environment/SectionRight"]
 position = Vector2(7620, 0)
 
@@ -329,6 +353,9 @@ position = Vector2(0, -1890)
 [node name="SolidWall7" parent="Environment/SectionRight/LeftWall" instance=ExtResource("16_tsss4")]
 position = Vector2(0, 808)
 
+[node name="SolidWall8" parent="Environment/SectionRight/LeftWall" instance=ExtResource("15_5v8i3")]
+position = Vector2(-4, 310)
+
 [node name="RightWall" type="Node2D" parent="Environment/SectionRight"]
 position = Vector2(8020, 808)
 
@@ -352,6 +379,230 @@ position = Vector2(0, -2600)
 [node name="SolidWall5" parent="Environment/SectionRight/RightWall" instance=ExtResource("15_5v8i3")]
 position = Vector2(0, -3000)
 
+[node name="SectionPowerUp" type="Node2D" parent="Environment"]
+
+[node name="SemiSolidGround3" parent="Environment/SectionPowerUp" instance=ExtResource("21_eqm1k")]
+position = Vector2(6325, -4140)
+
+[node name="SemiSolidGround" parent="Environment/SectionPowerUp" instance=ExtResource("21_eqm1k")]
+position = Vector2(6325, -3650)
+
+[node name="SemiSolidGround2" parent="Environment/SectionPowerUp" instance=ExtResource("21_eqm1k")]
+position = Vector2(6325, -3160)
+
+[node name="SolidGound" parent="Environment/SectionPowerUp" instance=ExtResource("12_5qe4c")]
+position = Vector2(7069, -2690)
+
+[node name="SolidGound2" parent="Environment/SectionPowerUp" instance=ExtResource("12_5qe4c")]
+position = Vector2(6168, -2690)
+
+[node name="SolidWall" parent="Environment/SectionPowerUp" instance=ExtResource("15_5v8i3")]
+position = Vector2(5768, -2586)
+
+[node name="SolidWall2" parent="Environment/SectionPowerUp" instance=ExtResource("15_5v8i3")]
+position = Vector2(5768, -3175)
+
+[node name="SolidWall5" parent="Environment/SectionPowerUp" instance=ExtResource("15_5v8i3")]
+position = Vector2(5768, -3768)
+
+[node name="SolidWall3" parent="Environment/SectionPowerUp" instance=ExtResource("15_5v8i3")]
+position = Vector2(8020, -2787)
+
+[node name="SolidWall4" parent="Environment/SectionPowerUp" instance=ExtResource("15_5v8i3")]
+position = Vector2(6878, -3641)
+
+[node name="SolidWall6" parent="Environment/SectionPowerUp" instance=ExtResource("15_5v8i3")]
+position = Vector2(6878, -4237)
+
+[node name="SolidSlopeRight" parent="Environment/SectionPowerUp" instance=ExtResource("6_jfxh1")]
+position = Vector2(7126, -3741)
+
+[node name="SolidWall7" parent="Environment/SectionPowerUp" instance=ExtResource("16_tsss4")]
+position = Vector2(5766, -4367)
+
+[node name="Lamp2" parent="Environment/SectionPowerUp" instance=ExtResource("5_vn7r1")]
+position = Vector2(6175, -4924)
+beamLength = 2000
+
+[node name="SectionUp" type="Node2D" parent="Environment"]
+position = Vector2(4099, -4869)
+
+[node name="SectionMover" type="Node2D" parent="Environment/SectionUp"]
+
+[node name="SemiSolidGround2" parent="Environment/SectionUp/SectionMover" instance=ExtResource("21_eqm1k")]
+position = Vector2(880, 0)
+
+[node name="SemiSolidGround3" parent="Environment/SectionUp/SectionMover" instance=ExtResource("21_eqm1k")]
+position = Vector2(1780, 0)
+
+[node name="SemiSolidGround4" parent="Environment/SectionUp/SectionMover" instance=ExtResource("21_eqm1k")]
+position = Vector2(2680, 0)
+
+[node name="SolidGound" parent="Environment/SectionUp/SectionMover" instance=ExtResource("12_5qe4c")]
+
+[node name="SolidGound2" parent="Environment/SectionUp/SectionMover" instance=ExtResource("12_5qe4c")]
+position = Vector2(-900, 0)
+
+[node name="SolidWall" parent="Environment/SectionUp/SectionMover" instance=ExtResource("16_tsss4")]
+position = Vector2(-1450, 200)
+
+[node name="SolidGound3" parent="Environment/SectionUp/SectionMover" instance=ExtResource("12_5qe4c")]
+position = Vector2(-2000, 0)
+
+[node name="SolidGound4" parent="Environment/SectionUp/SectionMover" instance=ExtResource("12_5qe4c")]
+position = Vector2(-2514, 211)
+rotation = -3.1415925
+
+[node name="SolidGound5" parent="Environment/SectionUp/SectionMover" instance=ExtResource("12_5qe4c")]
+position = Vector2(-2900, 0)
+
+[node name="SolidWall2" parent="Environment/SectionUp/SectionMover" instance=ExtResource("14_1alju")]
+position = Vector2(-3450, 400)
+
+[node name="SemiSolidGround" parent="Environment/SectionUp/SectionMover" instance=ExtResource("8_pdvwv")]
+position = Vector2(-3700, 0)
+
+[node name="SolidGound6" parent="Environment/SectionUp/SectionMover" instance=ExtResource("12_5qe4c")]
+position = Vector2(-4300, 0)
+
+[node name="SolidGound7" parent="Environment/SectionUp/SectionMover" instance=ExtResource("12_5qe4c")]
+position = Vector2(-5200, 0)
+
+[node name="Upper" type="Node2D" parent="Environment/SectionUp/SectionMover"]
+position = Vector2(0, -50)
+
+[node name="SolidGound21" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("12_5qe4c")]
+position = Vector2(-5320, -200)
+rotation = -3.1415925
+
+[node name="SolidGound20" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("12_5qe4c")]
+position = Vector2(-4420, -200)
+rotation = -3.1415925
+
+[node name="SolidGound14" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("11_2jf1r")]
+position = Vector2(-2970, -300)
+
+[node name="SolidGound15" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("13_mf2hp")]
+position = Vector2(-3420, -200)
+rotation = -3.1415925
+
+[node name="SolidGound16" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("13_mf2hp")]
+position = Vector2(-3570, -350)
+rotation = 1.5707964
+
+[node name="SolidGound17" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("13_mf2hp")]
+position = Vector2(-3670, -350)
+rotation = 1.5707964
+
+[node name="SolidGound19" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("13_mf2hp")]
+position = Vector2(-3870, -350)
+rotation = 1.5707964
+
+[node name="SolidGound18" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("11_2jf1r")]
+position = Vector2(-3770, -500)
+rotation = 1.5707964
+
+[node name="SolidGound10" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("11_2jf1r")]
+position = Vector2(130, -200)
+rotation = -3.1415925
+
+[node name="SolidGound13" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("13_mf2hp")]
+position = Vector2(-2120, -300)
+
+[node name="SolidWall5" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("15_5v8i3")]
+position = Vector2(-2370, -200)
+
+[node name="SolidWall6" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("16_tsss4")]
+position = Vector2(-2570, -200)
+
+[node name="SolidGound12" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("12_5qe4c")]
+position = Vector2(-1520, -200)
+rotation = -3.1415925
+
+[node name="SolidGound11" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("12_5qe4c")]
+position = Vector2(-620, -200)
+rotation = -3.1415925
+
+[node name="SemiSolidGround5" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("21_eqm1k")]
+position = Vector2(880, -200)
+rotation = -3.1415925
+
+[node name="SolidGound9" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("11_2jf1r")]
+position = Vector2(1440, -300)
+
+[node name="SolidWall4" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("16_tsss4")]
+position = Vector2(1840, -200)
+
+[node name="SolidGound8" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("13_mf2hp")]
+position = Vector2(2086, -500)
+
+[node name="SolidWall3" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("16_tsss4")]
+position = Vector2(2320, -200)
+
+[node name="SemiSolidGround7" parent="Environment/SectionUp/SectionMover/Upper" instance=ExtResource("21_eqm1k")]
+position = Vector2(2680, -200)
+rotation = -3.1415925
+
+[node name="SectionFall" type="Node2D" parent="Environment/SectionUp"]
+position = Vector2(-6110, 0)
+
+[node name="SolidWall" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, 800)
+
+[node name="SolidWall13" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, 2000)
+
+[node name="SolidWall14" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, 2600)
+
+[node name="SolidWall2" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+
+[node name="SolidWall18" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(400, -250)
+
+[node name="SolidWall4" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, -600)
+
+[node name="SolidWall3" parent="Environment/SectionUp/SectionFall" instance=ExtResource("16_tsss4")]
+position = Vector2(0, 200)
+
+[node name="SolidWall5" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(400, 600)
+
+[node name="SolidWall6" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(400, 1200)
+
+[node name="SolidWall8" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(400, 2200)
+
+[node name="SolidWall9" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(400, 2800)
+
+[node name="Lamp" parent="Environment/SectionUp/SectionFall" instance=ExtResource("5_vn7r1")]
+position = Vector2(200, -500)
+beamLength = 4000
+
+[node name="SolidWall7" parent="Environment/SectionUp/SectionFall" instance=ExtResource("14_1alju")]
+position = Vector2(400, 1600)
+
+[node name="SolidWall10" parent="Environment/SectionUp/SectionFall" instance=ExtResource("16_tsss4")]
+position = Vector2(400, 3000)
+
+[node name="SolidWall11" parent="Environment/SectionUp/SectionFall" instance=ExtResource("14_1alju")]
+position = Vector2(0, 1400)
+
+[node name="SolidWall12" parent="Environment/SectionUp/SectionFall" instance=ExtResource("16_tsss4")]
+position = Vector2(0, 1000)
+
+[node name="SolidWall15" parent="Environment/SectionUp/SectionFall" instance=ExtResource("14_1alju")]
+position = Vector2(0, 3000)
+
+[node name="SolidWall16" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(0, 3600)
+
+[node name="SolidWall17" parent="Environment/SectionUp/SectionFall" instance=ExtResource("15_5v8i3")]
+position = Vector2(400, 3600)
+
 [node name="DeathAreas" type="Node2D" parent="."]
 
 [node name="BaseDeathArea" parent="DeathAreas" instance=ExtResource("18_06tg8")]
@@ -359,6 +610,10 @@ position = Vector2(0, 1500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathAreas/BaseDeathArea"]
 shape = SubResource("WorldBoundaryShape2D_hx4q4")
+
+[node name="SolidSlopeRight" parent="." instance=ExtResource("6_jfxh1")]
+position = Vector2(5511, -4467)
+rotation = 3.1415927
 
 [editable path="Interactables/PlayerStatePowerUp/Wing Collectable"]
 [editable path="Interactables/Player"]
