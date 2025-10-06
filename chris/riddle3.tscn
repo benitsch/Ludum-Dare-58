@@ -82,65 +82,6 @@ position = Vector2(-2150, 122)
 [node name="SolidSlopeLeft" parent="Statics/Jank" instance=ExtResource("8_hx4q4")]
 position = Vector2(-1543, -778)
 
-[node name="Walls" type="Node2D" parent="Statics"]
-
-[node name="SolidWall" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
-position = Vector2(1700, 22)
-
-[node name="SolidWall2" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
-position = Vector2(1300, 722)
-
-[node name="SolidWall3" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
-position = Vector2(-400, 222)
-
-[node name="SolidWall4" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
-position = Vector2(200, 1022)
-
-[node name="SolidWall5" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
-position = Vector2(-300, 1022)
-
-[node name="SolidWall6" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
-position = Vector2(1700, -378)
-
-[node name="SolidWall7" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
-position = Vector2(-1100, 822)
-
-[node name="SolidWall8" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
-position = Vector2(-2400, 222)
-
-[node name="SolidWall9" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
-position = Vector2(-2600, 222)
-
-[node name="SolidWall10" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
-position = Vector2(2400, 622)
-
-[node name="SolidWall11" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
-position = Vector2(2900, 622)
-
-[node name="SolidWall12" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
-position = Vector2(3900, 422)
-
-[node name="SolidWall13" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
-position = Vector2(3900, 22)
-
-[node name="SolidWall14" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
-position = Vector2(3100, -278)
-
-[node name="SolidWall15" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
-position = Vector2(3900, -578)
-
-[node name="SolidWall16" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
-position = Vector2(3900, -778)
-
-[node name="SolidWall19" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
-position = Vector2(0, -1080)
-
-[node name="SolidWall20" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
-position = Vector2(-500, -1080)
-
-[node name="SolidWall17" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
-position = Vector2(1300, 22)
-
 [node name="Semisolids" type="Node2D" parent="Statics"]
 
 [node name="SemiSolidGround" parent="Statics/Semisolids" instance=ExtResource("10_hx4q4")]
@@ -219,6 +160,65 @@ position = Vector2(3350, 322)
 
 [node name="SolidGound15" parent="Statics/Ground" instance=ExtResource("14_3pcd5")]
 position = Vector2(-250, -1180)
+
+[node name="Walls" type="Node2D" parent="Statics"]
+
+[node name="SolidWall" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(1700, 22)
+
+[node name="SolidWall2" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
+position = Vector2(1300, 722)
+
+[node name="SolidWall3" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+position = Vector2(-400, 222)
+
+[node name="SolidWall4" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(200, 1022)
+
+[node name="SolidWall5" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(-300, 1022)
+
+[node name="SolidWall6" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(1700, -378)
+
+[node name="SolidWall7" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+position = Vector2(-1100, 822)
+
+[node name="SolidWall8" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+position = Vector2(-2400, 222)
+
+[node name="SolidWall9" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
+position = Vector2(-2600, 222)
+
+[node name="SolidWall10" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+position = Vector2(2400, 622)
+
+[node name="SolidWall11" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+position = Vector2(2900, 622)
+
+[node name="SolidWall12" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(3900, 422)
+
+[node name="SolidWall13" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
+position = Vector2(3900, 22)
+
+[node name="SolidWall14" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(3100, -278)
+
+[node name="SolidWall15" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+position = Vector2(3900, -578)
+
+[node name="SolidWall16" parent="Statics/Walls" instance=ExtResource("6_pd5wm")]
+position = Vector2(3900, -778)
+
+[node name="SolidWall19" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(0, -1080)
+
+[node name="SolidWall20" parent="Statics/Walls" instance=ExtResource("8_v6a4y")]
+position = Vector2(-500, -1080)
+
+[node name="SolidWall17" parent="Statics/Walls" instance=ExtResource("8_opmp4")]
+position = Vector2(1300, 22)
 
 [node name="Player" parent="." instance=ExtResource("3_cxlf7")]
 

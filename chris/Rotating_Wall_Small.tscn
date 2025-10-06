@@ -3,16 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://bxatrknhgelce" path="res://assets/Arts-WIP/DoorSmall.png" id="1_7ghot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qy8g"]
-size = Vector2(45, 173)
+size = Vector2(73, 268)
 
 [node name="RotatingWallSmall" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-29, -6)
-scale = Vector2(0.6534188, 0.6534188)
+position = Vector2(-45, -8)
 texture = ExtResource("1_7ghot")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 83.5)
+position = Vector2(-3.5, 131)
 shape = SubResource("RectangleShape2D_1qy8g")

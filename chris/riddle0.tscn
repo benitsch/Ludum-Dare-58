@@ -58,7 +58,7 @@ rotation_direction = -90
 position = Vector2(969, 1298)
 
 [node name="RotatingWallSmall" parent="Second Gate" instance=ExtResource("6_q8yft")]
-position = Vector2(2454, -302)
+position = Vector2(2458, -295)
 rotation = 3.1415927
 
 [node name="Toggle" parent="Second Gate" node_paths=PackedStringArray("target_wall") instance=ExtResource("5_xsev2")]
@@ -67,25 +67,25 @@ rotation_direction = -90
 
 [node name="Statics" type="Node2D" parent="."]
 
-[node name="#Walls" type="Node2D" parent="Statics"]
+[node name="#Slopes" type="Node2D" parent="Statics"]
 
-[node name="SolidWall" parent="Statics/#Walls" instance=ExtResource("4_q8yft")]
-position = Vector2(-559, 131)
+[node name="SolidSlopeLeft" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
+position = Vector2(2402, 975)
 
-[node name="SolidWall2" parent="Statics/#Walls" instance=ExtResource("4_q8yft")]
-position = Vector2(3493, 745)
+[node name="SolidSlopeRight" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
+position = Vector2(691, 131)
 
-[node name="SolidWall3" parent="Statics/#Walls" instance=ExtResource("4_q8yft")]
-position = Vector2(4893, 1045)
+[node name="SolidSlopeRight1" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
+position = Vector2(3302, 975)
 
-[node name="SolidWall4" parent="Statics/#Walls" instance=ExtResource("12_cr7m2")]
-position = Vector2(654, 1281)
+[node name="SolidSlopeLeft1" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
+position = Vector2(7470, 949)
 
-[node name="SolidWall5" parent="Statics/#Walls" instance=ExtResource("13_gqotu")]
-position = Vector2(1354, 581)
+[node name="SolidSlopeRight2" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
+position = Vector2(5143, 645)
 
-[node name="SolidWall6" parent="Statics/#Walls" instance=ExtResource("12_cr7m2")]
-position = Vector2(7720, 1049)
+[node name="SolidSlopeLeft2" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
+position = Vector2(6624, 1257)
 
 [node name="#Sugestions" type="Node2D" parent="Statics"]
 
@@ -145,25 +145,31 @@ position = Vector2(4413, 1277)
 [node name="SolidGound11" parent="Statics/#Grounds" instance=ExtResource("7_gqotu")]
 position = Vector2(5291, 1626)
 
-[node name="#Slopes" type="Node2D" parent="Statics"]
+[node name="#Walls" type="Node2D" parent="Statics"]
 
-[node name="SolidSlopeLeft" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
-position = Vector2(2402, 975)
+[node name="SolidWall" parent="Statics/#Walls" instance=ExtResource("4_q8yft")]
+position = Vector2(-559, 131)
 
-[node name="SolidSlopeRight" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
-position = Vector2(691, 131)
+[node name="SolidWall2" parent="Statics/#Walls" instance=ExtResource("4_q8yft")]
+position = Vector2(3493, 745)
 
-[node name="SolidSlopeRight1" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
-position = Vector2(3302, 975)
+[node name="SolidWall3" parent="Statics/#Walls" instance=ExtResource("4_q8yft")]
+position = Vector2(4893, 1045)
 
-[node name="SolidSlopeLeft1" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
-position = Vector2(7470, 949)
+[node name="SolidWall4" parent="Statics/#Walls" instance=ExtResource("12_cr7m2")]
+position = Vector2(654, 1281)
 
-[node name="SolidSlopeRight2" parent="Statics/#Slopes" instance=ExtResource("11_6n5an")]
-position = Vector2(5143, 645)
+[node name="SolidWall5" parent="Statics/#Walls" instance=ExtResource("13_gqotu")]
+position = Vector2(1354, 581)
 
-[node name="SolidSlopeLeft2" parent="Statics/#Slopes" instance=ExtResource("10_q8yft")]
-position = Vector2(6624, 1257)
+[node name="SolidWall6" parent="Statics/#Walls" instance=ExtResource("12_cr7m2")]
+position = Vector2(7720, 1049)
+
+[node name="SolidWall7" parent="Statics/#Walls" instance=ExtResource("4_q8yft")]
+position = Vector2(5541, 1877)
+
+[node name="SolidWall8" parent="Statics/#Walls" instance=ExtResource("4_q8yft")]
+position = Vector2(5040, 1877)
 
 [node name="BaseDeathArea" parent="Statics" instance=ExtResource("18_sdbcr")]
 position = Vector2(5250, 2200)
